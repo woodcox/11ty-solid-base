@@ -15,7 +15,7 @@ module.exports = function (eleventyConfig) {
       output: "docs",
       data: "_data",
     },
-    templateFormats: ["html", "md", "11ty.mjs", TEMPLATE_ENGINE],
+    templateFormats: ["html", "md", "11ty.js", TEMPLATE_ENGINE],
     markdownTemplateEngine: TEMPLATE_ENGINE,
     htmlTemplateEngine: TEMPLATE_ENGINE,
   };
