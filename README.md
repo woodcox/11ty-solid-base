@@ -1,10 +1,9 @@
-# 11ty Sass Skeleton
+# 11ty Solid Starter
 
-Featuring absolutely nothing beyond a base HTML5 template and the essential setup to watch and compile your Sass alongside 11ty.
+Nothing but a base HTML5 template and the essential setup to compile Solid-js alongside 11ty.
 
 Includes minifiying and autoprefixing of styles `postbuild` using [Lightning CSS](https://lightningcss.dev/). If you have different preferred browser targets, be sure to modify both the package `browserslist` and the value of `--target` within the `postbuild` script.
 
-<small>Created by [@5t3ph](https://twitter.com/5t3ph)</small>
 
 ## Development Scripts
 
@@ -17,15 +16,3 @@ Includes minifiying and autoprefixing of styles `postbuild` using [Lightning CSS
 > Production build includes minified, autoprefixed CSS
 
 Use this as the "Publish command" if needed by hosting such as Netlify.
-
-## Resources to extend this and learn 11ty
-
-**Ensure accessible colors** by adding my [a11y-color-tokens package](https://www.npmjs.com/package/a11y-color-tokens)
-
-**Learn to build an 11ty site in 20 mins** with my [egghead video course](https://5t3ph.dev/learn-11ty) and see how to add a blog and custom data.
-
-**Add auto-generated social media images** with [my plugin](https://www.npmjs.com/package/@11tyrocks/eleventy-plugin-social-images)
-
-**Explore advanced setup of custom data** through my [tutorial on building a community site](https://css-tricks.com/a-community-driven-site-with-eleventy-building-the-site/)
-
-**For a more full-featured starter** check out my [11ty Netlify Jumpstart](https://11ty-netlify-jumpstart.netlify.app/) (also works for hosts other than Netlify).
