@@ -17,7 +17,7 @@ module.exports = class {
       bundle: true,
       plugins: [solidPlugin()],
       minify: isProd,
-      outdir: './docs/app/js',
+      outdir: './docs/app',
       sourcemap: !isProd,
       target: isProd ? 'es6' : 'esnext'
     })
