@@ -22,9 +22,7 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^2.0.0-canary.16",
-    "babel-preset-solid": "^1.5.7",
     "esbuild": "^0.15.10",
-    "esbuild-plugin-babel": "^0.2.3",
     "esbuild-plugin-solid": "^0.4.2",
     "glob-all": "^3.3.0",
     "lightningcss-cli": "^1.16.0",
