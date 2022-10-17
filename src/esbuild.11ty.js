@@ -13,7 +13,7 @@ module.exports = class {
 
   async render() {
     await esbuild.build({
-      entryPoints: glob.sync(['app/jsx/*.jsx']),
+      entryPoints: glob.sync(['app/*.jsx']),
       bundle: true,
       plugins: [solidPlugin()],
       minify: isProd,
