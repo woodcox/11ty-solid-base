@@ -22,7 +22,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install --save-dev @11ty/eleventy@canary
+        run: npm install
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
