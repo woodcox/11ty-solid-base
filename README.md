@@ -1,4 +1,4 @@
-# 11ty Solid Starter
+# 11ty Solid Base
 
 Nothing but a base HTML5 template and the esbuild setup to compile your Solid-js app alongside 11ty.
 
