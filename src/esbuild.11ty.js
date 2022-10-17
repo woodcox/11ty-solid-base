@@ -12,7 +12,7 @@ module.exports = class {
   }
 
   async render() {
-    await esbuild.buildSync({
+    await esbuild.build({
       entryPoints: glob.sync(['assets/js/*.js']),
       bundle: true,
       plugins: [solidPlugin()],
