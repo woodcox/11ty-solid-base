@@ -20,7 +20,7 @@
   },
   "author": "woodcock3",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "@11ty/eleventy": "^2.0.0-canary.16",
     "esbuild": "^0.15.10",
     "esbuild-plugin-solid": "^0.4.2",
