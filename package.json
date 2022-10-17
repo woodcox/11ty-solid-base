@@ -21,7 +21,7 @@
   "author": "woodcock3",
   "license": "ISC",
   "dependencies": {
-    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy": "^2.0.0-canary.16",
     "babel-preset-solid": "^1.5.7",
     "esbuild": "^0.15.10",
     "esbuild-plugin-babel": "^0.2.3",
