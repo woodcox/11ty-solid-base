@@ -10,6 +10,11 @@ module.exports = function (eleventyConfig) {
   // WATCH the js files for esbuild in scripts.11ty.js
   eleventyConfig.addWatchTarget('./src/app');
 
+  // Add cache busting with {{ myurl | version }} time string
+  eleventyConfig.addFilter('version', function () {
+    return now
+  });
+
   // Let Eleventy transform HTML files as liquidjs
   // So that we can use .html instead of .liquid
   // 11ty.js template format also picks up on the esbuild.11ty.js script
