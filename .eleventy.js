@@ -15,7 +15,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("version", (url) => {
     const [urlPart, paramPart] = url.split("?");
     const params = new URLSearchParams(paramPart || "");
-    params.set("v", now.local().toFormat("X"));
+    params.set("v", now.toFormat("X"));
     return `${urlPart}?${params}`;
   });
 
