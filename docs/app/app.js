@@ -1,1 +1,827 @@
-(()=>{var fe=Object.defineProperty,ae=Object.defineProperties;var de=Object.getOwnPropertyDescriptors;var B=Object.getOwnPropertySymbols;var he=Object.prototype.hasOwnProperty,ge=Object.prototype.propertyIsEnumerable;var _=(e,t,n)=>t in e?fe(e,t,{enumerable:!0,configurable:!0,writable:!0,value:n}):e[t]=n,G=(e,t)=>{for(var n in t||(t={}))he.call(t,n)&&_(e,n,t[n]);if(B)for(var n of B(t))ge.call(t,n)&&_(e,n,t[n]);return e},U=(e,t)=>ae(e,de(t));var y={};function K(e){y.context=e}function me(){return U(G({},y.context),{id:`${y.context.id}${y.context.count++}-`,count:0})}var pe=(e,t)=>e===t,Pe=Symbol("solid-proxy"),Oe=Symbol("solid-track"),qe=Symbol("solid-dev-component"),T={equals:pe},W=null,ye=te,m=1,x=2,z={owned:null,cleanups:null,context:null,owner:null};var c=null,o=null,A=null,O=null,f=null,a=null,p=null,F=0,[Ie,Y]=v(!1);function Q(e,t){let n=f,r=c,s=e.length===0,i=s?z:{owned:null,cleanups:null,context:null,owner:t||r},u=s?e:()=>e(()=>S(()=>k(i)));c=i,f=null;try{return w(u,!0)}finally{f=n,c=r}}function v(e,t){t=t?Object.assign({},T,t):T;let n={value:e,observers:null,observerSlots:null,comparator:t.equals||void 0},r=s=>(typeof s=="function"&&(o&&o.running&&o.sources.has(n)?s=s(n.tValue):s=s(n.value)),Z(n,s));return[J.bind(n),r]}function C(e,t,n){let r=ee(e,t,!1,m);A&&o&&o.running?a.push(r):$(r)}function q(e,t,n){n=n?Object.assign({},T,n):T;let r=ee(e,t,!0,0);return r.observers=null,r.observerSlots=null,r.comparator=n.equals||void 0,A&&o&&o.running?(r.tState=m,a.push(r)):$(r),J.bind(r)}function S(e){let t,n=f;return f=null,t=e(),f=n,t}function N(e){return c===null||(c.cleanups===null?c.cleanups=[e]:c.cleanups.push(e)),e}function be(e){if(o&&o.running)return e(),o.done;let t=f,n=c;return Promise.resolve().then(()=>{f=t,c=n;let r;return(A||Se)&&(r=o||(o={sources:new Set,effects:[],promises:new Set,disposed:new Set,queue:new Set,running:!0}),r.done||(r.done=new Promise(s=>r.resolve=s)),r.running=!0),w(e,!1),f=c=null,r?r.done:void 0})}function we(e){let t=Symbol("context");return{id:t,Provider:Ae(t),defaultValue:e}}function xe(e){let t=q(e),n=q(()=>I(t()));return n.toArray=()=>{let r=n();return Array.isArray(r)?r:r!=null?[r]:[]},n}var Se;function J(){let e=o&&o.running;if(this.sources&&(!e&&this.state||e&&this.tState))if(!e&&this.state===m||e&&this.tState===m)$(this);else{let t=a;a=null,w(()=>M(this),!1),a=t}if(f){let t=this.observers?this.observers.length:0;f.sources?(f.sources.push(this),f.sourceSlots.push(t)):(f.sources=[this],f.sourceSlots=[t]),this.observers?(this.observers.push(f),this.observerSlots.push(f.sources.length-1)):(this.observers=[f],this.observerSlots=[f.sources.length-1])}return e&&o.sources.has(this)?this.tValue:this.value}function Z(e,t,n){let r=o&&o.running&&o.sources.has(e)?e.tValue:e.value;if(!e.comparator||!e.comparator(r,t)){if(o){let s=o.running;(s||!n&&o.sources.has(e))&&(o.sources.add(e),e.tValue=t),s||(e.value=t)}else e.value=t;e.observers&&e.observers.length&&w(()=>{for(let s=0;s<e.observers.length;s+=1){let i=e.observers[s],u=o&&o.running;u&&o.disposed.has(i)||((u&&!i.tState||!u&&!i.state)&&(i.pure?a.push(i):p.push(i),i.observers&&ne(i)),u?i.tState=m:i.state=m)}if(a.length>1e6)throw a=[],new Error},!1)}return t}function $(e){if(!e.fn)return;k(e);let t=c,n=f,r=F;f=c=e,X(e,o&&o.running&&o.sources.has(e)?e.tValue:e.value,r),o&&!o.running&&o.sources.has(e)&&queueMicrotask(()=>{w(()=>{o&&(o.running=!0),X(e,e.tValue,r)},!1)}),f=n,c=t}function X(e,t,n){let r;try{r=e.fn(t)}catch(s){e.pure&&(o&&o.running?e.tState=m:e.state=m),se(s)}(!e.updatedAt||e.updatedAt<=n)&&(e.updatedAt!=null&&"observers"in e?Z(e,r,!0):o&&o.running&&e.pure?(o.sources.add(e),e.tValue=r):e.value=r,e.updatedAt=n)}function ee(e,t,n,r=m,s){let i={fn:e,state:r,updatedAt:null,owned:null,sources:null,sourceSlots:null,cleanups:null,value:t,owner:c,context:null,pure:n};if(o&&o.running&&(i.state=0,i.tState=r),c===null||c!==z&&(o&&o.running&&c.pure?c.tOwned?c.tOwned.push(i):c.tOwned=[i]:c.owned?c.owned.push(i):c.owned=[i]),O){let[u,l]=v(void 0,{equals:!1}),d=O(i.fn,l);N(()=>d.dispose());let h=()=>be(l).then(()=>g.dispose()),g=O(i.fn,h);i.fn=b=>(u(),o&&o.running?g.track(b):d.track(b))}return i}function V(e){let t=o&&o.running;if(!t&&e.state===0||t&&e.tState===0)return;if(!t&&e.state===x||t&&e.tState===x)return M(e);if(e.suspense&&S(e.suspense.inFallback))return e.suspense.effects.push(e);let n=[e];for(;(e=e.owner)&&(!e.updatedAt||e.updatedAt<F);){if(t&&o.disposed.has(e))return;(!t&&e.state||t&&e.tState)&&n.push(e)}for(let r=n.length-1;r>=0;r--){if(e=n[r],t){let s=e,i=n[r+1];for(;(s=s.owner)&&s!==i;)if(o.disposed.has(s))return}if(!t&&e.state===m||t&&e.tState===m)$(e);else if(!t&&e.state===x||t&&e.tState===x){let s=a;a=null,w(()=>M(e,n[0]),!1),a=s}}}function w(e,t){if(a)return e();let n=!1;t||(a=[]),p?n=!0:p=[],F++;try{let r=e();return ke(n),r}catch(r){a||(p=null),se(r)}}function ke(e){if(a&&(A&&o&&o.running?Ce(a):te(a),a=null),e)return;let t;if(o){if(!o.promises.size&&!o.queue.size){let r=o.sources,s=o.disposed;p.push.apply(p,o.effects),t=o.resolve;for(let i of p)"tState"in i&&(i.state=i.tState),delete i.tState;o=null,w(()=>{for(let i of s)k(i);for(let i of r){if(i.value=i.tValue,i.owned)for(let u=0,l=i.owned.length;u<l;u++)k(i.owned[u]);i.tOwned&&(i.owned=i.tOwned),delete i.tValue,delete i.tOwned,i.tState=0}Y(!1)},!1)}else if(o.running){o.running=!1,o.effects.push.apply(o.effects,p),p=null,Y(!0);return}}let n=p;p=null,n.length&&w(()=>ye(n),!1),t&&t()}function te(e){for(let t=0;t<e.length;t++)V(e[t])}function Ce(e){for(let t=0;t<e.length;t++){let n=e[t],r=o.queue;r.has(n)||(r.add(n),A(()=>{r.delete(n),w(()=>{o.running=!0,V(n)},!1),o&&(o.running=!1)}))}}function M(e,t){let n=o&&o.running;n?e.tState=0:e.state=0;for(let r=0;r<e.sources.length;r+=1){let s=e.sources[r];s.sources&&(!n&&s.state===m||n&&s.tState===m?s!==t&&V(s):(!n&&s.state===x||n&&s.tState===x)&&M(s,t))}}function ne(e){let t=o&&o.running;for(let n=0;n<e.observers.length;n+=1){let r=e.observers[n];(!t&&!r.state||t&&!r.tState)&&(t?r.tState=x:r.state=x,r.pure?a.push(r):p.push(r),r.observers&&ne(r))}}function k(e){let t;if(e.sources)for(;e.sources.length;){let n=e.sources.pop(),r=e.sourceSlots.pop(),s=n.observers;if(s&&s.length){let i=s.pop(),u=n.observerSlots.pop();r<s.length&&(i.sourceSlots[u]=r,s[r]=i,n.observerSlots[r]=u)}}if(o&&o.running&&e.pure){if(e.tOwned){for(t=0;t<e.tOwned.length;t++)k(e.tOwned[t]);delete e.tOwned}re(e,!0)}else if(e.owned){for(t=0;t<e.owned.length;t++)k(e.owned[t]);e.owned=null}if(e.cleanups){for(t=0;t<e.cleanups.length;t++)e.cleanups[t]();e.cleanups=null}o&&o.running?e.tState=0:e.state=0,e.context=null}function re(e,t){if(t||(e.tState=0,o.disposed.add(e)),e.owned)for(let n=0;n<e.owned.length;n++)re(e.owned[n])}function Ee(e){return e instanceof Error||typeof e=="string"?e:new Error("Unknown error")}function se(e){e=Ee(e);let t=W&&ie(c,W);if(!t)throw e;for(let n of t)n(e)}function ie(e,t){return e?e.context&&e.context[t]!==void 0?e.context[t]:ie(e.owner,t):void 0}function I(e){if(typeof e=="function"&&!e.length)return I(e());if(Array.isArray(e)){let t=[];for(let n=0;n<e.length;n++){let r=I(e[n]);Array.isArray(r)?t.push.apply(t,r):t.push(r)}return t}return e}function Ae(e){return function(n){let r;return C(()=>r=S(()=>(c.context={[e]:n.value},xe(()=>n.children)))),r}}var Fe=Symbol("fallback");var ve=!1;function H(e,t){if(ve&&y.context){let n=y.context;K(me());let r=S(()=>e(t||{}));return K(n),r}return S(()=>e(t||{}))}var Ve=we();var Te=["allowfullscreen","async","autofocus","autoplay","checked","controls","default","disabled","formnovalidate","hidden","indeterminate","ismap","loop","multiple","muted","nomodule","novalidate","open","playsinline","readonly","required","reversed","seamless","selected"],Ze=new Set(["className","value","readOnly","formNoValidate","isMap","noModule","playsInline",...Te]);function Me(e,t,n){let r=n.length,s=t.length,i=r,u=0,l=0,d=t[s-1].nextSibling,h=null;for(;u<s||l<i;){if(t[u]===n[l]){u++,l++;continue}for(;t[s-1]===n[i-1];)s--,i--;if(s===u){let g=i<r?l?n[l-1].nextSibling:n[i-l]:d;for(;l<i;)e.insertBefore(n[l++],g)}else if(i===l)for(;u<s;)(!h||!h.has(t[u]))&&t[u].remove(),u++;else if(t[u]===n[i-1]&&n[l]===t[s-1]){let g=t[--s].nextSibling;e.insertBefore(n[l++],t[u++].nextSibling),e.insertBefore(n[--i],g),t[s]=n[i]}else{if(!h){h=new Map;let b=l;for(;b<i;)h.set(n[b],b++)}let g=h.get(t[u]);if(g!=null)if(l<g&&g<i){let b=u,P=1,R;for(;++b<s&&b<i&&!((R=h.get(t[b]))==null||R!==g+P);)P++;if(P>g-l){let ce=t[u];for(;l<g;)e.insertBefore(n[l++],ce)}else e.replaceChild(n[l++],t[u++])}else u++;else t[u++].remove()}}}function le(e,t,n){let r;return Q(s=>{r=s,t===document?e():D(t,e(),t.firstChild?null:void 0,n)}),()=>{r(),t.textContent=""}}function ue(e,t,n){let r=document.createElement("template");r.innerHTML=e;let s=r.content.firstChild;return n&&(s=s.firstChild),s}function D(e,t,n,r){if(n!==void 0&&!r&&(r=[]),typeof t!="function")return L(e,t,r,n);C(s=>L(e,t(),s,n),r)}function L(e,t,n,r,s){for(y.context&&!n&&(n=[...e.childNodes]);typeof n=="function";)n=n();if(t===n)return n;let i=typeof t,u=r!==void 0;if(e=u&&n[0]&&n[0].parentNode||e,i==="string"||i==="number"){if(y.context)return n;if(i==="number"&&(t=t.toString()),u){let l=n[0];l&&l.nodeType===3?l.data=t:l=document.createTextNode(t),n=E(e,n,r,l)}else n!==""&&typeof n=="string"?n=e.firstChild.data=t:n=e.textContent=t}else if(t==null||i==="boolean"){if(y.context)return n;n=E(e,n,r)}else{if(i==="function")return C(()=>{let l=t();for(;typeof l=="function";)l=l();n=L(e,l,n,r)}),()=>n;if(Array.isArray(t)){let l=[],d=n&&Array.isArray(n);if(j(l,t,n,s))return C(()=>n=L(e,l,n,r,!0)),()=>n;if(y.context){if(!l.length)return n;for(let h=0;h<l.length;h++)if(l[h].parentNode)return n=l}if(l.length===0){if(n=E(e,n,r),u)return n}else d?n.length===0?oe(e,l,r):Me(e,n,l):(n&&E(e),oe(e,l));n=l}else if(t instanceof Node){if(y.context&&t.parentNode)return n=u?[t]:t;if(Array.isArray(n)){if(u)return n=E(e,n,r,t);E(e,n,null,t)}else n==null||n===""||!e.firstChild?e.appendChild(t):e.replaceChild(t,e.firstChild);n=t}}return n}function j(e,t,n,r){let s=!1;for(let i=0,u=t.length;i<u;i++){let l=t[i],d=n&&n[i];if(l instanceof Node)e.push(l);else if(!(l==null||l===!0||l===!1))if(Array.isArray(l))s=j(e,l,d)||s;else if(typeof l=="function")if(r){for(;typeof l=="function";)l=l();s=j(e,Array.isArray(l)?l:[l],Array.isArray(d)?d:[d])||s}else e.push(l),s=!0;else{let h=String(l);d&&d.nodeType===3&&d.data===h?e.push(d):e.push(document.createTextNode(h))}}return s}function oe(e,t,n){for(let r=0,s=t.length;r<s;r++)e.insertBefore(t[r],n)}function E(e,t,n,r){if(n===void 0)return e.textContent="";let s=r||document.createTextNode("");if(t.length){let i=!1;for(let u=t.length-1;u>=0;u--){let l=t[u];if(s!==l){let d=l.parentNode===e;!i&&!u?d?e.replaceChild(s,l):e.insertBefore(s,n):d&&l.remove()}else i=!0}}else e.insertBefore(s,n);return[s]}var Ne=ue("<div>Count value is </div>",2),$e=()=>{let[e,t]=v(0),n=setInterval(()=>t(r=>r+1),1e3);return N(()=>clearInterval(n)),(()=>{let r=Ne.cloneNode(!0),s=r.firstChild;return D(r,e,null),r})()};le(()=>H($e,{}),document.getElementById("app"));})();
+(() => {
+  // node_modules/solid-js/dist/solid.js
+  var sharedConfig = {};
+  function setHydrateContext(context) {
+    sharedConfig.context = context;
+  }
+  function nextHydrateContext() {
+    return {
+      ...sharedConfig.context,
+      id: `${sharedConfig.context.id}${sharedConfig.context.count++}-`,
+      count: 0
+    };
+  }
+  var equalFn = (a, b) => a === b;
+  var $PROXY = Symbol("solid-proxy");
+  var $TRACK = Symbol("solid-track");
+  var $DEVCOMP = Symbol("solid-dev-component");
+  var signalOptions = {
+    equals: equalFn
+  };
+  var ERROR = null;
+  var runEffects = runQueue;
+  var STALE = 1;
+  var PENDING = 2;
+  var UNOWNED = {
+    owned: null,
+    cleanups: null,
+    context: null,
+    owner: null
+  };
+  var Owner = null;
+  var Transition = null;
+  var Scheduler = null;
+  var ExternalSourceFactory = null;
+  var Listener = null;
+  var Updates = null;
+  var Effects = null;
+  var ExecCount = 0;
+  var [transPending, setTransPending] = /* @__PURE__ */ createSignal(false);
+  function createRoot(fn, detachedOwner) {
+    const listener = Listener, owner = Owner, unowned = fn.length === 0, root = unowned && true ? UNOWNED : {
+      owned: null,
+      cleanups: null,
+      context: null,
+      owner: detachedOwner || owner
+    }, updateFn = unowned ? fn : () => fn(() => untrack(() => cleanNode(root)));
+    Owner = root;
+    Listener = null;
+    try {
+      return runUpdates(updateFn, true);
+    } finally {
+      Listener = listener;
+      Owner = owner;
+    }
+  }
+  function createSignal(value, options) {
+    options = options ? Object.assign({}, signalOptions, options) : signalOptions;
+    const s = {
+      value,
+      observers: null,
+      observerSlots: null,
+      comparator: options.equals || void 0
+    };
+    const setter = (value2) => {
+      if (typeof value2 === "function") {
+        if (Transition && Transition.running && Transition.sources.has(s))
+          value2 = value2(s.tValue);
+        else
+          value2 = value2(s.value);
+      }
+      return writeSignal(s, value2);
+    };
+    return [readSignal.bind(s), setter];
+  }
+  function createRenderEffect(fn, value, options) {
+    const c = createComputation(fn, value, false, STALE);
+    if (Scheduler && Transition && Transition.running)
+      Updates.push(c);
+    else
+      updateComputation(c);
+  }
+  function createMemo(fn, value, options) {
+    options = options ? Object.assign({}, signalOptions, options) : signalOptions;
+    const c = createComputation(fn, value, true, 0);
+    c.observers = null;
+    c.observerSlots = null;
+    c.comparator = options.equals || void 0;
+    if (Scheduler && Transition && Transition.running) {
+      c.tState = STALE;
+      Updates.push(c);
+    } else
+      updateComputation(c);
+    return readSignal.bind(c);
+  }
+  function untrack(fn) {
+    let result, listener = Listener;
+    Listener = null;
+    result = fn();
+    Listener = listener;
+    return result;
+  }
+  function onCleanup(fn) {
+    if (Owner === null)
+      ;
+    else if (Owner.cleanups === null)
+      Owner.cleanups = [fn];
+    else
+      Owner.cleanups.push(fn);
+    return fn;
+  }
+  function startTransition(fn) {
+    if (Transition && Transition.running) {
+      fn();
+      return Transition.done;
+    }
+    const l = Listener;
+    const o = Owner;
+    return Promise.resolve().then(() => {
+      Listener = l;
+      Owner = o;
+      let t;
+      if (Scheduler || SuspenseContext) {
+        t = Transition || (Transition = {
+          sources: /* @__PURE__ */ new Set(),
+          effects: [],
+          promises: /* @__PURE__ */ new Set(),
+          disposed: /* @__PURE__ */ new Set(),
+          queue: /* @__PURE__ */ new Set(),
+          running: true
+        });
+        t.done || (t.done = new Promise((res) => t.resolve = res));
+        t.running = true;
+      }
+      runUpdates(fn, false);
+      Listener = Owner = null;
+      return t ? t.done : void 0;
+    });
+  }
+  function createContext(defaultValue) {
+    const id = Symbol("context");
+    return {
+      id,
+      Provider: createProvider(id),
+      defaultValue
+    };
+  }
+  function children(fn) {
+    const children2 = createMemo(fn);
+    const memo = createMemo(() => resolveChildren(children2()));
+    memo.toArray = () => {
+      const c = memo();
+      return Array.isArray(c) ? c : c != null ? [c] : [];
+    };
+    return memo;
+  }
+  var SuspenseContext;
+  function readSignal() {
+    const runningTransition = Transition && Transition.running;
+    if (this.sources && (!runningTransition && this.state || runningTransition && this.tState)) {
+      if (!runningTransition && this.state === STALE || runningTransition && this.tState === STALE)
+        updateComputation(this);
+      else {
+        const updates = Updates;
+        Updates = null;
+        runUpdates(() => lookUpstream(this), false);
+        Updates = updates;
+      }
+    }
+    if (Listener) {
+      const sSlot = this.observers ? this.observers.length : 0;
+      if (!Listener.sources) {
+        Listener.sources = [this];
+        Listener.sourceSlots = [sSlot];
+      } else {
+        Listener.sources.push(this);
+        Listener.sourceSlots.push(sSlot);
+      }
+      if (!this.observers) {
+        this.observers = [Listener];
+        this.observerSlots = [Listener.sources.length - 1];
+      } else {
+        this.observers.push(Listener);
+        this.observerSlots.push(Listener.sources.length - 1);
+      }
+    }
+    if (runningTransition && Transition.sources.has(this))
+      return this.tValue;
+    return this.value;
+  }
+  function writeSignal(node, value, isComp) {
+    let current = Transition && Transition.running && Transition.sources.has(node) ? node.tValue : node.value;
+    if (!node.comparator || !node.comparator(current, value)) {
+      if (Transition) {
+        const TransitionRunning = Transition.running;
+        if (TransitionRunning || !isComp && Transition.sources.has(node)) {
+          Transition.sources.add(node);
+          node.tValue = value;
+        }
+        if (!TransitionRunning)
+          node.value = value;
+      } else
+        node.value = value;
+      if (node.observers && node.observers.length) {
+        runUpdates(() => {
+          for (let i = 0; i < node.observers.length; i += 1) {
+            const o = node.observers[i];
+            const TransitionRunning = Transition && Transition.running;
+            if (TransitionRunning && Transition.disposed.has(o))
+              continue;
+            if (TransitionRunning && !o.tState || !TransitionRunning && !o.state) {
+              if (o.pure)
+                Updates.push(o);
+              else
+                Effects.push(o);
+              if (o.observers)
+                markDownstream(o);
+            }
+            if (TransitionRunning)
+              o.tState = STALE;
+            else
+              o.state = STALE;
+          }
+          if (Updates.length > 1e6) {
+            Updates = [];
+            if (false)
+              ;
+            throw new Error();
+          }
+        }, false);
+      }
+    }
+    return value;
+  }
+  function updateComputation(node) {
+    if (!node.fn)
+      return;
+    cleanNode(node);
+    const owner = Owner, listener = Listener, time = ExecCount;
+    Listener = Owner = node;
+    runComputation(node, Transition && Transition.running && Transition.sources.has(node) ? node.tValue : node.value, time);
+    if (Transition && !Transition.running && Transition.sources.has(node)) {
+      queueMicrotask(() => {
+        runUpdates(() => {
+          Transition && (Transition.running = true);
+          runComputation(node, node.tValue, time);
+        }, false);
+      });
+    }
+    Listener = listener;
+    Owner = owner;
+  }
+  function runComputation(node, value, time) {
+    let nextValue;
+    try {
+      nextValue = node.fn(value);
+    } catch (err) {
+      if (node.pure)
+        Transition && Transition.running ? node.tState = STALE : node.state = STALE;
+      handleError(err);
+    }
+    if (!node.updatedAt || node.updatedAt <= time) {
+      if (node.updatedAt != null && "observers" in node) {
+        writeSignal(node, nextValue, true);
+      } else if (Transition && Transition.running && node.pure) {
+        Transition.sources.add(node);
+        node.tValue = nextValue;
+      } else
+        node.value = nextValue;
+      node.updatedAt = time;
+    }
+  }
+  function createComputation(fn, init, pure, state = STALE, options) {
+    const c = {
+      fn,
+      state,
+      updatedAt: null,
+      owned: null,
+      sources: null,
+      sourceSlots: null,
+      cleanups: null,
+      value: init,
+      owner: Owner,
+      context: null,
+      pure
+    };
+    if (Transition && Transition.running) {
+      c.state = 0;
+      c.tState = state;
+    }
+    if (Owner === null)
+      ;
+    else if (Owner !== UNOWNED) {
+      if (Transition && Transition.running && Owner.pure) {
+        if (!Owner.tOwned)
+          Owner.tOwned = [c];
+        else
+          Owner.tOwned.push(c);
+      } else {
+        if (!Owner.owned)
+          Owner.owned = [c];
+        else
+          Owner.owned.push(c);
+      }
+    }
+    if (ExternalSourceFactory) {
+      const [track, trigger] = createSignal(void 0, {
+        equals: false
+      });
+      const ordinary = ExternalSourceFactory(c.fn, trigger);
+      onCleanup(() => ordinary.dispose());
+      const triggerInTransition = () => startTransition(trigger).then(() => inTransition.dispose());
+      const inTransition = ExternalSourceFactory(c.fn, triggerInTransition);
+      c.fn = (x) => {
+        track();
+        return Transition && Transition.running ? inTransition.track(x) : ordinary.track(x);
+      };
+    }
+    return c;
+  }
+  function runTop(node) {
+    const runningTransition = Transition && Transition.running;
+    if (!runningTransition && node.state === 0 || runningTransition && node.tState === 0)
+      return;
+    if (!runningTransition && node.state === PENDING || runningTransition && node.tState === PENDING)
+      return lookUpstream(node);
+    if (node.suspense && untrack(node.suspense.inFallback))
+      return node.suspense.effects.push(node);
+    const ancestors = [node];
+    while ((node = node.owner) && (!node.updatedAt || node.updatedAt < ExecCount)) {
+      if (runningTransition && Transition.disposed.has(node))
+        return;
+      if (!runningTransition && node.state || runningTransition && node.tState)
+        ancestors.push(node);
+    }
+    for (let i = ancestors.length - 1; i >= 0; i--) {
+      node = ancestors[i];
+      if (runningTransition) {
+        let top = node, prev = ancestors[i + 1];
+        while ((top = top.owner) && top !== prev) {
+          if (Transition.disposed.has(top))
+            return;
+        }
+      }
+      if (!runningTransition && node.state === STALE || runningTransition && node.tState === STALE) {
+        updateComputation(node);
+      } else if (!runningTransition && node.state === PENDING || runningTransition && node.tState === PENDING) {
+        const updates = Updates;
+        Updates = null;
+        runUpdates(() => lookUpstream(node, ancestors[0]), false);
+        Updates = updates;
+      }
+    }
+  }
+  function runUpdates(fn, init) {
+    if (Updates)
+      return fn();
+    let wait = false;
+    if (!init)
+      Updates = [];
+    if (Effects)
+      wait = true;
+    else
+      Effects = [];
+    ExecCount++;
+    try {
+      const res = fn();
+      completeUpdates(wait);
+      return res;
+    } catch (err) {
+      if (!Updates)
+        Effects = null;
+      handleError(err);
+    }
+  }
+  function completeUpdates(wait) {
+    if (Updates) {
+      if (Scheduler && Transition && Transition.running)
+        scheduleQueue(Updates);
+      else
+        runQueue(Updates);
+      Updates = null;
+    }
+    if (wait)
+      return;
+    let res;
+    if (Transition) {
+      if (!Transition.promises.size && !Transition.queue.size) {
+        const sources = Transition.sources;
+        const disposed = Transition.disposed;
+        Effects.push.apply(Effects, Transition.effects);
+        res = Transition.resolve;
+        for (const e2 of Effects) {
+          "tState" in e2 && (e2.state = e2.tState);
+          delete e2.tState;
+        }
+        Transition = null;
+        runUpdates(() => {
+          for (const d of disposed)
+            cleanNode(d);
+          for (const v of sources) {
+            v.value = v.tValue;
+            if (v.owned) {
+              for (let i = 0, len = v.owned.length; i < len; i++)
+                cleanNode(v.owned[i]);
+            }
+            if (v.tOwned)
+              v.owned = v.tOwned;
+            delete v.tValue;
+            delete v.tOwned;
+            v.tState = 0;
+          }
+          setTransPending(false);
+        }, false);
+      } else if (Transition.running) {
+        Transition.running = false;
+        Transition.effects.push.apply(Transition.effects, Effects);
+        Effects = null;
+        setTransPending(true);
+        return;
+      }
+    }
+    const e = Effects;
+    Effects = null;
+    if (e.length)
+      runUpdates(() => runEffects(e), false);
+    if (res)
+      res();
+  }
+  function runQueue(queue) {
+    for (let i = 0; i < queue.length; i++)
+      runTop(queue[i]);
+  }
+  function scheduleQueue(queue) {
+    for (let i = 0; i < queue.length; i++) {
+      const item = queue[i];
+      const tasks = Transition.queue;
+      if (!tasks.has(item)) {
+        tasks.add(item);
+        Scheduler(() => {
+          tasks.delete(item);
+          runUpdates(() => {
+            Transition.running = true;
+            runTop(item);
+          }, false);
+          Transition && (Transition.running = false);
+        });
+      }
+    }
+  }
+  function lookUpstream(node, ignore) {
+    const runningTransition = Transition && Transition.running;
+    if (runningTransition)
+      node.tState = 0;
+    else
+      node.state = 0;
+    for (let i = 0; i < node.sources.length; i += 1) {
+      const source = node.sources[i];
+      if (source.sources) {
+        if (!runningTransition && source.state === STALE || runningTransition && source.tState === STALE) {
+          if (source !== ignore)
+            runTop(source);
+        } else if (!runningTransition && source.state === PENDING || runningTransition && source.tState === PENDING)
+          lookUpstream(source, ignore);
+      }
+    }
+  }
+  function markDownstream(node) {
+    const runningTransition = Transition && Transition.running;
+    for (let i = 0; i < node.observers.length; i += 1) {
+      const o = node.observers[i];
+      if (!runningTransition && !o.state || runningTransition && !o.tState) {
+        if (runningTransition)
+          o.tState = PENDING;
+        else
+          o.state = PENDING;
+        if (o.pure)
+          Updates.push(o);
+        else
+          Effects.push(o);
+        o.observers && markDownstream(o);
+      }
+    }
+  }
+  function cleanNode(node) {
+    let i;
+    if (node.sources) {
+      while (node.sources.length) {
+        const source = node.sources.pop(), index = node.sourceSlots.pop(), obs = source.observers;
+        if (obs && obs.length) {
+          const n = obs.pop(), s = source.observerSlots.pop();
+          if (index < obs.length) {
+            n.sourceSlots[s] = index;
+            obs[index] = n;
+            source.observerSlots[index] = s;
+          }
+        }
+      }
+    }
+    if (Transition && Transition.running && node.pure) {
+      if (node.tOwned) {
+        for (i = 0; i < node.tOwned.length; i++)
+          cleanNode(node.tOwned[i]);
+        delete node.tOwned;
+      }
+      reset(node, true);
+    } else if (node.owned) {
+      for (i = 0; i < node.owned.length; i++)
+        cleanNode(node.owned[i]);
+      node.owned = null;
+    }
+    if (node.cleanups) {
+      for (i = 0; i < node.cleanups.length; i++)
+        node.cleanups[i]();
+      node.cleanups = null;
+    }
+    if (Transition && Transition.running)
+      node.tState = 0;
+    else
+      node.state = 0;
+    node.context = null;
+  }
+  function reset(node, top) {
+    if (!top) {
+      node.tState = 0;
+      Transition.disposed.add(node);
+    }
+    if (node.owned) {
+      for (let i = 0; i < node.owned.length; i++)
+        reset(node.owned[i]);
+    }
+  }
+  function castError(err) {
+    if (err instanceof Error || typeof err === "string")
+      return err;
+    return new Error("Unknown error");
+  }
+  function handleError(err) {
+    err = castError(err);
+    const fns = ERROR && lookup(Owner, ERROR);
+    if (!fns)
+      throw err;
+    for (const f of fns)
+      f(err);
+  }
+  function lookup(owner, key) {
+    return owner ? owner.context && owner.context[key] !== void 0 ? owner.context[key] : lookup(owner.owner, key) : void 0;
+  }
+  function resolveChildren(children2) {
+    if (typeof children2 === "function" && !children2.length)
+      return resolveChildren(children2());
+    if (Array.isArray(children2)) {
+      const results = [];
+      for (let i = 0; i < children2.length; i++) {
+        const result = resolveChildren(children2[i]);
+        Array.isArray(result) ? results.push.apply(results, result) : results.push(result);
+      }
+      return results;
+    }
+    return children2;
+  }
+  function createProvider(id) {
+    return function provider(props) {
+      let res;
+      createRenderEffect(() => res = untrack(() => {
+        Owner.context = {
+          [id]: props.value
+        };
+        return children(() => props.children);
+      }));
+      return res;
+    };
+  }
+  var FALLBACK = Symbol("fallback");
+  var hydrationEnabled = false;
+  function createComponent(Comp, props) {
+    if (hydrationEnabled) {
+      if (sharedConfig.context) {
+        const c = sharedConfig.context;
+        setHydrateContext(nextHydrateContext());
+        const r = untrack(() => Comp(props || {}));
+        setHydrateContext(c);
+        return r;
+      }
+    }
+    return untrack(() => Comp(props || {}));
+  }
+  var SuspenseListContext = createContext();
+
+  // node_modules/solid-js/web/dist/web.js
+  var booleans = ["allowfullscreen", "async", "autofocus", "autoplay", "checked", "controls", "default", "disabled", "formnovalidate", "hidden", "indeterminate", "ismap", "loop", "multiple", "muted", "nomodule", "novalidate", "open", "playsinline", "readonly", "required", "reversed", "seamless", "selected"];
+  var Properties = /* @__PURE__ */ new Set(["className", "value", "readOnly", "formNoValidate", "isMap", "noModule", "playsInline", ...booleans]);
+  function reconcileArrays(parentNode, a, b) {
+    let bLength = b.length, aEnd = a.length, bEnd = bLength, aStart = 0, bStart = 0, after = a[aEnd - 1].nextSibling, map = null;
+    while (aStart < aEnd || bStart < bEnd) {
+      if (a[aStart] === b[bStart]) {
+        aStart++;
+        bStart++;
+        continue;
+      }
+      while (a[aEnd - 1] === b[bEnd - 1]) {
+        aEnd--;
+        bEnd--;
+      }
+      if (aEnd === aStart) {
+        const node = bEnd < bLength ? bStart ? b[bStart - 1].nextSibling : b[bEnd - bStart] : after;
+        while (bStart < bEnd)
+          parentNode.insertBefore(b[bStart++], node);
+      } else if (bEnd === bStart) {
+        while (aStart < aEnd) {
+          if (!map || !map.has(a[aStart]))
+            a[aStart].remove();
+          aStart++;
+        }
+      } else if (a[aStart] === b[bEnd - 1] && b[bStart] === a[aEnd - 1]) {
+        const node = a[--aEnd].nextSibling;
+        parentNode.insertBefore(b[bStart++], a[aStart++].nextSibling);
+        parentNode.insertBefore(b[--bEnd], node);
+        a[aEnd] = b[bEnd];
+      } else {
+        if (!map) {
+          map = /* @__PURE__ */ new Map();
+          let i = bStart;
+          while (i < bEnd)
+            map.set(b[i], i++);
+        }
+        const index = map.get(a[aStart]);
+        if (index != null) {
+          if (bStart < index && index < bEnd) {
+            let i = aStart, sequence = 1, t;
+            while (++i < aEnd && i < bEnd) {
+              if ((t = map.get(a[i])) == null || t !== index + sequence)
+                break;
+              sequence++;
+            }
+            if (sequence > index - bStart) {
+              const node = a[aStart];
+              while (bStart < index)
+                parentNode.insertBefore(b[bStart++], node);
+            } else
+              parentNode.replaceChild(b[bStart++], a[aStart++]);
+          } else
+            aStart++;
+        } else
+          a[aStart++].remove();
+      }
+    }
+  }
+  function render(code, element, init) {
+    let disposer;
+    createRoot((dispose) => {
+      disposer = dispose;
+      element === document ? code() : insert(element, code(), element.firstChild ? null : void 0, init);
+    });
+    return () => {
+      disposer();
+      element.textContent = "";
+    };
+  }
+  function template(html, check, isSVG) {
+    const t = document.createElement("template");
+    t.innerHTML = html;
+    let node = t.content.firstChild;
+    if (isSVG)
+      node = node.firstChild;
+    return node;
+  }
+  function insert(parent, accessor, marker, initial) {
+    if (marker !== void 0 && !initial)
+      initial = [];
+    if (typeof accessor !== "function")
+      return insertExpression(parent, accessor, initial, marker);
+    createRenderEffect((current) => insertExpression(parent, accessor(), current, marker), initial);
+  }
+  function insertExpression(parent, value, current, marker, unwrapArray) {
+    if (sharedConfig.context && !current)
+      current = [...parent.childNodes];
+    while (typeof current === "function")
+      current = current();
+    if (value === current)
+      return current;
+    const t = typeof value, multi = marker !== void 0;
+    parent = multi && current[0] && current[0].parentNode || parent;
+    if (t === "string" || t === "number") {
+      if (sharedConfig.context)
+        return current;
+      if (t === "number")
+        value = value.toString();
+      if (multi) {
+        let node = current[0];
+        if (node && node.nodeType === 3) {
+          node.data = value;
+        } else
+          node = document.createTextNode(value);
+        current = cleanChildren(parent, current, marker, node);
+      } else {
+        if (current !== "" && typeof current === "string") {
+          current = parent.firstChild.data = value;
+        } else
+          current = parent.textContent = value;
+      }
+    } else if (value == null || t === "boolean") {
+      if (sharedConfig.context)
+        return current;
+      current = cleanChildren(parent, current, marker);
+    } else if (t === "function") {
+      createRenderEffect(() => {
+        let v = value();
+        while (typeof v === "function")
+          v = v();
+        current = insertExpression(parent, v, current, marker);
+      });
+      return () => current;
+    } else if (Array.isArray(value)) {
+      const array = [];
+      const currentArray = current && Array.isArray(current);
+      if (normalizeIncomingArray(array, value, current, unwrapArray)) {
+        createRenderEffect(() => current = insertExpression(parent, array, current, marker, true));
+        return () => current;
+      }
+      if (sharedConfig.context) {
+        if (!array.length)
+          return current;
+        for (let i = 0; i < array.length; i++) {
+          if (array[i].parentNode)
+            return current = array;
+        }
+      }
+      if (array.length === 0) {
+        current = cleanChildren(parent, current, marker);
+        if (multi)
+          return current;
+      } else if (currentArray) {
+        if (current.length === 0) {
+          appendNodes(parent, array, marker);
+        } else
+          reconcileArrays(parent, current, array);
+      } else {
+        current && cleanChildren(parent);
+        appendNodes(parent, array);
+      }
+      current = array;
+    } else if (value instanceof Node) {
+      if (sharedConfig.context && value.parentNode)
+        return current = multi ? [value] : value;
+      if (Array.isArray(current)) {
+        if (multi)
+          return current = cleanChildren(parent, current, marker, value);
+        cleanChildren(parent, current, null, value);
+      } else if (current == null || current === "" || !parent.firstChild) {
+        parent.appendChild(value);
+      } else
+        parent.replaceChild(value, parent.firstChild);
+      current = value;
+    } else
+      ;
+    return current;
+  }
+  function normalizeIncomingArray(normalized, array, current, unwrap) {
+    let dynamic = false;
+    for (let i = 0, len = array.length; i < len; i++) {
+      let item = array[i], prev = current && current[i];
+      if (item instanceof Node) {
+        normalized.push(item);
+      } else if (item == null || item === true || item === false)
+        ;
+      else if (Array.isArray(item)) {
+        dynamic = normalizeIncomingArray(normalized, item, prev) || dynamic;
+      } else if (typeof item === "function") {
+        if (unwrap) {
+          while (typeof item === "function")
+            item = item();
+          dynamic = normalizeIncomingArray(normalized, Array.isArray(item) ? item : [item], Array.isArray(prev) ? prev : [prev]) || dynamic;
+        } else {
+          normalized.push(item);
+          dynamic = true;
+        }
+      } else {
+        const value = String(item);
+        if (prev && prev.nodeType === 3 && prev.data === value) {
+          normalized.push(prev);
+        } else
+          normalized.push(document.createTextNode(value));
+      }
+    }
+    return dynamic;
+  }
+  function appendNodes(parent, array, marker) {
+    for (let i = 0, len = array.length; i < len; i++)
+      parent.insertBefore(array[i], marker);
+  }
+  function cleanChildren(parent, current, marker, replacement) {
+    if (marker === void 0)
+      return parent.textContent = "";
+    const node = replacement || document.createTextNode("");
+    if (current.length) {
+      let inserted = false;
+      for (let i = current.length - 1; i >= 0; i--) {
+        const el = current[i];
+        if (node !== el) {
+          const isParent = el.parentNode === parent;
+          if (!inserted && !i)
+            isParent ? parent.replaceChild(node, el) : parent.insertBefore(node, marker);
+          else
+            isParent && el.remove();
+        } else
+          inserted = true;
+      }
+    } else
+      parent.insertBefore(node, marker);
+    return [node];
+  }
+
+  // app/app.jsx
+  var _tmpl$ = /* @__PURE__ */ template(`<div>Count value is </div>`, 2);
+  var CountingComponent = () => {
+    const [count, setCount] = createSignal(0);
+    const interval = setInterval(() => setCount((c) => c + 1), 1e3);
+    onCleanup(() => clearInterval(interval));
+    return (() => {
+      const _el$ = _tmpl$.cloneNode(true), _el$2 = _el$.firstChild;
+      insert(_el$, count, null);
+      return _el$;
+    })();
+  };
+  render(() => createComponent(CountingComponent, {}), document.getElementById("app"));
+})();
+//# sourceMappingURL=app.js.map
