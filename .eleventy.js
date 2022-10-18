@@ -1,5 +1,5 @@
 const sass = require("sass");
-const ts = String(Date.now());
+const now = String(Date.now());
 
 const TEMPLATE_ENGINE = "liquid";
 
@@ -15,7 +15,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("version", (url) => {
     const [urlPart, paramPart] = url.split("?");
     const params = new URLSearchParams(paramPart || "");
-    params.set("v", `${ts}`);
+    params.set("v", `${now}`);
     console.log(params);
     return `${urlPart}?${params}`;
   });
