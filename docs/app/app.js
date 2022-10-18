@@ -810,7 +810,7 @@
     return [node];
   }
 
-  // app/app.jsx
+  // src/app/app.jsx
   var _tmpl$ = /* @__PURE__ */ template(`<div>Count value is </div>`, 2);
   var CountingComponent = () => {
     const [count, setCount] = createSignal(0);
