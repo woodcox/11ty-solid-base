@@ -9,7 +9,8 @@
     "build:sass": "sass  --no-source-map src/sass:./_tmp",
     "build:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy --pathprefix=11ty-solid-base",
     "minify:eleventy": "ELEVENTY_ENV=prod npx @11ty/eleventy --pathprefix=11ty-solid-base",
-    "postbuild": "lightningcss --help --minify --targets '> 0.25%, not IE 11' ./_tmp/*.css -o docs/css/*.css",
+    "postbuild": "lightningcss --help --targets '> 0.25%, not IE 11' ./_tmp/*.css -o docs/css/*.css",
+    "postminify": "lightningcss --help --minify --targets '> 0.25%, not IE 11' ./_tmp/*.css -o docs/css/*.css",
     "start": "npm-run-all --parallel dev:*",
     "build": "NODE_ENV=dev npm-run-all build:sass build:eleventy",
     "minify": "NODE_ENV=production npm-run-all build:sass minify:eleventy"
