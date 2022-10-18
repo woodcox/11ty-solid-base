@@ -1,5 +1,5 @@
 const sass = require("sass");
-const now = String(Date.now());
+const ts = String(Date.now());
 
 const TEMPLATE_ENGINE = "liquid";
 
