@@ -11,9 +11,12 @@ module.exports = function (eleventyConfig) {
   // WATCH the js files for esbuild in scripts.11ty.js
   eleventyConfig.addWatchTarget('./src/app');
 
-  // Add cache busting with {{ 'myurl?=v' | version }} time string
-  eleventyConfig.addFilter('version', function () {
-    return now
+  // Add cache busting with {{ 'myurl' | version }} time string
+  eleventyConfig.addFilter("version", (url) => {
+    const [urlPart, paramPart] = url.split("?");
+    const params = new URLSearchParams(paramPart || "");
+    params.set("v", DateTime.local().toFormat("X"));
+    return `${urlPart}?${params}`;
   });
 
   // Let Eleventy transform HTML files as liquidjs
