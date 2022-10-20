@@ -16,7 +16,6 @@ module.exports = function (eleventyConfig) {
     const [urlPart, paramPart] = url.split("?");
     const params = new URLSearchParams(paramPart || "");
     params.set("v", `${now}`);
-    console.log(params);
     return `${urlPart}?${params}`;
   });
 
