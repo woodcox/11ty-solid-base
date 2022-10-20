@@ -5,16 +5,17 @@ const now = String(Date.now());
 const TEMPLATE_ENGINE = "liquid";
 
 module.exports = function (eleventyConfig) {
+  // PLUGIN WebC 
   eleventyConfig.addPlugin(pluginWebc);
   
   // WATCH the scss files
   eleventyConfig.addWatchTarget("./src/sass/");
   eleventyConfig.addPassthroughCopy({ './_tmp': './assets/css' });
   
-  // WATCH the js files for esbuild in scripts.11ty.js
+  // WATCH the js files for solid-js + esbuild
   eleventyConfig.addWatchTarget('./src/app');
 
-  // Add cache busting with {{ 'myurl' | version }} time string
+  // Add cache busting by using {{ 'myurl' | version }}
   eleventyConfig.addFilter("version", (url) => {
     const [urlPart, paramPart] = url.split("?");
     const params = new URLSearchParams(paramPart || "");
@@ -24,7 +25,7 @@ module.exports = function (eleventyConfig) {
 
   // Let Eleventy transform HTML files as liquidjs
   // So that we can use .html instead of .liquid
-  // 11ty.js template format also picks up mon the esbuild.11ty.js script
+  // 11ty.js template format also compiles the esbuild.11ty.js script
 
   return {
     dir: {
