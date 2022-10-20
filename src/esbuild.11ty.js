@@ -1,7 +1,6 @@
 const esbuild = require('esbuild')
 const glob = require('glob-all') // to enable * glob pattern in esbuild
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
-const extension = isProd ? '.min' : '';
 const { solidPlugin } = require('esbuild-plugin-solid')
 
 module.exports = class {
