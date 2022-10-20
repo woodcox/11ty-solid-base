@@ -21,15 +21,7 @@ module.exports = class {
       minify: isProd,
       outdir: './docs/app',
       sourcemap: !isProd,
-      target: isProd ? 'es6' : 'esnext',
-      watch: !isProd
-    }).then(result => {
-      console.log('watching...')
-
-      setTimeout(() => {
-        result.stop()
-        console.log('stopped watching')
-      }, 10 * 1000)
+      target: isProd ? 'es6' : 'esnext'
     }).catch(() => process.exit(1));
   }
 }
