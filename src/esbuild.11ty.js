@@ -15,7 +15,7 @@ module.exports = class {
   async render() {
     await esbuild.build({
       entryPoints: glob.sync(['src/app/*.jsx', 'src/assest/js/*.js']),
-      outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'},
+      outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
       bundle: true,
       plugins: [solidPlugin()],
       minify: isProd,
