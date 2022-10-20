@@ -1,9 +1,12 @@
 const sass = require("sass");
+const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const now = String(Date.now());
 
 const TEMPLATE_ENGINE = "liquid";
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(pluginWebc);
+  
   // WATCH the scss files
   eleventyConfig.addWatchTarget("./src/sass/");
   eleventyConfig.addPassthroughCopy({ './_tmp': './assets/css' });
