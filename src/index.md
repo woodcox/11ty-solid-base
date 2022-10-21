@@ -6,6 +6,7 @@ title: Hello World
 ## Solid JS Counter
 <is-land on:media="(min-width: 30em)">
   <vanilla-web-component>
+    <div>Count value is 0</div>;
   </vanilla-web-component>
   <template data-island>
     <div id="app"><div>
