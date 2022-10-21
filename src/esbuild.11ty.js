@@ -13,12 +13,12 @@ module.exports = class {
 
   async render() {
     await esbuild.build({
-      entryPoints: glob.sync(['src/app/*.jsx', 'src/assets/js/*.js', '../node_modules/@11ty/is-land/*.js']),
+      entryPoints: glob.sync(['src/assets/app/*.jsx', 'src/assets/js/*.js']),
       outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
       bundle: true,
       plugins: [solidPlugin()],
       minify: isProd,
-      outdir: './docs/app',
+      outdir: './docs/assets',
       sourcemap: !isProd,
       target: isProd ? 'es6' : 'esnext'
     }).catch(() => process.exit(1));
