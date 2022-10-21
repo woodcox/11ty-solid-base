@@ -14,6 +14,9 @@ module.exports = function (eleventyConfig) {
   
   // WATCH the js files for solid-js + esbuild
   eleventyConfig.addWatchTarget('./src/app');
+  eleventyConfig.addPassthroughCopy({ 
+    "node_modules/@11ty/is-land/is-land.js": "is-land.js",
+  })
 
   // Add cache busting by using {{ 'myurl' | version }}
   eleventyConfig.addFilter("version", (url) => {
