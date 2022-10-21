@@ -3,3 +3,6 @@ body {
   background-color: #f9f9f9;
   color: blue;
 }
+body p {
+  font-size: 16px;
+}
