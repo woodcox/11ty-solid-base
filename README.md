@@ -13,6 +13,10 @@ Includes [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/), [
 
 **`npm run build`**
 
+> Production build with no minification, autoprefixed CSS
+
+**`npm run minify`**
+
 > Production build includes minified, autoprefixed CSS
 
 Use this as the "Publish command" if needed by hosting such as Netlify.
