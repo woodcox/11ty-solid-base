@@ -4,6 +4,7 @@ title: Hello World
 ---
 
 ## Solid JS Counter
+On mobile, turn the phone to landscape to start the counter. 
 <is-land on:media="(min-width: 30em)">
   <counter-component>
     <div>Count value is 0</div>
