@@ -1,6 +1,7 @@
 const sass = require("sass");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const now = String(Date.now());
+const hasha = require("hasha");
 
 const TEMPLATE_ENGINE = "liquid";
 
@@ -25,6 +26,25 @@ module.exports = function (eleventyConfig) {
     params.set("v", `${now}`);
     return `${urlPart}?${params}`;
   });
+
+  eleventyConfig.addFilter("addHash",
+    function (absolutePath, callback) {
+      readFile(path.join(".", absolutePath), {
+        encoding: "utf-8",
+      })
+      .then((content) => {
+        return hasha.async(content);
+      })
+      .then((hash) => {
+        callback(null, `${absolutePath}?hash=${hash.substr(0, 10)}`);
+      })
+      .catch((error) => {
+        callback(
+          new Error(`Failed to addHash to '${absolutePath}': ${error}`)
+        );
+      });
+    }
+  );
 
   // Let Eleventy transform HTML files as liquidjs
   // So that we can use .html instead of .liquid
