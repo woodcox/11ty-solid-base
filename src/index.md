@@ -8,7 +8,7 @@ title: Hello World
   <vanilla-web-component>
     <div>Count value is 0</div>
   </vanilla-web-component>
-  <template data-island>
+  <template data-island="replace">
     <div id="app"><div>
     <script src="{{ '/assets/app/app.min.js' | url | version }}"></script>
   </template>
