@@ -27,7 +27,7 @@ module.exports = function (eleventyConfig) {
     return `${urlPart}?${params}`;
   });
 
-  eleventyConfig.addPairedShortcode("solid", solidShortcode)
+  eleventyConfig.addPairedShortcode("solid", solidShortcode);
 
   // Let Eleventy transform HTML files as liquidjs
   // So that we can use .html instead of .liquid
