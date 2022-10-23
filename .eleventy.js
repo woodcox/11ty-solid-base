@@ -1,7 +1,7 @@
 const sass = require("sass");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const now = String(Date.now());
-const solidShortcode = require('./config/shortcodes');
+const solidShortcode = require('./config/shortcodes/solidify.js');
 
 const TEMPLATE_ENGINE = "liquid";
 
@@ -26,6 +26,8 @@ module.exports = function (eleventyConfig) {
     params.set("v", `${now}`);
     return `${urlPart}?${params}`;
   });
+
+  eleventyConfig.addPairedShortcode("solid", solidShortcode)
 
   // Let Eleventy transform HTML files as liquidjs
   // So that we can use .html instead of .liquid
