@@ -17,5 +17,9 @@ On mobile, turn the phone to landscape to start the counter.
 </is-land>
 
 {% solid %}  
-  console.log("hello world!");
+function MyComponent(props) {
+  return <div>Hello {props.name}</div>;
+}
+
+<MyComponent name="Solid" />;
 {% endsolid %}
