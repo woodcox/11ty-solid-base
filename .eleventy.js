@@ -1,6 +1,7 @@
 const sass = require("sass");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const now = String(Date.now());
+const solidShortcode = require('./config/shortcodes');
 
 const TEMPLATE_ENGINE = "liquid";
 
