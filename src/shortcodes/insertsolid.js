@@ -9,7 +9,7 @@ module.exports = (content) => {
   const result = transformSync(content, { 
     loader: "jsx",
     jsx: "preserve",
-    "jsxImportSource": "solid",
+    jsxImportSource: "solid",
     plugins: [solidPlugin()],
     minify: isProd
   });
