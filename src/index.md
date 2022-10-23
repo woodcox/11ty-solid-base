@@ -15,3 +15,7 @@ On mobile, turn the phone to landscape to start the counter.
     <script src="{{ '/assets/app/app.min.js' | url | version }}"></script>
   </template>
 </is-land>
+
+{{ solid }}  
+  console.log("hello world!");
+{{ /solid }}
