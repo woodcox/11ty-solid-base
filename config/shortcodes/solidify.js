@@ -6,8 +6,6 @@ const solid = require('solid-js')
 
 // Note: transform will not bundle!
 module.exports = (content) => {
-
-  async render() {
     const result = await esbuild.transformSync(content, { 
       // jsx: "preserve",
       // jsxImportSource: "solid-js",
@@ -15,7 +13,6 @@ module.exports = (content) => {
       plugins: [solidPlugin()],
       minify: isProd
     });
-  }
   if (result) {
     return `<script>${result}</script>`;
   }
