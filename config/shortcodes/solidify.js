@@ -5,8 +5,8 @@ const solid = require('solid-js')
 
 
 // Note: transform will not bundle!
-module.exports = (content = '') => {
-  const result = transformSync(content, { 
+module.exports = (content) => {
+  const result = transform(content, { 
     // loader: "jsx",
     // jsx: "preserve",
     // jsxImportSource: "solid-js",
