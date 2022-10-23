@@ -16,6 +16,6 @@ On mobile, turn the phone to landscape to start the counter.
   </template>
 </is-land>
 
-{{ solid }}  
+{% solid %}  
   console.log("hello world!");
-{{ /solid }}
+{% endsolid %}
