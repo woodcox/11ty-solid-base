@@ -8,8 +8,6 @@ const solid = require('solid-js')
 module.exports = (content) => {
 
   async render() {
-    await esbuild.build({
-
     const result = await esbuild.transformSync(content, { 
       // jsx: "preserve",
       // jsxImportSource: "solid-js",
