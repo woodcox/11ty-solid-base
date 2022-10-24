@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello World</title>
-  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666646662165" />
+  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666646994852" />
   <script type="module" defer src="/11ty-solid-base/assets/js/is-land.min.js"></script>
 </head>
 <body>
@@ -20,13 +20,21 @@
   </vanilla-web-component>
   <template data-island="replace">
     <div id="app"><div>
-    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666646662165"></script>
+    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666646994852"></script>
   </template>
 </is-land>
 <div id="test"> 
   <HelloWorld />  
 </div>
-<script type="module">[object Promise]</script>
+<script type="module">import { template as _$template } from "solid-js/web";
+import { createComponent as _$createComponent } from "solid-js/web";
+const _tmpl$ = /* @__PURE__ */ _$template(`<div>Hello World!</div>`, 2);
+import { render } from "solid-js/web";
+function HelloWorld() {
+  return _tmpl$.cloneNode(true);
+}
+render(() => _$createComponent(HelloWorld, {}), document.getElementById("test"));
+</script>
 
   </main>
 </body>
