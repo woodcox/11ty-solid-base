@@ -8,7 +8,7 @@ const solid = require('solid-js')
 module.exports = (content) => {
     const result = esbuild.transformSync(content, { 
       jsx: "preserve",
-      jsxImportSource: solid,
+      // jsxImportSource: solid,
       loader: "jsx",
       // plugins: [solidPlugin()],
       minify: isProd
