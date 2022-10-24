@@ -10,11 +10,11 @@ module.exports = (content) => {
       // jsx: "preserve",
       // jsxImportSource: "solid-js",
       loader: "jsx",
-      plugins: [solidPlugin()],
+      // plugins: [solidPlugin()],
       minify: isProd
     });
-  if (result.js) {
-    return `<script>${result.js}</script>`;
+  if (result.jsx) {
+    return `<script>${result.jsx}</script>`;
   }
   return `<script>console.log(${JSON.stringify(result.errors)})</script>`;
 };
