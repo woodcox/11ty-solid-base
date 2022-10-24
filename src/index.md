@@ -17,7 +17,7 @@ On mobile, turn the phone to landscape to start the counter.
 </is-land>
 
 <div id="test"> 
-  <HelloWorld />  
+  <HelloWorld >  
 </div>
     
 {% solid %}  
