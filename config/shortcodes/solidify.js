@@ -15,4 +15,4 @@ module.exports = (code) => {
   })
   const bundle = require('fs').readFileSync('out.js', 'utf8')
   return bundle 
-})
+};
