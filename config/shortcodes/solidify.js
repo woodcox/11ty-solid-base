@@ -1,7 +1,7 @@
-const esbuild = require("esbuild");
+import esbuild from 'esbuild';
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
-const { solidPlugin } = require('esbuild-plugin-solid');
-const fsPromises = require('fs').promises;
+import { solidPlugin } from 'esbuild-plugin-solid';
+import fsPromises from 'fs.promises';
 
 
 // Note: transform will not bundle!
