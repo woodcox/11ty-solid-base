@@ -13,7 +13,7 @@ module.exports = async (code) => {
     // bundle: true,
     plugins: [solidPlugin()],
     // minify: isProd,
-    target: isProd ? 'es6' : 'esnext'
+    // target: isProd ? 'es6' : 'esnext'
   })
   const solidifyJsx = await fsPromises.readFile('out.js', 'utf8');
   return await `<script type="module">${solidifyJsx}</script>`;
