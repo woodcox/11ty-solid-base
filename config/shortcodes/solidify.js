@@ -10,10 +10,10 @@ module.exports = async (code) => {
   await esbuild.buildSync({ 
     entryPoints: ['in.jsx'],
     outfile: 'out.js',
-    bundle: true,
+    // bundle: true,
     // plugins: [solidPlugin()],
-    minify: isProd,
-    target: isProd ? 'es6' : 'esnext'
+    // minify: isProd,
+    // target: isProd ? 'es6' : 'esnext'
   })
   const jsbundle = await fsPromises.readFile('out.js', 'utf8')
   return await jsbundle 
