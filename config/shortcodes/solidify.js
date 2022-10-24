@@ -12,7 +12,7 @@ module.exports = async (code) => {
     outfile: 'out.js',
     bundle: true,
     // plugins: [solidPlugin()],
-    minify: isProd.
+    minify: isProd,
     target: isProd ? 'es6' : 'esnext'
   })
   const jsbundle = await fsPromises.readFile('out.js', 'utf8')
