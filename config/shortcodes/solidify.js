@@ -1,7 +1,7 @@
-import esbuild from 'esbuild';
+const esbuild = require("esbuild");
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
-import { solidPlugin } from 'esbuild-plugin-solid';
-import fsPromises from 'fs.promises';
+const { solidPlugin } = require('esbuild-plugin-solid');
+const fsPromises = require('fs').promises;
 
 
 // Note: transform will not bundle!
@@ -11,7 +11,7 @@ module.exports = async (code) => {
     entryPoints: ['in.jsx'],
     outfile: 'out.js',
     bundle: true,
-    plugins: [solidPlugin()],
+    // plugins: [solidPlugin()],
     minify: isProd.
     target: isProd ? 'es6' : 'esnext'
   })
