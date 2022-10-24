@@ -1,12 +1,12 @@
 const esbuild = require("esbuild");
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
-const { solidPlugin } = require('esbuild-plugin-solid')
-const fs = require('fs')
+const { solidPlugin } = require('esbuild-plugin-solid');
+const fs = require('fs');
 
 
 // Note: transform will not bundle!
 module.exports = (code) => {
-  fs.writeFileSync('in.js', code)
+  fs.writeFileSync('in.jsx', code)
   esbuild.buildSync({ 
     entryPoints: ['in.jsx'],
     outfile: 'out.js',
@@ -15,4 +15,4 @@ module.exports = (code) => {
   })
   const bundle = require('fs').readFileSync('out.js', 'utf8')
   return bundle 
-});
+})
