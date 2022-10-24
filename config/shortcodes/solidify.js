@@ -13,6 +13,6 @@ module.exports = async (code) => {
     plugins: [solidPlugin()],
     minify: isProd
   })
-  const bundle = require('fs').readFileSync('out.js', 'utf8'),
-  return bundle 
+  const bundle = require('fs').readFileSync('out.js', 'utf8')
+  return await bundle 
 };
