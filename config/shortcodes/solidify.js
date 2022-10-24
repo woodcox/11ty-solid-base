@@ -13,7 +13,7 @@ module.exports = (content) => {
       // plugins: [solidPlugin()],
       minify: isProd
     });
-  if (result.jsx) {
+  if (result) {
     return `<script>${result.jsx}</script>`;
   }
   return `<script>console.log(${JSON.stringify(result.errors)})</script>`;
