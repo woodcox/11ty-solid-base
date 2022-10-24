@@ -6,7 +6,7 @@ const fsPromises = require('fs').promises;
 
 // Note: transform will not bundle!
 module.exports = async (code) => {
-  await fsPromises.writeFile('in.jsx', code),
+  fsPromises.writeFile('in.jsx', code),
   await esbuild.build({ 
     entryPoints: ['in.jsx'],
     outfile: 'out.js',
@@ -15,6 +15,6 @@ module.exports = async (code) => {
     // minify: isProd,
     // target: isProd ? 'es6' : 'esnext'
   })
-  const solidifyJsx = await fsPromises.readFile('out.js', 'utf8');
+  const solidifyJsx = fsPromises.readFile('out.js', 'utf8');
   return await `<script type="module">${solidifyJsx}</script>`;
 };
