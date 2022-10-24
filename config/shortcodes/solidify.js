@@ -1,20 +1,18 @@
 const esbuild = require("esbuild");
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
 const { solidPlugin } = require('esbuild-plugin-solid')
-const solid = require('solid-js')
+const fs = require('fs')
 
 
 // Note: transform will not bundle!
-module.exports = (content) => {
-    const result = esbuild.transformSync(content, { 
-      jsx: "preserve",
-      // jsxImportSource: solid,
-      loader: "jsx",
-      // plugins: [solidPlugin()],
-      minify: isProd
-    });
-  if (result) {
-    return `<script>${result.jsx}</script>`;
-  }
-  return `<script>console.log(${JSON.stringify(result.errors)})</script>`;
-};
+module.exports = (code) => {
+  fs.writeFileSync('in.js', code)
+  esbuild.buildSync({ 
+    entryPoints: ['in.jsx'],
+    outfile: 'out.js',
+    plugins: [solidPlugin()],
+    minify: isProd
+  })
+  const bundle = require('fs').readFileSync('out.js', 'utf8')
+  return bundle 
+});
