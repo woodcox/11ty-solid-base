@@ -15,6 +15,6 @@ module.exports = async (code) => {
     // minify: isProd,
     target: isProd ? 'es6' : 'esnext'
   })
-  const jsbundle = await fsPromises.readFile('out.js', 'utf8')
-  return await jsbundle 
+  const jsbundle = await fsPromises.readFile('out.js', 'utf8');
+  return await jsbundle;
 };
