@@ -17,9 +17,12 @@ On mobile, turn the phone to landscape to start the counter.
 </is-land>
 
 {% solid %}  
-function MyComponent(props) {
-  return <div>Hello {props.name}</div>;
+import { render } from 'solid-js/web';
+
+function HelloWorld() {
+  return <div>Hello World!</div>;
 }
 
-<MyComponent name="Solid" />;
+render(() => <HelloWorld />, document.getElementById('test'))
+
 {% endsolid %}
