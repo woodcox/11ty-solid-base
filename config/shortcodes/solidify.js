@@ -7,7 +7,7 @@ const fs = require('fs');
 // Note: transform will not bundle!
 module.exports = (code) => {
   fs.writeFileSync('in.jsx', code)
-  esbuild.buildSync({ 
+  await esbuild.buildSync({ 
     entryPoints: ['in.jsx'],
     outfile: 'out.js',
     plugins: [solidPlugin()],
