@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello World</title>
-  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666503378383" />
+  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666579592655" />
   <script type="module" defer src="/11ty-solid-base/assets/js/is-land.min.js"></script>
 </head>
 <body>
@@ -12,17 +12,21 @@
     <h1>Hello World</h1>
   </header>
   <main>
-  <h2>Solid JS Counter</h2>
-<p>On mobile, turn the phone to landscape to start the counter.</p>
+  
+## Solid JS Counter
+On mobile, turn the phone to landscape to start the counter.
+
 <is-land on:media="(min-width: 30em)">
   <vanilla-web-component>
     <div>Count value is 0</div>
   </vanilla-web-component>
   <template data-island="replace">
     <div id="app"><div>
-    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666503378383"></script>
+    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666579592655"></script>
   </template>
 </is-land>
+
+<script>console.log(undefined)</script>
 
   </main>
 </body>
