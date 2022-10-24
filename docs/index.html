@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hello World</title>
-  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666628210713" />
+  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666628422754" />
   <script type="module" defer src="/11ty-solid-base/assets/js/is-land.min.js"></script>
 </head>
 <body>
@@ -20,23 +20,24 @@
   </vanilla-web-component>
   <template data-island="replace">
     <div id="app"><div>
-    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666628210713"></script>
+    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666628422754"></script>
   </template>
 </is-land>
-<p>import { template as _$template } from &quot;solid-js/web&quot;;
-import { createComponent as _$createComponent } from &quot;solid-js/web&quot;;
-import { insert as _$insert } from &quot;solid-js/web&quot;;
-const _tmpl$ = /* @<strong>PURE</strong> */ _$template(<code>&lt;div&gt;Hello &lt;/div&gt;</code>, 2);
+<script type="module">import { template as _$template } from "solid-js/web";
+import { createComponent as _$createComponent } from "solid-js/web";
+import { insert as _$insert } from "solid-js/web";
+const _tmpl$ = /* @__PURE__ */ _$template(`<div>Hello </div>`, 2);
 function MyComponent(props) {
-return (() =&gt; {
-const _el$ = _tmpl$.cloneNode(true), _el$2 = _el$.firstChild;
-_$insert(_el$, () =&gt; props.name, null);
-return _el$;
-})();
+  return (() => {
+    const _el$ = _tmpl$.cloneNode(true), _el$2 = _el$.firstChild;
+    _$insert(_el$, () => props.name, null);
+    return _el$;
+  })();
 }
 _$createComponent(MyComponent, {
-name: &quot;Solid&quot;
-});</p>
+  name: "Solid"
+});
+</script>
 
   </main>
 </body>
