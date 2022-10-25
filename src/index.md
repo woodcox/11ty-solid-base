@@ -1,6 +1,6 @@
 ---
 layout: base.html
-title: Hello World
+title: 11ty-solid-base
 ---
 
 ## Solid JS Counter
@@ -19,7 +19,7 @@ On mobile, turn the phone to landscape to start the counter.
 <p id="test"></p>
     
 {% solid %}  
-import { render } from 'solid-js/web';
+import { render } from '/assets/app/app.min.js';
 
 function HelloWorld() {
   return <div>Hello World!</div>;
