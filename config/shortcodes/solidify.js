@@ -18,6 +18,6 @@ module.exports = async (code) => {
     const writeJsToFile = await fsPromise.appendFile(solidifyJsx, 'utf8');
     return isProd ? '${writeJsToFile}' : '`<script type="module">${solidifyJsx}</script>`';
   } catch(err) {
-    cosole.log(isProd ? '${writeJsToFile}' : '${solidifyJsx}', err);
+    console.log(isProd ? '${writeJsToFile}' : '${solidifyJsx}', err);
   }
 };
