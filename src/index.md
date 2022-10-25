@@ -16,9 +16,7 @@ On mobile, turn the phone to landscape to start the counter.
   </template>
 </is-land>
 
-<div id="test"> 
-  <HelloWorld >  
-</div>
+<p id="test"></p>
     
 {% solid %}  
 import { render } from 'solid-js/web';
