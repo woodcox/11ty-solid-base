@@ -19,6 +19,7 @@ To test if the island partial hydration is working; on a mobile phone, turn the 
 
 ## The shortcode
 <p id="shorty"></p>
+
 {% solid %}  
 import { render } from '../node_modules/solid-js/web';
 
