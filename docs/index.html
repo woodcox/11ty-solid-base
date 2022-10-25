@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World</title>
-  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666674791941" />
+  <title>11ty-solid-base</title>
+  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666680534009" />
   <script type="module" defer src="/11ty-solid-base/assets/js/is-land.min.js"></script>
 </head>
 <body>
   <header>
-    <h1>Hello World</h1>
+    <h1>11ty-solid-base</h1>
   </header>
   <main>
   <h2>Solid JS Counter</h2>
@@ -20,14 +20,14 @@
   </vanilla-web-component>
   <template data-island="replace">
     <div id="app"><div>
-    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666674791941"></script>
+    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666680534009"></script>
   </template>
 </is-land>
 <p id="test"></p>
 <script type="module">import { template as _$template } from "solid-js/web";
 import { createComponent as _$createComponent } from "solid-js/web";
 const _tmpl$ = /* @__PURE__ */ _$template(`<div>Hello World!</div>`, 2);
-import { render } from "solid-js/web";
+import { render } from "/assets/app/app.min.js";
 function HelloWorld() {
   return _tmpl$.cloneNode(true);
 }
