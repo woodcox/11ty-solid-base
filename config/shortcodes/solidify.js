@@ -10,8 +10,8 @@ module.exports = async (code) => {
     outfile: './docs/out.js',
     bundle: true,
     plugins: [solidPlugin()],
-    // minify: isProd,
-    // target: isProd ? 'es6' : 'esnext'
+    minify: isProd,
+    target: isProd ? 'es6' : 'esnext'
   })
   const solidifyJsx = await fsPromises.readFile('./docs/out.js', 'utf8');
   return `<script type="module">${solidifyJsx}</script>`;
