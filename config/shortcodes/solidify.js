@@ -13,6 +13,10 @@ module.exports = async (code) => {
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
   })
-  const solidifyJsx = await fsPromises.readFile('./docs/out.js', 'utf8');
+  try {
+    const solidifyJsx = await fsPromises.readFile('./docs/out.js', 'utf8');
+  } catch(err) {
+    cosole.log('${solidifyJsx}', err);
+  }
   return `<script type="module">${solidifyJsx}</script>`;
 };
