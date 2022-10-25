@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>11ty-solid-base</title>
-  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666714918171" />
+  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666722027133" />
   <script type="module" defer src="/11ty-solid-base/assets/js/is-land.min.js"></script>
 </head>
 <body>
@@ -20,7 +20,7 @@
   </counter-component>
   <template data-island="replace">
     <div id="app"><div>
-    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666714918171"></script>
+    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666722027133"></script>
   </template>
 </is-land>
 <h2>The shortcode</h2>
@@ -614,237 +614,239 @@
     return untrack(() => Comp(props || {}));
   }
   var SuspenseListContext = createContext();
-<p>// node_modules/solid-js/web/dist/web.js
-var booleans = [&quot;allowfullscreen&quot;, &quot;async&quot;, &quot;autofocus&quot;, &quot;autoplay&quot;, &quot;checked&quot;, &quot;controls&quot;, &quot;default&quot;, &quot;disabled&quot;, &quot;formnovalidate&quot;, &quot;hidden&quot;, &quot;indeterminate&quot;, &quot;ismap&quot;, &quot;loop&quot;, &quot;multiple&quot;, &quot;muted&quot;, &quot;nomodule&quot;, &quot;novalidate&quot;, &quot;open&quot;, &quot;playsinline&quot;, &quot;readonly&quot;, &quot;required&quot;, &quot;reversed&quot;, &quot;seamless&quot;, &quot;selected&quot;];
-var Properties = /* @<strong>PURE</strong> <em>/ new Set([&quot;className&quot;, &quot;value&quot;, &quot;readOnly&quot;, &quot;formNoValidate&quot;, &quot;isMap&quot;, &quot;noModule&quot;, &quot;playsInline&quot;, ...booleans]);
-function reconcileArrays(parentNode, a, b) {
-let bLength = b.length, aEnd = a.length, bEnd = bLength, aStart = 0, bStart = 0, after = a[aEnd - 1].nextSibling, map = null;
-while (aStart &lt; aEnd || bStart &lt; bEnd) {
-if (a[aStart] === b[bStart]) {
-aStart++;
-bStart++;
-continue;
-}
-while (a[aEnd - 1] === b[bEnd - 1]) {
-aEnd--;
-bEnd--;
-}
-if (aEnd === aStart) {
-const node = bEnd &lt; bLength ? bStart ? b[bStart - 1].nextSibling : b[bEnd - bStart] : after;
-while (bStart &lt; bEnd)
-parentNode.insertBefore(b[bStart++], node);
-} else if (bEnd === bStart) {
-while (aStart &lt; aEnd) {
-if (!map || !map.has(a[aStart]))
-a[aStart].remove();
-aStart++;
-}
-} else if (a[aStart] === b[bEnd - 1] &amp;&amp; b[bStart] === a[aEnd - 1]) {
-const node = a[--aEnd].nextSibling;
-parentNode.insertBefore(b[bStart++], a[aStart++].nextSibling);
-parentNode.insertBefore(b[--bEnd], node);
-a[aEnd] = b[bEnd];
-} else {
-if (!map) {
-map = /</em> @<strong>PURE</strong> */ new Map();
-let i = bStart;
-while (i &lt; bEnd)
-map.set(b[i], i++);
-}
-const index = map.get(a[aStart]);
-if (index != null) {
-if (bStart &lt; index &amp;&amp; index &lt; bEnd) {
-let i = aStart, sequence = 1, t;
-while (++i &lt; aEnd &amp;&amp; i &lt; bEnd) {
-if ((t = map.get(a[i])) == null || t !== index + sequence)
-break;
-sequence++;
-}
-if (sequence &gt; index - bStart) {
-const node = a[aStart];
-while (bStart &lt; index)
-parentNode.insertBefore(b[bStart++], node);
-} else
-parentNode.replaceChild(b[bStart++], a[aStart++]);
-} else
-aStart++;
-} else
-a[aStart++].remove();
-}
-}
-}
-function render(code, element, init, options = {}) {
-let disposer;
-createRoot((dispose) =&gt; {
-disposer = dispose;
-element === document ? code() : insert(element, code(), element.firstChild ? null : void 0, init);
-}, options.owner);
-return () =&gt; {
-disposer();
-element.textContent = &quot;&quot;;
-};
-}
-function template(html, check, isSVG) {
-const t = document.createElement(&quot;template&quot;);
-t.innerHTML = html;
-let node = t.content.firstChild;
-if (isSVG)
-node = node.firstChild;
-return node;
-}
-function insert(parent, accessor, marker, initial) {
-if (marker !== void 0 &amp;&amp; !initial)
-initial = [];
-if (typeof accessor !== &quot;function&quot;)
-return insertExpression(parent, accessor, initial, marker);
-createRenderEffect((current) =&gt; insertExpression(parent, accessor(), current, marker), initial);
-}
-function insertExpression(parent, value, current, marker, unwrapArray) {
-if (sharedConfig.context &amp;&amp; !current)
-current = [...parent.childNodes];
-while (typeof current === &quot;function&quot;)
-current = current();
-if (value === current)
-return current;
-const t = typeof value, multi = marker !== void 0;
-parent = multi &amp;&amp; current[0] &amp;&amp; current[0].parentNode || parent;
-if (t === &quot;string&quot; || t === &quot;number&quot;) {
-if (sharedConfig.context)
-return current;
-if (t === &quot;number&quot;)
-value = value.toString();
-if (multi) {
-let node = current[0];
-if (node &amp;&amp; node.nodeType === 3) {
-node.data = value;
-} else
-node = document.createTextNode(value);
-current = cleanChildren(parent, current, marker, node);
-} else {
-if (current !== &quot;&quot; &amp;&amp; typeof current === &quot;string&quot;) {
-current = parent.firstChild.data = value;
-} else
-current = parent.textContent = value;
-}
-} else if (value == null || t === &quot;boolean&quot;) {
-if (sharedConfig.context)
-return current;
-current = cleanChildren(parent, current, marker);
-} else if (t === &quot;function&quot;) {
-createRenderEffect(() =&gt; {
-let v = value();
-while (typeof v === &quot;function&quot;)
-v = v();
-current = insertExpression(parent, v, current, marker);
-});
-return () =&gt; current;
-} else if (Array.isArray(value)) {
-const array = [];
-const currentArray = current &amp;&amp; Array.isArray(current);
-if (normalizeIncomingArray(array, value, current, unwrapArray)) {
-createRenderEffect(() =&gt; current = insertExpression(parent, array, current, marker, true));
-return () =&gt; current;
-}
-if (sharedConfig.context) {
-if (!array.length)
-return current;
-for (let i = 0; i &lt; array.length; i++) {
-if (array[i].parentNode)
-return current = array;
-}
-}
-if (array.length === 0) {
-current = cleanChildren(parent, current, marker);
-if (multi)
-return current;
-} else if (currentArray) {
-if (current.length === 0) {
-appendNodes(parent, array, marker);
-} else
-reconcileArrays(parent, current, array);
-} else {
-current &amp;&amp; cleanChildren(parent);
-appendNodes(parent, array);
-}
-current = array;
-} else if (value instanceof Node) {
-if (sharedConfig.context &amp;&amp; value.parentNode)
-return current = multi ? [value] : value;
-if (Array.isArray(current)) {
-if (multi)
-return current = cleanChildren(parent, current, marker, value);
-cleanChildren(parent, current, null, value);
-} else if (current == null || current === &quot;&quot; || !parent.firstChild) {
-parent.appendChild(value);
-} else
-parent.replaceChild(value, parent.firstChild);
-current = value;
-} else
-;
-return current;
-}
-function normalizeIncomingArray(normalized, array, current, unwrap) {
-let dynamic = false;
-for (let i = 0, len = array.length; i &lt; len; i++) {
-let item = array[i], prev = current &amp;&amp; current[i];
-if (item instanceof Node) {
-normalized.push(item);
-} else if (item == null || item === true || item === false)
-;
-else if (Array.isArray(item)) {
-dynamic = normalizeIncomingArray(normalized, item, prev) || dynamic;
-} else if (typeof item === &quot;function&quot;) {
-if (unwrap) {
-while (typeof item === &quot;function&quot;)
-item = item();
-dynamic = normalizeIncomingArray(normalized, Array.isArray(item) ? item : [item], Array.isArray(prev) ? prev : [prev]) || dynamic;
-} else {
-normalized.push(item);
-dynamic = true;
-}
-} else {
-const value = String(item);
-if (prev &amp;&amp; prev.nodeType === 3 &amp;&amp; prev.data === value) {
-normalized.push(prev);
-} else
-normalized.push(document.createTextNode(value));
-}
-}
-return dynamic;
-}
-function appendNodes(parent, array, marker = null) {
-for (let i = 0, len = array.length; i &lt; len; i++)
-parent.insertBefore(array[i], marker);
-}
-function cleanChildren(parent, current, marker, replacement) {
-if (marker === void 0)
-return parent.textContent = &quot;&quot;;
-const node = replacement || document.createTextNode(&quot;&quot;);
-if (current.length) {
-let inserted = false;
-for (let i = current.length - 1; i &gt;= 0; i--) {
-const el = current[i];
-if (node !== el) {
-const isParent = el.parentNode === parent;
-if (!inserted &amp;&amp; !i)
-isParent ? parent.replaceChild(node, el) : parent.insertBefore(node, marker);
-else
-isParent &amp;&amp; el.remove();
-} else
-inserted = true;
-}
-} else
-parent.insertBefore(node, marker);
-return [node];
-}</p>
-<p>// src/in.jsx
-var _tmpl$ = /* @<strong>PURE</strong> */ template(<code>&lt;div&gt;The solidify shortcode is active!&lt;/div&gt;</code>, 2);
-function Solidify() {
-return _tmpl$.cloneNode(true);
-}
-render(() =&gt; createComponent(Solidify, {}), document.getElementById(&quot;shorty&quot;));
+
+  // node_modules/solid-js/web/dist/web.js
+  var booleans = ["allowfullscreen", "async", "autofocus", "autoplay", "checked", "controls", "default", "disabled", "formnovalidate", "hidden", "indeterminate", "ismap", "loop", "multiple", "muted", "nomodule", "novalidate", "open", "playsinline", "readonly", "required", "reversed", "seamless", "selected"];
+  var Properties = /* @__PURE__ */ new Set(["className", "value", "readOnly", "formNoValidate", "isMap", "noModule", "playsInline", ...booleans]);
+  function reconcileArrays(parentNode, a, b) {
+    let bLength = b.length, aEnd = a.length, bEnd = bLength, aStart = 0, bStart = 0, after = a[aEnd - 1].nextSibling, map = null;
+    while (aStart < aEnd || bStart < bEnd) {
+      if (a[aStart] === b[bStart]) {
+        aStart++;
+        bStart++;
+        continue;
+      }
+      while (a[aEnd - 1] === b[bEnd - 1]) {
+        aEnd--;
+        bEnd--;
+      }
+      if (aEnd === aStart) {
+        const node = bEnd < bLength ? bStart ? b[bStart - 1].nextSibling : b[bEnd - bStart] : after;
+        while (bStart < bEnd)
+          parentNode.insertBefore(b[bStart++], node);
+      } else if (bEnd === bStart) {
+        while (aStart < aEnd) {
+          if (!map || !map.has(a[aStart]))
+            a[aStart].remove();
+          aStart++;
+        }
+      } else if (a[aStart] === b[bEnd - 1] && b[bStart] === a[aEnd - 1]) {
+        const node = a[--aEnd].nextSibling;
+        parentNode.insertBefore(b[bStart++], a[aStart++].nextSibling);
+        parentNode.insertBefore(b[--bEnd], node);
+        a[aEnd] = b[bEnd];
+      } else {
+        if (!map) {
+          map = /* @__PURE__ */ new Map();
+          let i = bStart;
+          while (i < bEnd)
+            map.set(b[i], i++);
+        }
+        const index = map.get(a[aStart]);
+        if (index != null) {
+          if (bStart < index && index < bEnd) {
+            let i = aStart, sequence = 1, t;
+            while (++i < aEnd && i < bEnd) {
+              if ((t = map.get(a[i])) == null || t !== index + sequence)
+                break;
+              sequence++;
+            }
+            if (sequence > index - bStart) {
+              const node = a[aStart];
+              while (bStart < index)
+                parentNode.insertBefore(b[bStart++], node);
+            } else
+              parentNode.replaceChild(b[bStart++], a[aStart++]);
+          } else
+            aStart++;
+        } else
+          a[aStart++].remove();
+      }
+    }
+  }
+  function render(code, element, init, options = {}) {
+    let disposer;
+    createRoot((dispose) => {
+      disposer = dispose;
+      element === document ? code() : insert(element, code(), element.firstChild ? null : void 0, init);
+    }, options.owner);
+    return () => {
+      disposer();
+      element.textContent = "";
+    };
+  }
+  function template(html, check, isSVG) {
+    const t = document.createElement("template");
+    t.innerHTML = html;
+    let node = t.content.firstChild;
+    if (isSVG)
+      node = node.firstChild;
+    return node;
+  }
+  function insert(parent, accessor, marker, initial) {
+    if (marker !== void 0 && !initial)
+      initial = [];
+    if (typeof accessor !== "function")
+      return insertExpression(parent, accessor, initial, marker);
+    createRenderEffect((current) => insertExpression(parent, accessor(), current, marker), initial);
+  }
+  function insertExpression(parent, value, current, marker, unwrapArray) {
+    if (sharedConfig.context && !current)
+      current = [...parent.childNodes];
+    while (typeof current === "function")
+      current = current();
+    if (value === current)
+      return current;
+    const t = typeof value, multi = marker !== void 0;
+    parent = multi && current[0] && current[0].parentNode || parent;
+    if (t === "string" || t === "number") {
+      if (sharedConfig.context)
+        return current;
+      if (t === "number")
+        value = value.toString();
+      if (multi) {
+        let node = current[0];
+        if (node && node.nodeType === 3) {
+          node.data = value;
+        } else
+          node = document.createTextNode(value);
+        current = cleanChildren(parent, current, marker, node);
+      } else {
+        if (current !== "" && typeof current === "string") {
+          current = parent.firstChild.data = value;
+        } else
+          current = parent.textContent = value;
+      }
+    } else if (value == null || t === "boolean") {
+      if (sharedConfig.context)
+        return current;
+      current = cleanChildren(parent, current, marker);
+    } else if (t === "function") {
+      createRenderEffect(() => {
+        let v = value();
+        while (typeof v === "function")
+          v = v();
+        current = insertExpression(parent, v, current, marker);
+      });
+      return () => current;
+    } else if (Array.isArray(value)) {
+      const array = [];
+      const currentArray = current && Array.isArray(current);
+      if (normalizeIncomingArray(array, value, current, unwrapArray)) {
+        createRenderEffect(() => current = insertExpression(parent, array, current, marker, true));
+        return () => current;
+      }
+      if (sharedConfig.context) {
+        if (!array.length)
+          return current;
+        for (let i = 0; i < array.length; i++) {
+          if (array[i].parentNode)
+            return current = array;
+        }
+      }
+      if (array.length === 0) {
+        current = cleanChildren(parent, current, marker);
+        if (multi)
+          return current;
+      } else if (currentArray) {
+        if (current.length === 0) {
+          appendNodes(parent, array, marker);
+        } else
+          reconcileArrays(parent, current, array);
+      } else {
+        current && cleanChildren(parent);
+        appendNodes(parent, array);
+      }
+      current = array;
+    } else if (value instanceof Node) {
+      if (sharedConfig.context && value.parentNode)
+        return current = multi ? [value] : value;
+      if (Array.isArray(current)) {
+        if (multi)
+          return current = cleanChildren(parent, current, marker, value);
+        cleanChildren(parent, current, null, value);
+      } else if (current == null || current === "" || !parent.firstChild) {
+        parent.appendChild(value);
+      } else
+        parent.replaceChild(value, parent.firstChild);
+      current = value;
+    } else
+      ;
+    return current;
+  }
+  function normalizeIncomingArray(normalized, array, current, unwrap) {
+    let dynamic = false;
+    for (let i = 0, len = array.length; i < len; i++) {
+      let item = array[i], prev = current && current[i];
+      if (item instanceof Node) {
+        normalized.push(item);
+      } else if (item == null || item === true || item === false)
+        ;
+      else if (Array.isArray(item)) {
+        dynamic = normalizeIncomingArray(normalized, item, prev) || dynamic;
+      } else if (typeof item === "function") {
+        if (unwrap) {
+          while (typeof item === "function")
+            item = item();
+          dynamic = normalizeIncomingArray(normalized, Array.isArray(item) ? item : [item], Array.isArray(prev) ? prev : [prev]) || dynamic;
+        } else {
+          normalized.push(item);
+          dynamic = true;
+        }
+      } else {
+        const value = String(item);
+        if (prev && prev.nodeType === 3 && prev.data === value) {
+          normalized.push(prev);
+        } else
+          normalized.push(document.createTextNode(value));
+      }
+    }
+    return dynamic;
+  }
+  function appendNodes(parent, array, marker = null) {
+    for (let i = 0, len = array.length; i < len; i++)
+      parent.insertBefore(array[i], marker);
+  }
+  function cleanChildren(parent, current, marker, replacement) {
+    if (marker === void 0)
+      return parent.textContent = "";
+    const node = replacement || document.createTextNode("");
+    if (current.length) {
+      let inserted = false;
+      for (let i = current.length - 1; i >= 0; i--) {
+        const el = current[i];
+        if (node !== el) {
+          const isParent = el.parentNode === parent;
+          if (!inserted && !i)
+            isParent ? parent.replaceChild(node, el) : parent.insertBefore(node, marker);
+          else
+            isParent && el.remove();
+        } else
+          inserted = true;
+      }
+    } else
+      parent.insertBefore(node, marker);
+    return [node];
+  }
+
+  // src/in.jsx
+  var _tmpl$ = /* @__PURE__ */ template(`<div>The solidify shortcode is active!</div>`, 2);
+  function Solidify() {
+    return _tmpl$.cloneNode(true);
+  }
+  render(() => createComponent(Solidify, {}), document.getElementById("shorty"));
 })();
-</script></p>
+</script>
 
   </main>
 </body>
