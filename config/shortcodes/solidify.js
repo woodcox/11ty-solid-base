@@ -17,6 +17,6 @@ module.exports = async (code) => {
     const solidifyJsx = await fsPromises.readFile('./docs/out.js', 'utf8');
     return `<script type="module">${solidifyJsx}</script>`;
   } catch(err) {
-    console.log(solidifyJsx, err);
+    console.log(' + solidifyJsx + ', err);
   }
 };
