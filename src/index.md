@@ -3,28 +3,28 @@ layout: base.html
 title: 11ty-solid-base
 ---
 
-## Solid JS Counter
-On mobile, turn the phone to landscape to start the counter.
+## The Counter
+To test if the island partial hydration is working; on a mobile phone, turn the phone to landscape view. This should swap the html for javascript to start the counter.
 
 <is-land on:media="(min-width: 30em)">
-  <vanilla-web-component>
+  <counter-component>
     <div>Count value is 0</div>
-  </vanilla-web-component>
+  </counter-component>
   <template data-island="replace">
     <div id="app"><div>
     <script src="{{ '/assets/app/app.min.js' | url | version }}"></script>
   </template>
 </is-land>
 
-<p id="test"></p>
-    
+
+## The shortcode
+<p id="shorty"></p>
 {% solid %}  
 import { render } from '../node_modules/solid-js/web';
 
-function HelloWorld() {
-  return <div>Hello World!</div>;
+function Solidify() {
+  return <div>The solidify shortcode is active!</div>;
 }
 
-render(() => <HelloWorld />, document.getElementById('test'))
-
+render(() => <Solidify />, document.getElementById('shorty'))
 {% endsolid %}
