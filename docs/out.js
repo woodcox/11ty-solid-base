@@ -1,30 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11ty-solid-base</title>
-  <link rel="stylesheet" href="/11ty-solid-base/assets/css/style.css?v=1666699475125" />
-  <script type="module" defer src="/11ty-solid-base/assets/js/is-land.min.js"></script>
-</head>
-<body>
-  <header>
-    <h1>11ty-solid-base</h1>
-  </header>
-  <main>
-  <h2>Solid JS Counter</h2>
-<p>On mobile, turn the phone to landscape to start the counter.</p>
-<is-land on:media="(min-width: 30em)">
-  <vanilla-web-component>
-    <div>Count value is 0</div>
-  </vanilla-web-component>
-  <template data-island="replace">
-    <div id="app"><div>
-    <script src="/11ty-solid-base/assets/app/app.min.js?v=1666699475125"></script>
-  </template>
-</is-land>
-<p id="test"></p>
-<script type="module">(() => {
+(() => {
   // node_modules/solid-js/dist/solid.js
   var sharedConfig = {};
   function setHydrateContext(context) {
@@ -845,8 +819,3 @@
   }
   render(() => createComponent(HelloWorld, {}), document.getElementById("test"));
 })();
-</script>
-
-  </main>
-</body>
-</html>
