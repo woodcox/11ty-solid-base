@@ -813,9 +813,9 @@
   }
 
   // src/in.jsx
-  var _tmpl$ = /* @__PURE__ */ template(`<div>Hello World!</div>`, 2);
-  function HelloWorld() {
+  var _tmpl$ = /* @__PURE__ */ template(`<div>The solidify shortcode is active!</div>`, 2);
+  function Solidify() {
     return _tmpl$.cloneNode(true);
   }
-  render(() => createComponent(HelloWorld, {}), document.getElementById("test"));
+  render(() => createComponent(Solidify, {}), document.getElementById("shorty"));
 })();
