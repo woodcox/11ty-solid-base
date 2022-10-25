@@ -34,5 +34,6 @@ To test if the island partial hydration is working; on a mobile phone, turn the 
 
     render(() => <Solidify />, document.getElementById('shorty'))
     {% endsolid %}
+    
   </template>
 </is-land>
