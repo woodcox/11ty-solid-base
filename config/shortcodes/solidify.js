@@ -8,7 +8,7 @@ module.exports = async (code) => {
   await esbuild.build({ 
     entryPoints: ['in.jsx'],
     outfile: 'out.js',
-    // bundle: true,
+    bundle: true,
     plugins: [solidPlugin()],
     // minify: isProd,
     // target: isProd ? 'es6' : 'esnext'
