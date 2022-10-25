@@ -15,7 +15,7 @@ module.exports = async (code) => {
   })
   try {
     const solidifyJsx = await fsPromises.readFile('./docs/out.js', 'utf8');
-    return isProd ? 'await fsPromise.appendFile(${solidifyJsx}', 'utf8');' : '`<script type="module">${solidifyJsx}</script>`';
+    return isProd ? 'await fsPromise.appendFile(${solidifyJsx}, 'utf8');' : '`<script type="module">${solidifyJsx}</script>`';
   } catch(err) {
     console.log('${solidifyJsx}', err);
   }
