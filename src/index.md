@@ -37,3 +37,5 @@ render(() => <Solidify />, document.getElementById('shorty'))
     
   </template>
 </is-land>
+
+## The Web component (webC)
