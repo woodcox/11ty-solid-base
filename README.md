@@ -6,8 +6,6 @@ Includes [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/), [
 
 ## Shortcode
 
-## Development Scripts
-
 ~~~liquid
 {% solid %}
   your.solid.jsx.code
