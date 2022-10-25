@@ -19,7 +19,7 @@ On mobile, turn the phone to landscape to start the counter.
 <p id="test"></p>
     
 {% solid %}  
-import { render } from 'solid-js/web"';
+import { render } from ''../node_modules/solid-js/solid-js/web"';
 
 function HelloWorld() {
   return <div>Hello World!</div>;
