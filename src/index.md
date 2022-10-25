@@ -25,15 +25,15 @@ To test if the island partial hydration is working; on a mobile phone, turn the 
   <template data-island="replace">
     <p id="shorty"></p>
 
-    {% solid %}  
-    import { render } from '../node_modules/solid-js/web';
+{% solid %}  
+import { render } from '../node_modules/solid-js/web';
 
-    function Solidify() {
-      return <div>The solidify shortcode is active!</div>;
-    }
+function Solidify() {
+  return <div>The solidify shortcode is active!</div>;
+}
 
-    render(() => <Solidify />, document.getElementById('shorty'))
-    {% endsolid %}
+render(() => <Solidify />, document.getElementById('shorty'))
+{% endsolid %}
     
   </template>
 </is-land>
