@@ -18,14 +18,21 @@ To test if the island partial hydration is working; on a mobile phone, turn the 
 
 
 ## The shortcode
-<p id="shorty"></p>
+<is-land on:media="(min-width: 30em)">
+  <shortcode-component>
+    <p>The solidify shortcode is inactive :)</p>
+  </shortcode-component>
+  <template data-island="replace">
+    <p id="shorty"></p>
 
-{% solid %}  
-import { render } from '../node_modules/solid-js/web';
+    {% solid %}  
+    import { render } from '../node_modules/solid-js/web';
 
-function Solidify() {
-  return <div>The solidify shortcode is active!</div>;
-}
+    function Solidify() {
+      return <div>The solidify shortcode is active!</div>;
+    }
 
-render(() => <Solidify />, document.getElementById('shorty'))
-{% endsolid %}
+    render(() => <Solidify />, document.getElementById('shorty'))
+    {% endsolid %}
+  </template>
+</is-land>
