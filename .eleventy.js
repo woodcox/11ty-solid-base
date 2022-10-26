@@ -6,9 +6,11 @@ const solidShortcode = require('./config/shortcodes/solidify.js');
 const TEMPLATE_ENGINE = "liquid";
 
 module.exports = function (eleventyConfig) {
-  // PLUGIN WebC 
-  eleventyConfig.addPlugin(pluginWebc);
-  
+  // PLUGIN WebC
+  eleventyConfig.addPlugin(pluginWebc, {
+    components: "src/_includes/components/**/*.webc",
+  });
+
   // WATCH the scss files
   eleventyConfig.addWatchTarget("./src/sass/");
   eleventyConfig.addPassthroughCopy({ './_tmp': './assets/css' });
