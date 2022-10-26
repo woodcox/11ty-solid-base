@@ -1,6 +1,6 @@
 # 11ty Solid Base
 
-A base HTML5 template and the esbuild setup to compile your Solid-js app alongside 11ty.
+A minimal base HTML5 template and the esbuild setup to compile your Solid-js app alongside 11ty.
 
 Includes [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/), [WebC](https://www.11ty.dev/docs/languages/webc/), [esBuild](https://esbuild.github.io), minifiying and autoprefixing of styles `postbuild` using [Lightning CSS](https://lightningcss.dev/). If you have different preferred browser targets, be sure to modify both the package `browserslist` and the value of `--target` within the `postbuild` script.
 
@@ -15,6 +15,7 @@ If you need to compile your js script inline, use this shortcode:
   your.solid.jsx.code
 {% endsolid %}
 ~~~
+To configure esbuild for the shortcode, modify `config/shortcode/solidify.js`
 
 ## Development Scripts
 
