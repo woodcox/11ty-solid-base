@@ -1,16 +1,16 @@
 :root {
-  --nc-font-sans: 'Fira Code', monospace;
-  --nc-font-mono: 'Fira Code', monospace;
-  --nc-tx-1: #FFFFFF;
-  --nc-tx-2: #EEEEEE;
-  --nc-bg-1: #000000;
-  --nc-bg-2: #002700;
-  --nc-bg-3: #005800;
-  --nc-lk-1: #00FF00;
-  --nc-lk-2: #00c200;
-  --nc-lk-tx: #000000;
-  --nc-ac-1: #00FF00;
-  --nc-ac-tx: #000000;
+  --font-sans: 'Fira Code', monospace;
+  --font-mono: 'Fira Code', monospace;
+  --tx-1: #FFFFFF;
+  --tx-2: #EEEEEE;
+  --bg-1: #000000;
+  --bg-2: #002700;
+  --bg-3: #005800;
+  --lk-1: #00FF00;
+  --lk-2: #00c200;
+  --lk-tx: #000000;
+  --ac-1: #00FF00;
+  --ac-tx: #000000;
 }
 
 * {
@@ -21,7 +21,7 @@
 
 html,input,select,button {
   /* Set body font family and some finicky elements */
-  font-family: var(--nc-font-sans);
+  font-family: var(--font-sans);
 }
 
 body {
@@ -33,10 +33,10 @@ body {
   overflow-x: hidden;
   word-break: break-word;
   overflow-wrap: break-word;
-  background: var(--nc-bg-1);
+  background: var(--bg-1);
 
   /* Main body text */
-  color: var(--nc-tx-2);
+  color: var(--tx-2);
   font-size: 1.03rem;
   line-height: 1.5;
 }
@@ -51,8 +51,8 @@ ul {
 }
 
 header {
-  background: var(--nc-bg-2);
-  border-bottom: 1px solid var(--nc-bg-3);
+  background: var(--bg-2);
+  border-bottom: 1px solid var(--bg-3);
   padding: 2rem 1.5rem;
 	
   /* This sets the right and left margins to cancel out the body's margins. It's width is still the same, but the background stretches across the page's width. */
@@ -79,15 +79,15 @@ header > *:last-child {
 
 h1,h2,h3,h4,h5,h6 {
 	line-height: 1;
-	color: var(--nc-tx-1);
+	color: var(--tx-1);
 	padding-top: .875rem;
 }
 
 h1,
 h2,
 h3 {
-  color: var(--nc-tx-1);
+  color: var(--tx-1);
   padding-bottom: 2px;
   margin-bottom: 8px;
-  border-bottom: 1px solid var(--nc-bg-2);
+  border-bottom: 1px solid var(--bg-2);
 }
