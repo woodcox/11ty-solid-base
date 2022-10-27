@@ -19,6 +19,26 @@
   padding: 0;
 }
 
+article,
+blockquote,
+datalist,
+details,
+dl,
+fieldset,
+figure,
+form,
+input,
+iframe,
+img,
+nav,
+ol,
+p,
+pre,
+ul {
+  /* Margins for elements */
+  margin-bottom: 1rem;
+}
+
 html, input, select, button {
   /* Set body font family and some finicky elements */
   font-family: var(--nc-font-sans);
