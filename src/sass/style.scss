@@ -20,57 +20,57 @@
 }
 
 html,input,select,button {
-	/* Set body font family and some finicky elements */
-	font-family: var(--nc-font-sans);
+  /* Set body font family and some finicky elements */
+  font-family: var(--nc-font-sans);
 }
 
 body {
-	/* Center body in page */
-	margin: 0 auto;
-	max-width: 750px;
-	padding: 2rem;
-	border-radius: 6px;
-	overflow-x: hidden;
-	word-break: break-word;
-	overflow-wrap: break-word;
-	background: var(--nc-bg-1);
+  /* Center body in page */
+  margin: 0 auto;
+  max-width: 750px;
+  padding: 2rem;
+  border-radius: 6px;
+  overflow-x: hidden;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  background: var(--nc-bg-1);
 
-	/* Main body text */
-	color: var(--nc-tx-2);
-	font-size: 1.03rem;
-	line-height: 1.5;
+  /* Main body text */
+  color: var(--nc-tx-2);
+  font-size: 1.03rem;
+  line-height: 1.5;
 }
 
 header {
-	background: var(--nc-bg-2);
-	border-bottom: 1px solid var(--nc-bg-3);
-	padding: 2rem 1.5rem;
+  background: var(--nc-bg-2);
+  border-bottom: 1px solid var(--nc-bg-3);
+  padding: 2rem 1.5rem;
 	
-	/* This sets the right and left margins to cancel out the body's margins. It's width is still the same, but the background stretches across the page's width. */
+  /* This sets the right and left margins to cancel out the body's margins. It's width is still the same, but the background stretches across the page's width. */
 
-	margin: -2rem calc(50% - 50vw) 2rem;
+  margin: -2rem calc(50% - 50vw) 2rem;
 
-	/* Shorthand for:
-	margin-top: -2rem;
-	margin-bottom: 2rem;
-	margin-left: calc(50% - 50vw);
-	margin-right: calc(50% - 50vw); */
+  /* Shorthand for:
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw); */
 
-	padding-left: calc(50vw - 50%);
-	padding-right: calc(50vw - 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
 }
 
 header h1,
 header h2 {
-	padding-bottom: 0;
-	border-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
 }
 
 header > *:first-child {
-	margin-top: 0;
-	padding-top: 0;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 header > *:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
