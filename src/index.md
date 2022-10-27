@@ -39,6 +39,7 @@ render(() => <Solidify />, document.getElementById('shorty'))
   </template>
 </is-land>
 
+
 ## The web component
 To do: 
  - look at 11ty docs & 11ty.rocks
