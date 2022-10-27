@@ -3,7 +3,7 @@ layout: base.html
 title: 11ty-solid-base
 ---
 
-## The Counter
+## The counter
 To test if the island partial hydration is working; on a mobile phone, turn the phone to landscape view. This should swap the html for javascript to start the counter.
 
 <is-land on:media="(min-width: 30em)">
@@ -38,4 +38,4 @@ render(() => <Solidify />, document.getElementById('shorty'))
   </template>
 </is-land>
 
-## The Web component (webC)
+## The web component
