@@ -8,10 +8,10 @@ To test if the island partial hydration is working; on a mobile phone, turn the 
 
 <is-land on:media="(min-width: 30em)">
   <counter-component>
-    <div>Count value is 0</div>
+    <p>Count value is 0</p>
   </counter-component>
   <template data-island="replace">
-    <div id="app"><div>
+    <p id="app"><p>
     <script src="{{ '/assets/app/app.min.js' | url | version }}"></script>
   </template>
 </is-land>
