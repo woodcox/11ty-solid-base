@@ -1,3 +1,18 @@
+
+	--nc-font-sans: 'Fira Code', monospace;
+	--nc-font-mono: 'Fira Code', monospace;
+	--nc-tx-1: #FFFFFF;
+	--nc-tx-2: #EEEEEE;
+	--nc-bg-1: #000000;
+	--nc-bg-2: #002700;
+	--nc-bg-3: #005800;
+	--nc-lk-1: #00FF00;
+    --nc-lk-2: #00c200;
+    --nc-lk-tx: #000000;
+    --nc-ac-1: #00FF00;
+    --nc-ac-tx: #000000;
+}
+
 * {
   /* Reset margins and padding */
   margin: 0;
@@ -24,15 +39,6 @@ body {
 	color: var(--nc-tx-2);
 	font-size: 1.03rem;
 	line-height: 1.5;
-}
-
-body {
-  background-color: #f9f9f9;
-  color: blue;
-
-  p {
-    font-size: 16px;
-  }
 }
 
 header {
