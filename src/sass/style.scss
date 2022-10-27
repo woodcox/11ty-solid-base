@@ -76,3 +76,18 @@ header > *:first-child {
 header > *:last-child {
   margin-bottom: 0;
 }
+
+h1,h2,h3,h4,h5,h6 {
+	line-height: 1;
+	color: var(--nc-tx-1);
+	padding-top: .875rem;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--nc-tx-1);
+  padding-bottom: 2px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid var(--nc-bg-2);
+}
