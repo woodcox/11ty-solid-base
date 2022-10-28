@@ -4,13 +4,13 @@ const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
 const { solidPlugin } = require('esbuild-plugin-solid');
 const fsPromises = require('fs').promises;
 
-module.exports = async (code, filename, inline) => {
-  await fsPromises.writeFile('in-.jsx', code),
+module.exports = async (code, filename, bundled, inline) => {
+  await fsPromises.writeFile('in-' + filename + '.jsx', code),
   await esbuild.build({
     entryPoints: glob.sync(['in-*.jsx']),
     entryNames: '[name]',
     outdir: './docs',
-    bundle: true,
+    bundle: bundled,
     plugins: [solidPlugin()],
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
