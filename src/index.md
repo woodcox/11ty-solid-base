@@ -28,7 +28,7 @@ The shortcode adds the js inline, which is not ideal. Going forward I will look 
     <p id="shorty"></p>
 
 {% solid "shorty", "bundled" %}  
-import { render } from '../node_modules/solid-js/web';
+import { render } from './node_modules/solid-js/web';
 
 function Solidify() {
   return <div>The solidify shortcode is active!</div>;
