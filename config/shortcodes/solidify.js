@@ -6,7 +6,7 @@ const fsPromises = require('fs').promises;
 module.exports = async (code, filename, inline) => {
   await fsPromises.writeFile('src/in.jsx', code),
   await esbuild.build({ 
-    entryPoints: ['jsx-' + ${filename} + '.jsx'],
+    entryPoints: ['jsx-' + filename + '.jsx'],
     outdir: './docs',
     bundle: true,
     plugins: [solidPlugin()],
