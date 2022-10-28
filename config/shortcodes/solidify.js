@@ -5,9 +5,9 @@ const { solidPlugin } = require('esbuild-plugin-solid');
 const fsPromises = require('fs').promises;
 
 module.exports = async (code, filename, bundled, inline) => {
-  await fsPromises.writeFile('in-' + filename + '.jsx', code),
+  await fsPromises.writeFile('solid-' + filename + '.jsx', code),
   await esbuild.build({
-    entryPoints: glob.sync(['in-*.jsx']),
+    entryPoints: glob.sync(['solid-*.jsx']),
     entryNames: '[name]',
     outdir: './docs',
     bundle: true,
@@ -16,7 +16,7 @@ module.exports = async (code, filename, bundled, inline) => {
     target: isProd ? 'es6' : 'esnext'
   })
   try {
-    const solidifyJsx = await fsPromises.readFile('./docs/jsx-' + filename + '.js', 'utf8');
+    const solidifyJsx = await fsPromises.readFile('./docs/solid-' + filename + '.js', 'utf8');
     return `<script type="module">${solidifyJsx}</script>`;
   } catch(err) {
     console.log('Solidify Jsx Shortcode', err);
