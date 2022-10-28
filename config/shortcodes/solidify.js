@@ -10,13 +10,13 @@ module.exports = async (code, filename, bundled, inline) => {
     entryPoints: glob.sync(['in-*.jsx']),
     entryNames: '[name]',
     outdir: './docs',
-    bundle: bundled ? true : false,
+    bundle: true,
     plugins: [solidPlugin()],
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
   })
   try {
-    const solidifyJsx = await fsPromises.readFile('./docs/jsx-filename.js', 'utf8');
+    const solidifyJsx = await fsPromises.readFile('./docs/jsx-' + filename + '.js', 'utf8');
     return `<script type="module">${solidifyJsx}</script>`;
   } catch(err) {
     console.log('Solidify Jsx Shortcode', err);
