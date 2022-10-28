@@ -10,7 +10,7 @@ module.exports = async (code, filename, bundled, inline) => {
     entryPoints: glob.sync(['in-*.jsx']),
     entryNames: '[name]',
     outdir: './docs',
-    bundle: bundled,
+    bundle: bundled ? true : false,
     plugins: [solidPlugin()],
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
