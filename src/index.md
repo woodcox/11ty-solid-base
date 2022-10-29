@@ -44,3 +44,5 @@ render(() => <Solidify />, document.getElementById('shorty'))
 ## The web component
 To do: 
  - look at 11ty docs & 11ty.rocks
+
+{% data.esmeta %}
