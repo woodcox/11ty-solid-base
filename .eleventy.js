@@ -2,7 +2,7 @@ const sass = require("sass");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
-const esbuildPipline = require('./config/build/esbuild.js');
+const esbuildPipeline = require('./config/build/esbuild.js');
 
 const TEMPLATE_ENGINE = "liquid";
 
@@ -47,7 +47,7 @@ module.exports = function (eleventyConfig) {
       output: "docs",
       data: "_data",
     },
-    templateFormats: ["html", "md", "11ty.js", TEMPLATE_ENGINE],
+    templateFormats: ["html", "md", TEMPLATE_ENGINE],
     markdownTemplateEngine: TEMPLATE_ENGINE,
     htmlTemplateEngine: TEMPLATE_ENGINE,
   };
