@@ -25,7 +25,7 @@ module.exports = class {
       target: isProd ? 'es6' : 'esnext',
       metafile: true,
     }).catch(() => process.exit(1));
-    const result = await build(config);
+    const result = await esbuild.build(config);
     await fsPromises.writeFile('.src/_data/esbuildmeta.json',
     JSON.stringify(result.metafile));
   }
