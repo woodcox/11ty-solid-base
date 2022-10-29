@@ -6,21 +6,20 @@ const solidShortcode = require('./config/shortcodes/solidify.js');
 const TEMPLATE_ENGINE = "liquid";
 
 module.exports = function (eleventyConfig) {
-  // PLUGIN WebC
+  // PLUGINS
   eleventyConfig.addPlugin(pluginWebc, {
     components: "src/_includes/components/**/*.webc",
   });
 
-  // WATCH the scss files
+  // WATCH
   eleventyConfig.addWatchTarget("./src/sass/");
-  eleventyConfig.addPassthroughCopy({ './_tmp': './assets/css' });
-  
-  // WATCH the js files for solid-js + esbuild
   eleventyConfig.addWatchTarget('./src/app');
-  // eleventyConfig.addPassthroughCopy({ 
-  //  "node_modules/@11ty/is-land/is-land.js": "./assets/js/is-land.js",
-  // })
 
+  // COPY
+  // Copy sass output from ./_tmp file
+  eleventyConfig.addPassthroughCopy({ './_tmp': './assets/css' });
+
+  // SHORTCODES & FILTERS
   // Add cache busting by using {{ 'myurl' | version }}
   eleventyConfig.addFilter("version", (url) => {
     const [urlPart, paramPart] = url.split("?");
