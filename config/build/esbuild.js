@@ -1,3 +1,4 @@
+// https://www.seancdavis.com/posts/javascript-for-11ty-with-esbuild/
 const esbuild = require('esbuild');
 const glob = require('glob-all'); // to enable * glob pattern in esbuild
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
