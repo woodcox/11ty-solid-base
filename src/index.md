@@ -45,4 +45,4 @@ render(() => <Solidify />, document.getElementById('shorty'))
 To do: 
  - look at 11ty docs & 11ty.rocks
 
-{% data.esmeta %}
+{% esmeta %}
