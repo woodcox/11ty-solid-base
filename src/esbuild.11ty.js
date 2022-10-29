@@ -2,6 +2,7 @@ const esbuild = require('esbuild')
 const glob = require('glob-all') // to enable * glob pattern in esbuild
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
 const { solidPlugin } = require('esbuild-plugin-solid')
+const fsPromises = require('fs').promises;
 
 module.exports = class {
   data() {
@@ -21,7 +22,10 @@ module.exports = class {
       minify: isProd,
       outdir: './docs/assets',
       sourcemap: !isProd,
-      target: isProd ? 'es6' : 'esnext'
+      target: isProd ? 'es6' : 'esnext',
+      metafile: true,
     }).catch(() => process.exit(1));
+    await fsPromises.writeFile('._data/esbuildmeta.json',
+    JSON.stringify(result.metafile));
   }
 }
