@@ -20,7 +20,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ 
     './_tmp': './assets/css',
     './src/_data/esbuildmeta.json'
-  };
+  });
 
   // SHORTCODES & FILTERS
   // Add cache busting by using {{ 'myurl' | version }}
