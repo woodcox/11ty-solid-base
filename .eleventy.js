@@ -19,8 +19,9 @@ module.exports = function (eleventyConfig) {
   // Copy sass output from ./_tmp file
   eleventyConfig.addPassthroughCopy({ 
     './_tmp': './assets/css',
-    './src/_data/esbuildmeta.json',
   });
+
+  eleventyConfig.addPassthroughCopy('./src/_data/esbuildmeta.json')
 
   // SHORTCODES & FILTERS
   // Add cache busting by using {{ 'myurl' | version }}
