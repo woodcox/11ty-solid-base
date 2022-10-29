@@ -2,12 +2,13 @@ const sass = require("sass");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
+const esbuildPipline = require('./config/build/esbuild.js');
 
 const TEMPLATE_ENGINE = "liquid";
 
 module.exports = function (eleventyConfig) {
   // BUILD HOOK
-  eleventyConfig.on("eleventy.before", esbuildpipeline);
+  eleventyConfig.on("eleventy.before", esbuildPipeline);
 
   // PLUGINS
   eleventyConfig.addPlugin(pluginWebc, {
