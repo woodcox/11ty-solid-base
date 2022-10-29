@@ -13,7 +13,7 @@ module.exports = class {
   }
 
   async render() {
-    await esbuild.build({
+    const result = await esbuild.build({
       entryPoints: glob.sync(['src/assets/app/*.jsx', 'src/assets/js/*.js']),
       entryNames: '[dir]/[name]-[hash]',
       outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
@@ -25,7 +25,6 @@ module.exports = class {
       target: isProd ? 'es6' : 'esnext',
       metafile: true,
     }).catch(() => process.exit(1));
-    const result = await esbuild.build(config);
     await fsPromises.writeFile('.src/_data/esbuildmeta.json',
     JSON.stringify(result.metafile));
   }
