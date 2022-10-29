@@ -6,6 +6,9 @@ const solidShortcode = require('./config/shortcodes/solidify.js');
 const TEMPLATE_ENGINE = "liquid";
 
 module.exports = function (eleventyConfig) {
+  // BUILD HOOK
+  eleventyConfig.on("eleventy.before", esbuildpipeline);
+
   // PLUGINS
   eleventyConfig.addPlugin(pluginWebc, {
     components: "src/_includes/components/**/*.webc",
@@ -32,7 +35,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPairedShortcode("solid", solidShortcode);
-
+ 
   // Let Eleventy transform HTML files as liquidjs
   // So that we can use .html instead of .liquid
   // 11ty.js template format also compiles the esbuild.11ty.js script
