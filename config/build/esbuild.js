@@ -6,7 +6,7 @@ const { solidPlugin } = require('esbuild-plugin-solid');
 const fs = require('fs');
 
 module.exports = async () => {
-  const result = await esbuild.build({
+  var esbResult = await esbuild.build({
     entryPoints: glob.sync(['src/assets/app/*.jsx', 'src/assets/js/*.js']),
     entryNames: '[dir]/[name]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
@@ -18,7 +18,8 @@ module.exports = async () => {
     target: isProd ? 'es6' : 'esnext',
     metafile: true,
   }).catch(() => process.exit(1));
-}.if (result.metafile) {
+}
+if (esbResult.metafile) {
   fs.writeFileSync('src/_data/esmeta.json', JSON.stringify(result.metafile));
-  console.log(JSON.stringify(result.metafile));
+  console.log(JSON.stringify(esbResult.metafile));
 }
