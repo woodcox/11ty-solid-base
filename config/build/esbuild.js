@@ -23,6 +23,6 @@ module.exports = async () => {
     if (err) return console.log(err)
     console.log(`${result.metafile} > src/_data/esbuildmeta.json`)
   }
-  console.log(`JSON.stringify(${result.metafile})`)
+  console.log(JSON.stringify(`${result.metafile}`))
 }
 
