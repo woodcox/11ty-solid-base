@@ -47,7 +47,9 @@ jobs:
         with:
           default_author: github_actions
           message: "Add docs files"
-          add: "docs"
+          add: 
+            - "docs"
+            - "*.json"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
