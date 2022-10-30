@@ -4,11 +4,10 @@ const glob = require('glob-all'); // to enable * glob pattern in esbuild
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 const { solidPlugin } = require('esbuild-plugin-solid');
 const fs = require('fs');
-var esbResult;
-var metafile;
+var metaOutput;
 
 module.exports = async () => {
-  esbResult = await esbuild.build({
+  result = await esbuild.build({
     entryPoints: glob.sync(['src/assets/app/*.jsx', 'src/assets/js/*.js']),
     entryNames: '[dir]/[name]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
@@ -20,8 +19,9 @@ module.exports = async () => {
     target: isProd ? 'es6' : 'esnext',
     metafile: true,
   }).catch(() => process.exit(1));
+  metaOutput = result.metafile;
 }
-if (esbResult.metafile) {
-  fs.writeFileSync('src/_data/esmeta.json', JSON.stringify(esbResult.metafile));
-  console.log(JSON.stringify(esbResult.metafile));
+if (metaOutput) {
+  fs.writeFileSync('src/_data/esmeta.json', JSON.stringify(metaOutput));
+  console.log(JSON.stringify(metaOutput));
 }
