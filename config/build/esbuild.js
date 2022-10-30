@@ -18,10 +18,11 @@ module.exports = async () => {
     target: isProd ? 'es6' : 'esnext',
     metafile: true,
   }).catch(() => process.exit(1));
-  fsPromises.writeFile('src/_data/esbuildmeta.json',
+  fsPromises.writeFile('src/_data/esmeta.json',
   JSON.stringify(result.metafile)), function (err) {
     if (err) return console.log(err)
     console.log(`${result.metafile} > src/_data/esbuildmeta.json`)
   }
+  console.log(`${result.metafile}`)
 }
 
