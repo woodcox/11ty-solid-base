@@ -45,8 +45,7 @@ jobs:
         if: env.UPDATE_NPM != 'true'
         uses: EndBug/add-and-commit@v9
         with:
-          author_name: woodcock3
-          author_email: woodcock3@users.noreply.github.com
+          default_author: github_actions
           message: "Add docs files"
           add: "docs"
         env:
