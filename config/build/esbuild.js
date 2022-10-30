@@ -19,5 +19,9 @@ module.exports = async () => {
     metafile: true,
   }).catch(() => process.exit(1));
   await fsPromises.writeFile('src/_data/esbuildmeta.json',
-  JSON.stringify(result.metafile));
+  JSON.stringify(result.metafile)), function (err) {
+    if (err) return console.log(err)
+    console.log(`${result.metafile} > src/_data/esbuildmeta.json`)
+  }
 }
+
