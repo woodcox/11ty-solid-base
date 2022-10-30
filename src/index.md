@@ -45,7 +45,7 @@ render(() => <Solidify />, document.getElementById('shorty'))
 To do: 
  - look at 11ty docs & 11ty.rocks
 
-{% for record in esbuildmeta.outputs %}
+{% for record in esmeta.outputs %}
 {{ record[0] }}
 {% endfor %}
 
