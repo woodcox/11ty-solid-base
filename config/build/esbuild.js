@@ -8,7 +8,7 @@ const fs = require('fs');
 module.exports = async () => {
   result = await esbuild.build({
     entryPoints: glob.sync(['src/assets/app/*.jsx', 'src/assets/js/*.js']),
-    entryNames: '[dir]/[name]',
+    entryNames: '[dir]/[name]-[hash]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
     bundle: true,
     plugins: [solidPlugin()],
@@ -19,5 +19,4 @@ module.exports = async () => {
     metafile: true,
   }).catch(() => process.exit(1));
   fs.writeFileSync('./src/_data/esmeta.json', JSON.stringify(result.metafile));
-  console.log(JSON.stringify(result.metafile));
 }
