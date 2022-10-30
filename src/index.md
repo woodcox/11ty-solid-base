@@ -45,4 +45,9 @@ render(() => <Solidify />, document.getElementById('shorty'))
 To do: 
  - look at 11ty docs & 11ty.rocks
 
-{{ esmeta.outputs[0].entryPoint }}
+{% assign records in esmeta.outputs %}
+{% for record in records %}
+{{ record[0] }}
+{% endfor %}
+
+
