@@ -46,8 +46,9 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
+          commit: --amend
           message: "Update docs files"
-          remove: "app-*.min.js -r"
+          remove: "*.min.js -r"
           add: '["*.json", "docs"]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
