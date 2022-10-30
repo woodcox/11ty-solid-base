@@ -20,6 +20,6 @@ module.exports = async () => {
   }).catch(() => process.exit(1));
 }
 if (esbResult.metafile) {
-  fs.writeFileSync('src/_data/esmeta.json', JSON.stringify(result.metafile));
+  fs.writeFileSync('src/_data/esmeta.json', JSON.stringify(esbResult.metafile));
   console.log(JSON.stringify(esbResult.metafile));
 }
