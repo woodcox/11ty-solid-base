@@ -5,6 +5,7 @@ const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 const { solidPlugin } = require('esbuild-plugin-solid');
 const fs = require('fs');
 var esbResult;
+var metafile;
 
 module.exports = async () => {
   esbResult = await esbuild.build({
