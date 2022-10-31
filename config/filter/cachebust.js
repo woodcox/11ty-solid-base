@@ -16,12 +16,12 @@ const readDataFile = () => {
   return fsPromises.readFile('src/_data/buildmeta.json', (err, data) => {
     if (err) throw err;
     let buildmeta = JSON.parse(data);
-    if (err) console.log(err)
+    if (err) console.log(err);
     console.log(buildmeta);
   })
 }
 
-console.log('This is after the read call');
+console.log(buildmeta);
 
 
 
