@@ -1,6 +1,6 @@
+const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 const fsPromises = require('fs').promises;
 const readFile = fsPromises.readFile;
-const writeFile = fsPromises.writeFile;
 
 let hashCss;
 let hashJs;
