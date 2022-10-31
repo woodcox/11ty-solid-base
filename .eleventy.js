@@ -3,7 +3,7 @@ const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
 const esbuildPipeline = require('./config/build/esbuild.js');
-const busterFilter = require('./config/filter/cachebuster.js');
+const busterFilter = require('./config/filter/cachebust.js');
 
 const TEMPLATE_ENGINE = "liquid";
 
