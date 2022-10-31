@@ -7,17 +7,11 @@ let hashJs;
 
 
 module.exports = (url) => {
-    const [urlPart, paramPart] = url.split("?");
-    const params = new URLSearchParams(paramPart || "");
-    params.set("v", `${now}`);
-    return `${urlPart}?${params}`;
-  });
-
-
-const toHtml = (markdownString) => {
-  return markdownLib.renderInline(markdownString);
+  const [urlPart, paramPart] = url.split("?");
+  const params = new URLSearchParams(paramPart || "");
+  params.set("v", `${now}`);
+  return `${urlPart}?${params}`;
 };
-
 
 const readDataFile = () => {
   return readFile('src/_data/buildmeta.json', (err, data) => {
