@@ -21,7 +21,7 @@ const readDataFile = () => {
   })
 }
 
-console.log(buildmeta);
+console.log(readDataFile);
 
 
 
