@@ -6,7 +6,7 @@ let hashCss;
 let hashJs;
 
 
-eleventyConfig.addFilter("bust", (url) => {
+module.exports = (url) => {
     const [urlPart, paramPart] = url.split("?");
     const params = new URLSearchParams(paramPart || "");
     params.set("v", `${now}`);
