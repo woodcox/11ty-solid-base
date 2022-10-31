@@ -1,3 +1,11 @@
+const fsPromises = require('fs').promises;
+const readFile = fsPromises.readFile;
+const writeFile = fsPromises.writeFile;
+
+let hashCss;
+let hashJs;
+
+
 eleventyConfig.addFilter("bust", (url) => {
     const [urlPart, paramPart] = url.split("?");
     const params = new URLSearchParams(paramPart || "");
@@ -11,27 +19,16 @@ const toHtml = (markdownString) => {
 };
 
 
-const fs = require('fs')
-const util = require('util')
-const md5 = require('md5')
-
-const readFile = util.promisify(fs.readFile)
-const writeFile = util.promisify(fs.writeFile)
-
-let hashCss
-let hashJs
-
-const readCssFile = () => {
-  return readFile('dist/styles.css', (err, data) => {
+const readDataFile = () => {
+  return readFile('src/_data/buildmeta.json', (err, data) => {
     if (err) console.log(err)
   })
 }
 
-const readJsFile = () => {
-  return readFile('dist/index.js', (err, data) => {
-    if (err) console.log(err)
-  })
-}
+console.log(readDataFile);
+
+
+
 
 readCssFile()
   .then((data) => {
