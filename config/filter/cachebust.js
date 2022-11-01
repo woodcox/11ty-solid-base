@@ -19,8 +19,7 @@ const readDataFile = () => {
     if (err) console.log(err);
     console.log(buildmeta);
   })
-  return;
-  console.log(buildmeta);
+  console.log(buildmeta.outputs[0]);
 }
 
 //fs.readFile('src/_data/buildmeta.json', (err, data) => {
