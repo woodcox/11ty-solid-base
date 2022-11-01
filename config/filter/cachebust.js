@@ -25,7 +25,7 @@ const readDataFile = () => {
 
 fs.readFile('src/_data/buildmeta.json', (err, data) => {
   if (err) throw err;
-  let buildmeta = JSON.parse(data[0]);
+  let buildmeta = JSON.parse(data.outputs[0]);
   if (err) console.log(err);
   console.log(buildmeta);
 });
