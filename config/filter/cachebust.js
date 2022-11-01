@@ -21,6 +21,13 @@ const readDataFile = () => {
   })
 }
 
+fsPromises.readFile('src/_data/buildmeta.json', (err, data) => {
+  if (err) throw err;
+  let buildmeta = JSON.parse(data);
+  if (err) console.log(err);
+  console.log(buildmeta);
+};
+
 console.log(readDataFile);
 
 
