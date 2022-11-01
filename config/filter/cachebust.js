@@ -1,5 +1,5 @@
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
-const fsPromises = require('fs').promises;
+const fsPromises = require('fs');
 
 let hashCss;
 let hashJs;
@@ -13,7 +13,7 @@ module.exports = (url) => {
 };
 
 const readDataFile = () => {
-  return fsPromises.readFile('src/_data/buildmeta.json', (err, data) => {
+  return fs.readFile('src/_data/buildmeta.json', (err, data) => {
     if (err) throw err;
     let buildmeta = JSON.parse(data);
     if (err) console.log(err);
@@ -21,7 +21,7 @@ const readDataFile = () => {
   })
 }
 
-fsPromises.readFile('src/_data/buildmeta.json', (err, data) => {
+fs.readFile('src/_data/buildmeta.json', (err, data) => {
   if (err) throw err;
   let buildmeta = JSON.parse(data);
   if (err) console.log(err);
