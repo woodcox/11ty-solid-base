@@ -23,14 +23,14 @@ const readDataFile = () => {
   console.log(buildmeta);
 }
 
-fs.readFile('src/_data/buildmeta.json', (err, data) => {
-  if (err) throw err;
-  let hashmeta = JSON.parse(data, function(key, value) {
-    console.log(key); 
-    return value;
-  });
-  if (err) console.log(err);
-});
+//fs.readFile('src/_data/buildmeta.json', (err, data) => {
+//  if (err) throw err;
+//  let hashmeta = JSON.parse(data, function(key, value) {
+//    console.log(key); 
+//    return value;
+//  });
+//  if (err) console.log(err);
+//});
 
 fs.readFile('src/_data/buildmeta.json', (err, data) => {
   if (err) throw err;
@@ -41,7 +41,7 @@ fs.readFile('src/_data/buildmeta.json', (err, data) => {
     return key.split(".").reduce(function(o, x) {
       return (typeof o == "undefined" || o === null)? o: o[x]
     }, obj);
-    getNestedObject(data, 'outputs');
+    getNestedObject(data, 'outputs[0]');
     console.log(getNestedObject);
   }
 });
