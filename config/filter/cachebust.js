@@ -41,9 +41,9 @@ fs.readFile('src/_data/buildmeta.json', (err, data) => {
     return key.split(".").reduce(function(o, x) {
       return (typeof o == "undefined" || o === null)? o: o[x]
     }, obj);
-    getNestedObject(data, 'outputs[0]');
-    console.log(getNestedObject);
+    getNestedObject(data, 'outputs[0]'); 
   }
+  console.log(getNestedObject);
 });
 
 
