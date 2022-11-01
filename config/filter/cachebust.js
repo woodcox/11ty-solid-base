@@ -1,5 +1,5 @@
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
-const fsPromises = require('fs');
+const fs = require('fs');
 
 let hashCss;
 let hashJs;
