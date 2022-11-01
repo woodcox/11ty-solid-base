@@ -15,7 +15,7 @@ module.exports = (url) => {
 const readDataFile = () => {
   fs.readFile('src/_data/buildmeta.json', (err, data) => {
     if (err) throw err;
-    let buildmeta = JSON.parse(data[0]);
+    let buildmeta = JSON.parse(data);
     if (err) console.log(err);
     console.log(buildmeta);
   })
@@ -25,9 +25,9 @@ const readDataFile = () => {
 
 fs.readFile('src/_data/buildmeta.json', (err, data) => {
   if (err) throw err;
-  let buildmeta = JSON.parse(data.outputs);
+  let hashmeta = JSON.parse(data);
   if (err) console.log(err);
-  console.log(buildmeta);
+  console.log(hashmeta.outputs[0]);
 });
 
 
