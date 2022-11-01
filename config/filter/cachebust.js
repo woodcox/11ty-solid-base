@@ -23,11 +23,11 @@ const readDataFile = () => {
   console.log(buildmeta);
 }
 
-fs.readFile('src/_data/buildmeta.json', (err, data) => {
+fs.readFile('src/_data/buildmeta.json', (err, data.outputs) => {
   if (err) throw err;
   let hashmeta = JSON.parse(data, function(key, value) {
     console.log(key); 
-    return key value;
+    return value;
   });
   if (err) console.log(err);
 });
