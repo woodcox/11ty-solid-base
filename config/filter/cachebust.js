@@ -32,6 +32,13 @@ fs.readFile('src/_data/buildmeta.json', (err, data) => {
   if (err) console.log(err);
 });
 
+fs.readFile('src/_data/buildmeta.json', (err, data) => {
+  if (err) throw err;
+  let esbuildmeta = JSON.parse(data);
+  if (err) console.log(err);
+  console.log(esbuildmeta.outputs[0]);
+});
+
 
 
 
