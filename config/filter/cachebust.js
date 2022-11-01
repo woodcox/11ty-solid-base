@@ -25,9 +25,11 @@ const readDataFile = () => {
 
 fs.readFile('src/_data/buildmeta.json', (err, data) => {
   if (err) throw err;
-  let hashmeta = JSON.parse(data);
+  let hashmeta = JSON.parse(data, function(key, value){
+    console.log(key); 
+    return value;
+    );
   if (err) console.log(err);
-  console.log(hashmeta.outputs);
 });
 
 
