@@ -20,6 +20,7 @@ const readDataFile = () => {
     console.log(buildmeta);
   })
   return;
+  console.log(buildmeta);
 }
 
 fs.readFile('src/_data/buildmeta.json', (err, data) => {
