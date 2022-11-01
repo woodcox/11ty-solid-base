@@ -23,9 +23,9 @@ const readDataFile = () => {
   console.log(buildmeta);
 }
 
-fs.readFile('src/_data/buildmeta.json', (err, data.outputs) => {
+fs.readFile('src/_data/buildmeta.json', (err, data) => {
   if (err) throw err;
-  let hashmeta = JSON.parse(data, function(key, value) {
+  let hashmeta.outputs = JSON.parse(data, function(key, value) {
     console.log(key); 
     return value;
   });
