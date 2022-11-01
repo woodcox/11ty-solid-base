@@ -36,17 +36,15 @@ fs.readFile('src/_data/buildmeta.json', (err, data) => {
   if (err) throw err;
   let esbuildmeta = JSON.parse(data);
   if (err) console.log(err);
-  console.log(esbuildmeta.outputs[0]);
-});
-
-function getNestedObject(obj, key) {
-	return key.split(".").reduce(function(o, x) {
-        return (typeof o == "undefined" || o === null)? o: o[x]
+  // https://medium.com/@prathameshk73/get-nested-properties-in-javascript-objects-97a9b1b0750f
+  function getNestedObject(obj, key) {
+    return key.split(".").reduce(function(o, x) {
+      return (typeof o == "undefined" || o === null)? o: o[x]
     }, obj);
-}
-
-// https://medium.com/@prathameshk73/get-nested-properties-in-javascript-objects-97a9b1b0750f
-//getNestedObject(weatherData, 'main.details.windInfo.wind');
+    getNestedObject(data, 'outputs');
+    console.log(getNestedObject);
+  }
+});
 
 
 
