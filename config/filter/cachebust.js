@@ -13,12 +13,13 @@ module.exports = (url) => {
 };
 
 const readDataFile = () => {
-  return fs.readFile('src/_data/buildmeta.json', (err, data) => {
+  fs.readFile('src/_data/buildmeta.json', (err, data) => {
     if (err) throw err;
     let buildmeta = JSON.parse(data);
     if (err) console.log(err);
     console.log(buildmeta);
   })
+  return;
 }
 
 fs.readFile('src/_data/buildmeta.json', (err, data) => {
@@ -27,8 +28,6 @@ fs.readFile('src/_data/buildmeta.json', (err, data) => {
   if (err) console.log(err);
   console.log(buildmeta);
 });
-
-console.log(readDataFile);
 
 
 
