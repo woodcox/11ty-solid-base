@@ -27,7 +27,7 @@ fs.readFile('src/_data/buildmeta.json', (err, data) => {
   if (err) throw err;
   let hashmeta = JSON.parse(data);
   if (err) console.log(err);
-  console.log(hashmeta.outputs['path']);
+  console.log(hashmeta.outputs[0]);
 });
 
 
