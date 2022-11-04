@@ -2,8 +2,7 @@ const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 const fs= require('fs');
 resolve = require('path').resolve;
 
-let hashCss;
-let hashJs;
+let buildmeta;
 
 
 module.exports = (url) => {
