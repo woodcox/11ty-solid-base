@@ -1,12 +1,13 @@
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 const fsPromises = require('fs').promises;
+resolve = require('path').resolve;
 
 let hashCss;
 let hashJs;
 
 
 module.exports = (url) => {
-  fsPromises.readFile('src/_data/buildmeta.json', (err, data) => {
+  fsPromises.readFile.resolve('src/_data/buildmeta.json', (err, data) => {
     if (err) throw err;
     let buildmeta = JSON.parse(data);
     if (err) console.log(err);
