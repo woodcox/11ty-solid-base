@@ -7,7 +7,7 @@ let hashJs;
 
 
 module.exports = (url) => {
-  fsPromises.readFile.resolve('src/_data/buildmeta.json', (err, data) => {
+  resolve(fsPromises.readFile('src/_data/buildmeta.json', (err, data)) => {
     if (err) throw err;
     let buildmeta = JSON.parse(data);
     if (err) console.log(err);
