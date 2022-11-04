@@ -19,8 +19,9 @@ const readDataFile = () => {
     if (err) console.log(err);
     console.log(buildmeta);
   })
-  if (url) === buildmeta.outputs[0].input
-    then url === buildmeta.outputs[0]
+  if (url === buildmeta.outputs[0].input ) { 
+    url = buildmeta.outputs[0]
+  }
   console.log(buildmeta.outputs[0]);
 }
 
