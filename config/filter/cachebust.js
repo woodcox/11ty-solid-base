@@ -16,7 +16,7 @@ module.exports = (url) => {
     url = buildmeta.outputs[0]
   }
   return `${url}`;
-  console.log(${url});
+  console.log(url);
 };
 
 const readDataFile = () => {
