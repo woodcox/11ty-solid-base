@@ -12,7 +12,7 @@ To test if the island partial hydration is working; on a mobile phone, turn the 
   </counter-component>
   <template data-island="replace">
     <p id="app"></p>
-    <script src="{{ '/assets/app/app.min.js' | url | bust | version }}"></script>
+    <script src="{{ '/assets/app/app.min.js' | url | version }}"></script>
   </template>
 </is-land>
 
@@ -44,9 +44,7 @@ render(() => <Solidify />, document.getElementById('shorty'))
 ## The web component
 To do: 
  - look at 11ty docs & 11ty.rocks
+ - A webC example
 
-{% for record in buildmeta.outputs %}
-{{ record[0] }}
-{% endfor %}
 
 
