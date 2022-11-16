@@ -35,7 +35,6 @@ module.exports = function (eleventyConfig) {
     return `${urlPart}?${params}`;
   });
 
-  eleventyConfig.addFilter("bust", busterFilter );
   eleventyConfig.addPairedShortcode("solid", solidShortcode);
  
   // Let Eleventy transform HTML files as liquidjs
