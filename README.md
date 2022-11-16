@@ -21,11 +21,11 @@ To configure esbuild for the shortcode, modify `config/shortcode/solidify.js`
 
 **`npm start`**
 
-> Run 11ty with hot reload at localhost:8080, including reload based on Sass changes
+> Run 11ty with hot reload at localhost:8080, including reload based on Sass and JS changes.
 
 **`npm run build`**
 
-> Production build with no minification, autoprefixed CSS
+> Production build with autoprefixed CSS but no minification. 
 
 **`npm run minify`**
 
