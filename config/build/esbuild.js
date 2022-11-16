@@ -8,7 +8,7 @@ const fs = require('fs');
 module.exports = async () => {
   result = await esbuild.build({
     entryPoints: glob.sync(['src/assets/app/*.jsx', 'src/assets/js/*.js']),
-    entryNames: '[dir]/[name]-[hash]',
+    entryNames: '[dir]/[name]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
     bundle: true,
     plugins: [solidPlugin()],
