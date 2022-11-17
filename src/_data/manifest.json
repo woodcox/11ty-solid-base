@@ -1,4 +1,4 @@
 {
-  "src/assets/app/app.jsx": "/home/runner/work/11ty-solid-base/11ty-solid-base",
-  "src/assets/js/is-land.js": "/home/runner/work/11ty-solid-base/11ty-solid-base"
+  "src/assets/app/app.jsx": "docs/assets/app",
+  "src/assets/js/is-land.js": "docs/assets/js"
 }
