@@ -24,7 +24,7 @@ module.exports = async () => {
           Object.fromEntries(
             Object.entries(entries).map(([from, to]) => [
               from,
-              path.join(__dirname, `${path.basename(to)}`),
+              path.dirname(`${path.basename(to)}`),
             ])
           ),
         })
