@@ -3,6 +3,7 @@ const esbuild = require('esbuild');
 const glob = require('glob-all'); // to enable * glob pattern in esbuild
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 const { solidPlugin } = require('esbuild-plugin-solid');
+const manifestPlugin = require('esbuild-plugin-manifest');
 const fs = require('fs');
 
 module.exports = async () => {
