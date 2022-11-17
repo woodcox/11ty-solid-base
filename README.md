@@ -11,7 +11,7 @@ Add `your_solid.jsx` file to the `src/assets/app` folder. Esbuild will output a 
 If you need to compile your js script inline, use this shortcode:
 
 ~~~liquid
-{% solid %}
+{% solid 'jsxName' 'bundle' %}
   your.solid.jsx.code
 {% endsolid %}
 ~~~
