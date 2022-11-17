@@ -6,6 +6,7 @@ const { solidPlugin } = require('esbuild-plugin-solid');
 const manifestPlugin = require('esbuild-plugin-manifest');
 const fs = require('fs');
 
+
 module.exports = async () => {
   result = await esbuild.build({
     entryPoints: glob.sync(['src/assets/app/*.jsx', 'src/assets/js/*.js']),
@@ -20,5 +21,5 @@ module.exports = async () => {
     metafile: true,
   }).catch(() => process.exit(1));
   fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
-  fs.writeFileSync('./src/_data/buildmanifest.json', JSON.stringify(result.manifest));
+  fs.writeFileSync('./src/_data/buildmanifest.json', JSON.stringify(result.manifest.json));
 }
