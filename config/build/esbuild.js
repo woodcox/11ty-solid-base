@@ -20,12 +20,12 @@ module.exports = async () => {
         // NOTE: This is always relative to `outdir`.
         filename: '../../src/_data/manifest.json',
         shortNames: true,
-        // Generate manifest from docs/assests/manifest.json to src/_data/manifest.json
+        // Generate manifest from /assets/manifest.json to src/_data/manifest.json
         generate: (entries) =>
           Object.fromEntries(
             Object.entries(entries).map(([from, to]) => [
               from,
-              `docs/${path.basename(to)}`,
+              `assets/${path.basename(to)}`,
             ])
           ),
         })
