@@ -27,7 +27,7 @@ The shortcode adds the js inline, which is not ideal. Going forward I will look 
   <template data-island="replace">
     <p id="shorty"></p>
 
-{% solid "shorty", "bundled" %}  
+{% solid "shorty" %}  
 import { render } from './node_modules/solid-js/web';
 
 function Solidify() {
