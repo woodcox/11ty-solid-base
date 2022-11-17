@@ -9,8 +9,8 @@
     "build:sass": "sass  --no-source-map src/sass:./_tmp",
     "build:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy --pathprefix=11ty-solid-base",
     "minify:eleventy": "ELEVENTY_ENV=prod npx @11ty/eleventy --pathprefix=11ty-solid-base",
-    "build:processcss": "lightningcss --browserslist --help ./_tmp/*.css -o ./_tmp/*.css",
-    "minify:processcss": "lightningcss --help --minify ./_tmp/*.css -o ./_tmp/*.css",
+    "build:processcss": "lightningcss --browserslist ./_tmp/*.css -o ./_tmp/*.css",
+    "minify:processcss": "lightningcss --browserlist --minify ./_tmp/*.css -o ./_tmp/*.css",
     "start": "npm-run-all --parallel dev:*",
     "build": "NODE_ENV=dev npm-run-all build:sass build:processcss build:eleventy",
     "minify": "NODE_ENV=production npm-run-all build:sass minify:processcss minify:eleventy"
