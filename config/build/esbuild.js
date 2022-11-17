@@ -24,7 +24,7 @@ module.exports = async () => {
           Object.fromEntries(
             Object.entries(entries).map(([from, to]) => [
               from,
-              `docs/assets/${path.basename(to)}`,
+              path.join(__dirname, `${path.basename(to)}`),
             ])
           ),
         })
