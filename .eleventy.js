@@ -7,6 +7,11 @@ const esbuildPipeline = require('./config/build/esbuild.js');
 const TEMPLATE_ENGINE = "liquid";
 
 module.exports = function (eleventyConfig) {
+  // DEV SERVER
+  eleventyConfig.setServerOptions({
+    port: 8080
+  });
+
   // BUILD HOOK
   eleventyConfig.on("eleventy.before", esbuildPipeline);
 
