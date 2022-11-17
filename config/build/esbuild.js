@@ -35,5 +35,5 @@ module.exports = async () => {
     target: isProd ? 'es6' : 'esnext',
     metafile: true,
   }).catch(() => process.exit(1));
-  fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
+  fs.writeFileSync('./src/_data/builddata.json', JSON.stringify(result.metafile));
 }
