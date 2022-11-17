@@ -5,6 +5,7 @@ const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 const { solidPlugin } = require('esbuild-plugin-solid');
 const manifestPlugin = require('esbuild-plugin-manifest');
 const fs = require('fs');
+const path = require("path");
 
 
 module.exports = async () => {
@@ -13,7 +14,19 @@ module.exports = async () => {
     entryNames: '[dir]/[name]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
     bundle: true,
-    plugins: [solidPlugin(), manifestPlugin()],
+    plugins: [
+      solidPlugin(), 
+      manifestPlugin({
+        filename: '../../src/_data/hash-manifest.json',
+        generate: (entries) =>
+          Object.fromEntries(
+            Object.entries(entries).map(([from, to]) => [
+              from,
+              `docs/${path.basename(to)}`,
+            ])
+          ),
+        })
+    ],
     minify: isProd,
     outdir: './docs/assets',
     sourcemap: !isProd,
@@ -21,5 +34,4 @@ module.exports = async () => {
     metafile: true,
   }).catch(() => process.exit(1));
   fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
-  fs.writeFileSync('./src/_data/buildmanifest.json', JSON.stringify(result.manifest.json));
 }
