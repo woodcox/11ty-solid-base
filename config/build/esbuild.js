@@ -17,7 +17,9 @@ module.exports = async () => {
     plugins: [
       solidPlugin(), 
       manifestPlugin({
-        filename: '../../src/_data/hash-manifest.json',
+        // NOTE: This is always relative to `outdir`.
+        filename: '../../src/_data/manifest.json',
+        // Generate manifest from docs/assests/manifest.json to src/_data/manifest.json
         generate: (entries) =>
           Object.fromEntries(
             Object.entries(entries).map(([from, to]) => [
