@@ -34,7 +34,9 @@
     "solid-js": "^1.6.1"
   },
   "browserslist": [
-    "> 0.25%",
-    "not IE 11"
+    "> 0.2%", 
+    "last 2 versions", 
+    "Firefox ESR", 
+    "not dead"
   ]
 }
