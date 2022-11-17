@@ -17,9 +17,10 @@ module.exports = async () => {
     plugins: [
       solidPlugin(), 
       manifestPlugin({
-        // NOTE: This is always relative to `outdir`.
+        // NOTE: Save to src/_data. This is always relative to `outdir`.
         filename: '../../src/_data/manifest.json',
-        // Generate manifest from /assets/manifest.json to src/_data/manifest.json
+        shortName: true,
+        // Generate manifest.json
         generate: (entries) =>
           Object.fromEntries(
             Object.entries(entries).map(([from, to]) => [
