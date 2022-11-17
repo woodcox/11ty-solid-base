@@ -1,0 +1,4 @@
+{
+  "src/assets/app/app.jsx": "docs/app.min.js",
+  "src/assets/js/is-land.js": "docs/is-land.min.js"
+}
