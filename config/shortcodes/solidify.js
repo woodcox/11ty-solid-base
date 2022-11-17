@@ -10,12 +10,12 @@ module.exports = async (code, filename, bundled) => {
   await esbuild.build({
     entryPoints: glob.sync(['solid-*.jsx']),
     entryNames: '[name]',
-    outdir: './docs',
+    outdir: './docs/assets',
     bundle: bundleJsx,
     plugins: [solidPlugin()],
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
   })
-  const solidifyJsx = await fsPromises.readFile('./docs/solid-' + filename + '.js', 'utf8');
+  const solidifyJsx = await fsPromises.readFile('./docs/assets/solid-' + filename + '.js', 'utf8');
   return `<script type="module">${solidifyJsx}</script>`;
 };
