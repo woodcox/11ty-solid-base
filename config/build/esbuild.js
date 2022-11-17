@@ -19,6 +19,7 @@ module.exports = async () => {
       manifestPlugin({
         // NOTE: This is always relative to `outdir`.
         filename: '../../src/_data/manifest.json',
+        shortNames: true,
         // Generate manifest from docs/assests/manifest.json to src/_data/manifest.json
         generate: (entries) =>
           Object.fromEntries(
