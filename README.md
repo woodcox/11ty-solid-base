@@ -4,7 +4,7 @@ A minimal base HTML5 template and the esbuild setup to compile your Solid-js app
 
 Includes [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/), [WebC](https://www.11ty.dev/docs/languages/webc/), [esBuild](https://esbuild.github.io), minifiying and autoprefixing of styles using [Lightning CSS](https://lightningcss.dev/).
 
-## Complie Solidjs to js
+## Compile Solidjs to js
 Add `your_solid.jsx` file to the `src/assets/app` folder. Esbuild will output a minified js file. To configure esbuild modify `config/build/esbuild.js`.
 
 ## Shortcode
