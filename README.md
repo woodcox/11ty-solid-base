@@ -11,10 +11,14 @@ Add `your_solid.jsx` file to the `src/assets/app` folder. Esbuild will output a 
 If you need to compile your js script inline, use this shortcode:
 
 ~~~liquid
-{% solid 'jsxName' 'bundle' %}
+{% solid "filename", "bundled" %}
   your.solid.jsx.code
 {% endsolid %}
 ~~~
+
+There are two optional arguments:
+- `filename`: The name the file which is saved to `docs/assets`. This name is automatically prefixed by `solid-`.
+- `bundled`: The solidjsx is bundled by default. To switch bundling off pass the value: `bundleOff`
 To configure esbuild for the shortcode, modify `config/shortcode/solidify.js`
 
 ## Development Scripts
