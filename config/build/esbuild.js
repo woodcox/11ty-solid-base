@@ -20,5 +20,5 @@ module.exports = async () => {
     metafile: true,
   }).catch(() => process.exit(1));
   fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
-  fs.writeFileSync('./src/_data/buildmanifest.json', JSON.stringify(result.obj));
+  fs.writeFileSync('./src/_data/buildmanifest.json', JSON.stringify(result.manifest));
 }
