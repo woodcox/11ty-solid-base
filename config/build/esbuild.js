@@ -11,7 +11,7 @@ module.exports = async () => {
     entryNames: '[dir]/[name]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
     bundle: true,
-    plugins: [solidPlugin()],
+    plugins: [solidPlugin(), manifestPlugin()],
     minify: isProd,
     outdir: './docs/assets',
     sourcemap: !isProd,
