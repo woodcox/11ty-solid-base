@@ -20,7 +20,7 @@ module.exports = async () => {
         // NOTE: Save to src/_data. This is always relative to `outdir`.
         filename: '../../src/_data/manifest.json',
         shortNames: true,
-        extensionless: input,
+        extensionless: 'input',
         // Generate manifest.json
         generate: (entries) =>
           Object.fromEntries(
