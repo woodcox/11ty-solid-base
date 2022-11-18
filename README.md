@@ -18,7 +18,7 @@ If you need to compile your js script inline, use this shortcode:
 
 ### Arguments
 There are two optional arguments:
-- `filename`: The name the file which is saved to `docs/assets`. This name is automatically prefixed by `solid-`.
+- `filename`: The name of the file which is saved to `docs/assets`. This name is automatically prefixed by `solid-`.
 - `bundled`: The solid.jsx is bundled by default. To switch bundling off pass the value: `bundleOff`
 
 To configure esbuild for the shortcode, modify `config/shortcode/solidify.js`
