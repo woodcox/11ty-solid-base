@@ -42,12 +42,12 @@ module.exports = function (eleventyConfig) {
   
   eleventyConfig.addFilter("hash", (url) => {
     const urlbase = path.basename(url);
-    console.log('urlbase');
+    console.log(urlbase);
     const urldir= path.dirname(url)
-    console.log('dirbase');
+    console.log(dirbase);
     const params = new URLSearchParams(urlbase || "");
     params.set("v", `${now}`);
-    return `${urlPart}?${params}`;
+    return `${urlbase}?${params}`;
   });
 
   eleventyConfig.addPairedShortcode("solid", solidShortcode);
