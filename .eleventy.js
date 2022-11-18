@@ -49,7 +49,7 @@ module.exports = function (eleventyConfig) {
       if (err) throw err;
       let hashmeta = JSON.parse(data);
       if (err) console.log(err);
-      const basenameHash= hashmeta[basePart];
+      const basenameHash = hashmeta[basePart];
     })
     return `${urldir}/${basenameHash}`;
   });
