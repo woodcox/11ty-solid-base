@@ -44,7 +44,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("hash", (url) => {
     const urlbase = path.basename(url);
     const [basePart, ...paramPart] = urlbase.split(".");
-    const urldir = path.dirname(url)
+    const urldir = path.dirname(url);
+    let basenameHash;
     fs.readFile(path.resolve('src/_data/manifest.json'), (err, data) => {
       if (err) throw err;
       let hashmeta = JSON.parse(data);
