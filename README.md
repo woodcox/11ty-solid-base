@@ -42,6 +42,7 @@ Use this as the "Publish command" if needed by hosting such as Netlify.
 
 ## To do
 
+- cashebusting via esbuild generated hash
 - option to write to location in docs folder (maybe this should be via the config/shortcode/solidify file)
 - bundle all solidify shortcodes into one js file
 - The web component (webC example)
