@@ -42,8 +42,9 @@ module.exports = function (eleventyConfig) {
   });
   
   eleventyConfig.addFilter("hash", (url) => {
-    const urlbase = path.basename(url, '.js');
-    console.log(urlbase);
+    const urlbase = path.basename(url);
+    const [basePart, ...paramPart] = urlbase.split(".");
+    console.log(basePart);
     const urldir= path.dirname(url)
     console.log(urldir);
     
