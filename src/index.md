@@ -12,7 +12,7 @@ To test if the island partial hydration is working; on a mobile phone, turn the 
   </counter-component>
   <template data-island="replace">
     <p id="app"></p>
-    <script src="{{ '/assets/app/app.min.js' | url | version | hash }}"></script>
+    <script src="{{ '/assets/app/app.min.js' | hash | url | version }}"></script>
   </template>
 </is-land>
 
