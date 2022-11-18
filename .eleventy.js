@@ -3,6 +3,7 @@ const pluginWebc = require("@11ty/eleventy-plugin-webc");
 const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
 const esbuildPipeline = require('./config/build/esbuild.js');
+const path = require("path");
 
 const TEMPLATE_ENGINE = "liquid";
 
@@ -35,6 +36,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("version", (url) => {
     const [urlPart, paramPart] = url.split("?");
     const params = new URLSearchParams(paramPart || "");
+    params.set("v", `${now}`);
+    return `${urlPart}?${params}`;
+  });
+  
+  eleventyConfig.addFilter("hash", (url) => {
+    const urlbase = path.basename(url);
+    console.log('urlbase');
+    const urldir= path.dirname(url)
+    console.log('dirbase');
+    const params = new URLSearchParams(urlbase || "");
     params.set("v", `${now}`);
     return `${urlPart}?${params}`;
   });
