@@ -52,7 +52,7 @@ module.exports = function (eleventyConfig) {
       if (err) throw err;
       let hashmeta = JSON.parse(data);
       if (err) console.log(err);
-      console.log(hashmeta);
+      console.log(hashmeta.basePart);
     })
     const params = new URLSearchParams(urlbase || "");
     params.set("v", `${now}`);
