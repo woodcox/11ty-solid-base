@@ -44,19 +44,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("hash", (url) => {
     const urlbase = path.basename(url);
     const [basePart, ...paramPart] = urlbase.split(".");
-    console.log(basePart);
     const urldir= path.dirname(url)
-    console.log(urldir);
-    
     fs.readFile(path.resolve('src/_data/manifest.json'), (err, data) => {
       if (err) throw err;
       let hashmeta = JSON.parse(data);
       if (err) console.log(err);
-      console.log(hashmeta[basePart]);
+      const basenameHash= hashmeta[basePart];
     })
-    const params = new URLSearchParams(urlbase || "");
-    params.set("v", `${now}`);
-    return `${urlbase}?${params}`;
+    return `${urldir}/${basenameHash}`;
   });
 
   eleventyConfig.addPairedShortcode("solid", solidShortcode);
