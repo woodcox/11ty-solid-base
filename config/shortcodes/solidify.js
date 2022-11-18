@@ -5,7 +5,7 @@ const { solidPlugin } = require('esbuild-plugin-solid');
 const fsPromises = require('fs').promises;
 
 module.exports = async (code, filename, bundled) => {
-  let bundleJsx = ( bundled !== 'bundleOff' ? true : false || bundled === false ? false : true );
+  let bundleJsx = bundled !== 'bundleOff' ? true : false;
   await fsPromises.writeFile('solid-' + filename + '.jsx', code),
   await esbuild.build({
     entryPoints: glob.sync(['solid-*.jsx']),
