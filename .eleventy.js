@@ -41,10 +41,10 @@ module.exports = function (eleventyConfig) {
   });
   
   eleventyConfig.addFilter("hash", (url) => {
-    const urlbase = path.basename(url);
+    const urlbase = path.basename(url, '.js');
     console.log(urlbase);
     const urldir= path.dirname(url)
-    console.log(dirbase);
+    console.log(urldir);
     const params = new URLSearchParams(urlbase || "");
     params.set("v", `${now}`);
     return `${urlbase}?${params}`;
