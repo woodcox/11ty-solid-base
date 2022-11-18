@@ -39,3 +39,13 @@ There are two optional arguments:
 > Production build includes minified, autoprefixed CSS
 
 Use this as the "Publish command" if needed by hosting such as Netlify.
+
+## To do
+
+To do:
+
+- option to write to location in docs folder (maybe this should be via the config/shortcode/solidify file)
+- bundle all solidify shortcodes into one js file
+- The web component (webC example)
+- improve styling
+- make prettier hydration examples
