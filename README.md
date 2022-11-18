@@ -21,7 +21,7 @@ To configure esbuild for the shortcode, modify `config/shortcode/solidify.js`
 ### Arguments
 There are two optional arguments:
 - `filename`: The name of the file which is saved to `docs/assets`. This name is automatically prefixed by `solid-`.
-- `bundled`: The solid.jsx is bundled by default. To switch bundling off pass the value: `"bundleOff"` or `false`
+- `bundled`: The solid.jsx is bundled by default. To switch bundling off pass the value: `"bundleOff"`.
 
 
 ## Development Scripts
