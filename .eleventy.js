@@ -4,6 +4,7 @@ const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
 const esbuildPipeline = require('./config/build/esbuild.js');
 const path = require("path");
+const fs= require('fs');
 
 const TEMPLATE_ENGINE = "liquid";
 
@@ -45,6 +46,13 @@ module.exports = function (eleventyConfig) {
     console.log(urlbase);
     const urldir= path.dirname(url)
     console.log(urldir);
+    
+    fs.readFile(path.resolve('src/_data/manifest.json'), (err, data) => {
+      if (err) throw err;
+      let hashmeta = JSON.parse(data);
+      if (err) console.log(err);
+      console.log(hashmeta);
+    })
     const params = new URLSearchParams(urlbase || "");
     params.set("v", `${now}`);
     return `${urlbase}?${params}`;
