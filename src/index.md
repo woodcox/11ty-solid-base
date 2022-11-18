@@ -41,12 +41,12 @@ render(() => <Solidify />, document.getElementById('shorty'))
 </is-land>
 
 To do:
-  - option to write to location in docs folder (maybe this should be via the config/shortcode/solidify file)
+  - option to write to location in `docs` folder (maybe this should be via the `config/shortcode/solidify` file)
   - bundle all solidify shortcodes into one js file 
 
 ## The web component
 To do: 
- - look at 11ty docs & 11ty.rocks
+ - look at [11ty docs](https://www.11ty.dev/docs/languages/webc/) & [11ty.rocks](https://11ty.rocks/)
  - A webC example
 
 
