@@ -26,7 +26,7 @@ There are two optional arguments:
 ## Cachebusting hash filter
 
 Esbuild is configured to add a hash to the JS files it processes in the `src/assets/app` or the `src/assets/js` folders. It outputs a `manifest.json` file to the `src/_data` directory.
-The manifest.json file is used in the hash filter to modify the URL href in the html:
+The manifest.json file is used in the hash filter to modify the URL src in the html:
 
 ~~~html
 <script src="{{ '/assets/app/app.js' | hash }}"></script>
