@@ -12,7 +12,7 @@ To test if the island partial hydration is working; on a mobile phone, turn the 
   </counter-component>
   <template data-island="replace">
     <p id="app"></p>
-    <script src="{{ '/assets/app/app.min.js' | url | hash }}"></script>
+    <script src="{{ '/assets/app/app.js' | url | hash }}"></script>
   </template>
 </is-land>
 
@@ -27,7 +27,7 @@ The shortcode adds the js inline, which is not ideal. Going forward I will look 
   <template data-island="replace">
     <p id="shorty"></p>
 
-{% solid "shorty", "bundleOff" %}  
+{% solid "shorty" %}  
 import { render } from './node_modules/solid-js/web';
 
 function Solidify() {
