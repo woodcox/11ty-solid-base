@@ -52,8 +52,8 @@ module.exports = function (eleventyConfig) {
       if (err) console.log(err);
       let basenameHash = hashmeta[basePart];
       console.log(basenameHash);
+      return `${urldir}/${basenameHash}`;   
     })
-    return `${urldir}/${basenameHash}`;
   });
 
   eleventyConfig.addPairedShortcode("solid", solidShortcode);
