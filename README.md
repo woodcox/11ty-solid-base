@@ -1,8 +1,8 @@
 # 11ty Solid Base
 
-A minimal base HTML5 template and the esbuild setup to compile your Solid-js app alongside 11ty.
+A minimal base HTML5 template and the esbuild setup to compile your SolidJS app alongside 11ty.
 
-Includes [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/), [WebC](https://www.11ty.dev/docs/languages/webc/), [esBuild](https://esbuild.github.io), minifiying and autoprefixing of styles using [Lightning CSS](https://lightningcss.dev/), a shortcode to compile solidJS inline and cashebusting via an esbuild generated hash.
+Includes [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/), [WebC](https://www.11ty.dev/docs/languages/webc/), [esBuild](https://esbuild.github.io), minifiying and autoprefixing of styles using [Lightning CSS](https://lightningcss.dev/), a shortcode to compile SolidJS inline and cashebusting via an esbuild generated hash.
 
 ## Compile Solidjs to js
 Add `your_solid.jsx` file to the `src/assets/app` or the `src/assets/js` folders. Esbuild will output a minified js file. To configure esbuild modify `config/build/esbuild.js`.
@@ -23,6 +23,14 @@ There are two optional arguments:
 - `filename`: The name of the file which is saved to `docs/assets`. This name is automatically prefixed by `solid-`.
 - `bundled`: The solid.jsx is bundled by default. To switch bundling off pass the value: `"bundleOff"`.
 
+## Cachebusting hash filter
+
+Esbuild is configured to add a hash to the JS files it processes in the `src/assets/app` or the `src/assets/js` folders. It outputs a `manifest.json` file to the `src/_data` directory.
+The manifest.json file is used in the hash filter to modify the URL href in the html:
+
+~~~html
+<script src="{{ '/assets/app/app.js' | hash }}"></script>
+~~~
 
 ## Development Scripts
 
