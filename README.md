@@ -32,6 +32,12 @@ The manifest.json file is used in the hash filter to modify the URL href in the 
 <script src="{{ '/assets/app/app.js' | hash }}"></script>
 ~~~
 
+As a bonus if the file has been minified in production it will alter the file extension to `[hash]-min.js`, for example:
+
+~~~html
+<script src="/assets/app/app-S5YUTCHU.min.js"></script>
+~~~
+
 ## Development Scripts
 
 **`npm start`**
