@@ -4,7 +4,8 @@ const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
 const esbuildPipeline = require('./config/build/esbuild.js');
 const path = require("path");
-const fs= require('fs');
+const fs = require('fs');
+const manifest = require('./src/_data/manifest.json');
 
 const TEMPLATE_ENGINE = "liquid";
 
@@ -45,7 +46,8 @@ module.exports = function (eleventyConfig) {
     const urlbase = path.basename(url);
     const [basePart, ...paramPart] = urlbase.split(".");
     const urldir = path.dirname(url);
-    var basenameHash;
+    let hashedBasename = manifest[basePart];
+    console.log(hashedBasename);
     fs.readFile(path.resolve('src/_data/manifest.json'), (err, data) => {
       if (err) throw err;
       let hashmeta = JSON.parse(data);
@@ -53,7 +55,7 @@ module.exports = function (eleventyConfig) {
       var basenameHash = hashmeta[basePart];
       console.log(basenameHash);
     })
-    return `${urldir}/${basenameHash}`;
+    return `${urldir}/${hashedBasename}`;
   });
 
   eleventyConfig.addPairedShortcode("solid", solidShortcode);
