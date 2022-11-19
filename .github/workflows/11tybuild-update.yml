@@ -48,7 +48,7 @@ jobs:
           default_author: github_actions
           message: "Update docs files"
           add: '["*.json", "docs"]'
-          commit: -f
+          commit: --force
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
