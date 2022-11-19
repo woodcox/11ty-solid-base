@@ -2,7 +2,7 @@
 node_modules
 
 # build artifacts
-docs
+dist
 
 # secrets and errors
 .env
