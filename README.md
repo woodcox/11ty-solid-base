@@ -57,6 +57,7 @@ Use this as the "Publish command" if needed by hosting such as Netlify.
 ## To do
 
 - add caching for esbuild - option - [esbuild cache](https://github.com/dalcib/esbuild-plugin-cache)
+- compile css through esbuild so can use the hash filter, drop lightningcss? or just use purgecss in esbuild
 - not sure about this - option to write shortcode to location in docs folder (maybe this should be via the config/shortcode/solidify file)
 - look as using webc bundle to bundle all solidify shortcodes into one per page
 - The web component (webC example)
