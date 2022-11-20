@@ -27,7 +27,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm update
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
