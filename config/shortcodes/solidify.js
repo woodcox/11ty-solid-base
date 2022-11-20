@@ -4,6 +4,11 @@ const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
 const { solidPlugin } = require('esbuild-plugin-solid');
 const { cacheHttps } = require('esbuild-plugin-cache');
 const fsPromises = require('fs').promises;
+const importmap = {
+  imports: {
+    solid: 'https://cdn.skypack.dev/solid-js@1.6.2',
+  },
+}
 
 module.exports = async (code, filename, bundled) => {
   let bundleJsx = bundled !== 'bundleOff' ? true : false;
@@ -15,7 +20,7 @@ module.exports = async (code, filename, bundled) => {
     bundle: bundleJsx,
     plugins: [
       solidPlugin(),
-      cacheHttps()
+      cacheHttps({ importmap, directory: './cache'})
     ],
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
