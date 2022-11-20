@@ -27,7 +27,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install esbuild-plugin-cache # npm update --save
+        run: npm install # npm update --save
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
