@@ -56,8 +56,9 @@ Use this as the "Publish command" if needed by hosting such as Netlify.
 
 ## To do
 
-- option to write shortcode to location in docs folder (maybe this should be via the config/shortcode/solidify file)
-- bundle all solidify shortcodes into one js file
+- add caching for esbuild
+- not sure about this - option to write shortcode to location in docs folder (maybe this should be via the config/shortcode/solidify file)
+- look as using webc bundle to bundle all solidify shortcodes into one per page
 - The web component (webC example)
 - improve styling
 - make prettier hydration examples
