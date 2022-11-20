@@ -4,6 +4,7 @@ const glob = require('glob-all'); // to enable * glob pattern in esbuild
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 const { solidPlugin } = require('esbuild-plugin-solid');
 const manifestPlugin = require('esbuild-plugin-manifest');
+const { cacheHttps } = require('esbuild-plugin-cache');
 const fs = require('fs');
 const path = require("path");
 
@@ -29,7 +30,8 @@ module.exports = async () => {
               `${path.basename(to)}`,
             ])
           ),
-        })
+        }),
+      cacheHttps()
     ],
     minify: isProd,
     outdir: './docs/assets',
