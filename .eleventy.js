@@ -41,7 +41,7 @@ module.exports = function (eleventyConfig) {
     return `${urlPart}?${params}`;
   });
   
-  // Use this filter only if the asset is processed by esbuild and is in _data/manifest.json
+  // Use this filter only if the asset is processed by esbuild and is in _data/manifest.json. Use {{ 'myurl' | hash }}
   eleventyConfig.addFilter("hash", (url) => {
     const urlbase = path.basename(url);
     const [basePart, ...paramPart] = urlbase.split(".");
