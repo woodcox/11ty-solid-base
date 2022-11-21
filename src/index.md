@@ -28,7 +28,7 @@ The shortcode adds the js inline, which is not ideal. Going forward I will look 
     <p id="shorty"></p>
 
 {% solid "shorty" %}  
-import { render } from 'https://esm.sh/solid-js@1.6.2';
+import { render } from 'https://cdn.skypack.dev/solid-js';
 
 function Solidify() {
   return <div>The solidify shortcode is active!</div>;
