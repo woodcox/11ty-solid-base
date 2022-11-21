@@ -2,13 +2,7 @@ const esbuild = require("esbuild");
 const glob = require('glob-all'); // to enable * glob pattern in esbuild
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
 const { solidPlugin } = require('esbuild-plugin-solid');
-const { cacheHttps } = require('esbuild-plugin-cache');
 const fsPromises = require('fs').promises;
-const importmap = {
-  imports: {
-    solid: 'https://cdn.skypack.dev/solid-js@1.6.2',
-  },
-}
 
 module.exports = async (code, filename, bundled) => {
   let bundleJsx = bundled !== 'bundleOff' ? true : false;
@@ -18,10 +12,7 @@ module.exports = async (code, filename, bundled) => {
     entryNames: '[name]',
     outdir: './docs/assets/app',
     bundle: bundleJsx,
-    plugins: [
-      solidPlugin(),
-      cacheHttps({ importmap, directory: './cache'})
-    ],
+    plugins: [solidPlugin()],
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
   })
