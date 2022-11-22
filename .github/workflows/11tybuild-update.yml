@@ -11,7 +11,7 @@ concurrency:
 
 # Conditional environmental if's      
 env:
-  UPDATE_NPM: false # false = deploy eleventy , true = update npm
+  UPDATE_NPM: true # false = deploy eleventy , true = update npm
 
 jobs:
   build_deploy_eleventy:
@@ -27,7 +27,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install # npm update --save
+        run: npm update esbuild-plugin-cache --save
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
