@@ -39,5 +39,8 @@
     "last 2 versions",
     "Firefox ESR",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "esbuild-plugin-cache": "github:woodcock3/esbuild-plugin-cache"
+  }
 }
