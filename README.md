@@ -56,7 +56,7 @@ Use this as the "Publish command" if needed by hosting such as Netlify.
 
 ## To do
 
-- [esbuild-plugin-cache](https://github.com/dalcib/esbuild-plugin-cache) cache http/https imports. But its an esm plugin which is incompatable with 11ty. Convert to from mjs to cjs, then could import http/https without installing npm packages on node_modules similar to snowpack/skypack. It also allows use of import-maps.
+- [esbuild-plugin-cache](https://github.com/dalcib/esbuild-plugin-cache) can cache http/https imports. But its an esm plugin which is incompatable with 11ty. Convert to from mjs to cjs, then could import http/https without installing npm packages on node_modules similar to snowpack/skypack. It also allows use of import-maps.
 - Consider making repo framework agnostic. As I think the esbuild config and shortcode may be able to accomodate other frameworks. This would make the repo way more useful to the 11ty community. Caching https imports would be beneficial as would not need any framework related node modules dependencies in the repo. Would need the relevant esbuild plugins for the frameworks. 
 - should I make it agnostic to the method devs compile CSS, as everyone has their own preferred way to generate CSS?  
 - compile css through esbuild so can use the hash filter, drop lightningcss? or just use purgecss in esbuild
