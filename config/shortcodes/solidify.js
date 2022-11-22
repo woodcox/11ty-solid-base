@@ -13,7 +13,6 @@ module.exports = async (code, filename, bundled) => {
     entryNames: '[name]',
     outdir: './docs/assets/app',
     bundle: bundleJsx,
-    mainFields: ['exports', 'main'],
     plugins: [
       solidPlugin(),
       cache()
