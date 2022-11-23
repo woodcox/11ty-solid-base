@@ -18,7 +18,7 @@ module.exports = async (code, filename, bundled) => {
       solidPlugin(),
       http({
         filter: (url) => true,
-        schemes: { default_schemes, import "esm:solid-js" },
+        schemes: { default_schemes },
         cache: new Map()
       })
     ],
