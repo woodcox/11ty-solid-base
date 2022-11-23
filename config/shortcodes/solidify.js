@@ -4,7 +4,6 @@ const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
 const { solidPlugin } = require('esbuild-plugin-solid');
 const fsPromises = require('fs').promises;
 const { http, default_schemes } = require('@hyrious/esbuild-plugin-http');
-console.log(default_schemes);
 
 module.exports = async (code, filename, bundled) => {
   let bundleJsx = bundled !== 'bundleOff' ? true : false;
@@ -19,7 +18,7 @@ module.exports = async (code, filename, bundled) => {
       solidPlugin(),
       http({
         filter: (url) => true,
-        schemes: { default_schemes } import "esm:solid-js",
+        schemes: default_schemes import "esm:solid-js",
         cache: new Map()
       })
     ],
