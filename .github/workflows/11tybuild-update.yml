@@ -2,7 +2,7 @@ name: Build 11ty and css
 on:
   push:
     branches:
-      - main
+      - revert
 
 # Cancel a previous build if still running
 concurrency:
@@ -27,7 +27,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm i # npm update --save
+        run: npm update --save
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
