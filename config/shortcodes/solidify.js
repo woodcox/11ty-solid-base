@@ -3,7 +3,7 @@ const glob = require('glob-all'); // to enable * glob pattern in esbuild
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false
 const { solidPlugin } = require('esbuild-plugin-solid');
 const fsPromises = require('fs').promises;
-const { cache } = require('esbuild-plugin-cache');
+const { http } = require('@hyrious/esbuild-plugin-http');
 
 module.exports = async (code, filename, bundled) => {
   let bundleJsx = bundled !== 'bundleOff' ? true : false;
@@ -16,7 +16,11 @@ module.exports = async (code, filename, bundled) => {
     format: esm,
     plugins: [
       solidPlugin(),
-      cache()
+      http({
+        filter: (url) => true,
+        schemes: default_schemes,
+        cache: new Map()
+      })
     ],
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
