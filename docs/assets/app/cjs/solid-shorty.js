@@ -1,1 +1,0 @@
-var e=require("solid-js/web"),t=require("solid-js/web"),o=require("https://cdn.skypack.dev/solid-js");const r=(0,e.template)("<div>The solidify shortcode is active!</div>",2);function m(){return r.cloneNode(!0)}(0,o.render)(()=>(0,t.createComponent)(m,{}),document.getElementById("shorty"));
