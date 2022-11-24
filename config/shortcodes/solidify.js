@@ -13,7 +13,8 @@ module.exports = async (code, filename, bundled) => {
   await esbuild.build({
     entryPoints: glob.sync(['solid-*.jsx']),
     entryNames: '[name]',
-    outdir: './docs/assets/app/esm ',
+    outdir: './docs/assets/app',
+    outExtension: '.mjs',
     bundle: bundleJsx,
     format: 'esm',
     plugins: [
@@ -32,7 +33,8 @@ module.exports = async (code, filename, bundled) => {
   await esbuild.build({
     entryPoints: glob.sync(['solid-*.jsx']),
     entryNames: '[name]',
-    outdir: './docs/assets/app/cjs',
+    outdir: './docs/assets/app',
+    outExtension: '.js'
     bundle: bundleJsx,
     format: 'cjs',
     plugins: [
@@ -46,7 +48,7 @@ module.exports = async (code, filename, bundled) => {
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
   })
-  const solidifyEsm= await fsPromises.readFile('./docs/assets/app/esm/solid-' + filename + '.js', 'utf8');
-  const solidifyCjs= await fsPromises.readFile('./docs/assets/app/cjs/solid-' + filename + '.js', 'utf8');
+  const solidifyEsm= await fsPromises.readFile('./docs/assets/app/solid-' + filename + '.mjs', 'utf8');
+  const solidifyCjs= await fsPromises.readFile('./docs/assets/app/solid-' + filename + '.js', 'utf8');
   return `<script type="module">${solidifyEsm}</script><script nomodule>${solidifyCjs}</script>`;
 };
