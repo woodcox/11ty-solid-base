@@ -34,7 +34,7 @@ module.exports = async (code, filename, bundled) => {
     entryPoints: glob.sync(['solid-*.jsx']),
     entryNames: '[name]',
     outdir: './docs/assets/app',
-    outExtension: '.js'
+    outExtension: '.js',
     bundle: bundleJsx,
     format: 'cjs',
     plugins: [
