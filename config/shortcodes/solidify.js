@@ -37,12 +37,12 @@ module.exports = async (code, filename, bundled) => {
     bundle: bundleJsx,
     format: 'cjs',
     plugins: [
-      solidPlugin(),
       http({
         filter: (url) => true,
         schemes: { default_schemes },
         cache: new Map()
-      })
+      }),
+      solidPlugin()
     ],
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
