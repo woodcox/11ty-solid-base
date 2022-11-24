@@ -71,5 +71,4 @@ Use this as the "Publish command" if needed by hosting such as Netlify.
 - The web component (webC example)
 - improve styling
 - make prettier hydration examples
-- not sure about this - option to write shortcode to location in docs folder (maybe this should be via the config/shortcode/solidify file)
-- cache output js files/manifest.json to "increase build speed" 
+- caching to "increase build speed" 
