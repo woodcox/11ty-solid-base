@@ -27,7 +27,8 @@ The shortcode adds the js inline, which is not ideal. Going forward I will look 
   <template data-island="replace">
     <p id="shorty"></p>
 
-{% solid "shorty" "zbundleOff" %}  
+{% solid "shorty" "zbundleOff" %}
+import 'esm:solid-js'
 import { render } from 'https://esm.sh/solid-js';
 
 function Solidify() {
