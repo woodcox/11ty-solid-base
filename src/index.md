@@ -28,7 +28,7 @@ The shortcode adds the js inline, which is not ideal. Going forward I will look 
     <p id="shorty"></p>
 
 {% solid "shorty" "zbundleOff" %}  
-import { render } from 'esm:solid-js';
+import { render } from 'https://esm.sh/solid-js';
 
 function Solidify() {
   return <div>The solidify shortcode is active!</div>;
