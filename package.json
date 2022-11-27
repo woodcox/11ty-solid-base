@@ -3,6 +3,8 @@
   "version": "0.1.1",
   "description": "A minimal HTML5 template and the esbuild setup to compile your Solidjs app alongside 11ty.",
   "main": "index.html",
+  "imports": {
+    "#solid/*": "./node_modules/solid-js/*"
   "scripts": {
     "dev:sass": "sass  --no-source-map --watch src/sass:./_tmp",
     "dev:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy --serve",
