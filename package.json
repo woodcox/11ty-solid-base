@@ -5,7 +5,7 @@
   "main": "index.html",
   "imports": {
     "#solid/*": "./node_modules/solid-js/*",
-    "#is-land": "./node_modules/@11ty/is-land/is-land/index/index.js"
+    "#is-land/index": "./node_modules/@11ty/is-land/is-land/index/index.js"
   },
   "scripts": {
     "dev:sass": "sass  --no-source-map --watch src/sass:./_tmp",
