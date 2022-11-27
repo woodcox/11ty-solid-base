@@ -1,1 +1,1 @@
-import island from '#is-land/index';
+import island from 'is-land.js';
