@@ -18,11 +18,11 @@ module.exports = async (code, filename, bundled) => {
     bundle: bundleJsx,
     format: 'esm',
     plugins: [
-    //  http({
-    //    filter: (url) => true,
-    //    schemes: { default_schemes },
-    //    cache: new Map()
-    //  }),
+      http({
+        filter: (url) => true,
+        schemes: { default_schemes },
+        cache: new Map()
+      }),
       solidPlugin()
     ],
     minify: isProd,
