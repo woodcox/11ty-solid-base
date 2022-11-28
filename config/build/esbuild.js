@@ -4,6 +4,7 @@ const glob = require('glob-all'); // to enable * glob pattern in esbuild
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 const { solidPlugin } = require('esbuild-plugin-solid');
 const manifestPlugin = require('esbuild-plugin-manifest');
+const { http, default_schemes } = require('@hyrious/esbuild-plugin-http');
 const fs = require('fs');
 const path = require("path");
 
@@ -15,6 +16,11 @@ module.exports = async () => {
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
     bundle: true,
     plugins: [
+      http({
+        filter: (url) => true,
+        schemes: { default_schemes },
+        cache: new Map()
+      }),
       solidPlugin(), 
       manifestPlugin({
         // NOTE: Save to src/_data. This is always relative to `outdir`.
