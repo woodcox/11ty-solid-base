@@ -1,1 +1,1 @@
-import island from '11ty-solid-base/is-land.js';
+import island from '#is-land.js';
