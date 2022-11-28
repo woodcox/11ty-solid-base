@@ -45,7 +45,7 @@ module.exports = async (code, filename, bundled) => {
       solidPlugin()
     ],
     minify: isProd,
-    target: isProd ? 'es6' : 'esnext'
+    target: isProd ? 'es5' : 'esnext'
   })
   const solidifyEsm= await fsPromises.readFile('./docs/assets/app/solid-' + filename + '.mjs', 'utf8');
   const solidifyCjs= await fsPromises.readFile('./docs/assets/app/solid-' + filename + '.js', 'utf8');
