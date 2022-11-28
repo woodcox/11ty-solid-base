@@ -3,9 +3,9 @@
   "version": "0.1.1",
   "description": "A minimal HTML5 template and the esbuild setup to compile your Solidjs app alongside 11ty.",
   "main": "docs/index.html",
-  "exports": {
-    "./solid-js/*": "./node_modules/solid-js/*",
-    "./is-land.js": "/node_modules/@11ty/is-land/is-land.js"
+  "imports": {
+    "#solid-js/*": "/node_modules/solid-js/*",
+    "#is-land.js": "/node_modules/@11ty/is-land/is-land.js"
   },
   "scripts": {
     "dev:sass": "sass  --no-source-map --watch src/sass:./_tmp",
