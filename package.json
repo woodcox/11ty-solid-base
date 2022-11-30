@@ -11,7 +11,7 @@
     "minify:eleventy": "ELEVENTY_ENV=prod npx @11ty/eleventy --pathprefix=11ty-solid-base",
     "build:processcss": "BROWSERSLIST_CONFIG='./package.json' lightningcss ./_tmp/*.css -o ./_tmp/*.css",
     "minify:processcss": "BROWSERSLIST_CONFIG='./package.json' lightningcss --minify ./_tmp/*.css -o ./_tmp/*.css",
-    "start": "npm-run-all --parallel dev:*",
+    "start": "NODE_ENV=dev npm-run-all --parallel dev:*",
     "build": "NODE_ENV=dev npm-run-all build:sass build:processcss build:eleventy",
     "minify": "NODE_ENV=production npm-run-all build:sass minify:processcss minify:eleventy"
   },
