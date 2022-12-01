@@ -13,8 +13,8 @@
     "build:processcss": "BROWSERSLIST_CONFIG='./package.json' lightningcss ./_tmp/*.css -o ./_tmp/*.css",
     "minify:processcss": "BROWSERSLIST_CONFIG='./package.json' lightningcss --minify ./_tmp/*.css -o ./_tmp/*.css",
     "start": "NODE_ENV=dev npm-run-all --parallel dev:sass dev:eleventy",
-    "build": "NODE_ENV=dev npm-run-all build:sass build:processcss build:eleventy",
-    "minify": "NODE_ENV=production npm-run-all build:sass minify:processcss minify:eleventy"
+    "build": "NODE_ENV=dev npm-run-all clean build:sass build:processcss build:eleventy",
+    "minify": "NODE_ENV=production npm-run-all clean build:sass minify:processcss minify:eleventy"
   },
   "repository": {
     "type": "git",
