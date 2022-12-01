@@ -70,4 +70,5 @@ Use this as the "Publish command" if needed by hosting such as Netlify.
 - The web component (webC example)
 - improve styling
 - make prettier hydration examples
-- caching to "increase build speed" 
+- caching to "increase build speed"
+- consider [scoped css modules](https://how-to.dev/how-to-set-up-css-modules-with-esbuild) and [esbuild css modules plugin](https://github.com/indooorsman/esbuild-css-modules-plugin#readme). However each dev has preferred methods for compiling CSS. Could just link to them?
