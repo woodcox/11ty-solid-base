@@ -2,7 +2,7 @@ name: Build 11ty and css
 on:
   push:
     branches:
-      - main
+      - revert
 
 # Cancel a previous build if still running
 concurrency:
