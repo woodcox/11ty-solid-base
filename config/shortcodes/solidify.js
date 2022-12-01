@@ -16,6 +16,7 @@ module.exports = async (code, filename, bundled) => {
     outdir: './docs/assets/app',
     outExtension: { '.js': '.mjs' },
     bundle: bundleJsx,
+    watch: !isProd,
     format: 'esm',
     plugins: [
       http({
@@ -46,6 +47,9 @@ module.exports = async (code, filename, bundled) => {
     ],
     minify: isProd,
     target: isProd ? 'es6' : 'esnext'
+  }).catch((err) => {
+    console.error(err);
+    process.exitCode = 1;
   })
   const solidifyEsm= await fsPromises.readFile('./docs/assets/app/solid-' + filename + '.mjs', 'utf8');
   const solidifyCjs= await fsPromises.readFile('./docs/assets/app/solid-' + filename + '.js', 'utf8');
