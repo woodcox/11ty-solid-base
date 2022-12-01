@@ -15,6 +15,7 @@ module.exports = async () => {
     entryNames: '[dir]/[name]-[hash]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
     bundle: true,
+    watch: !isProd,
     plugins: [
       http({
         filter: (url) => true,
