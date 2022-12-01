@@ -3,6 +3,7 @@ node_modules
 
 # build artifacts
 dist
+_tmp
 
 # secrets and errors
 .env
@@ -11,3 +12,5 @@ dist
 # macOS related files
 .DS_Store
 
+#IDE
+.vscode
