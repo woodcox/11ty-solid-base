@@ -24,7 +24,7 @@ module.exports = function (eleventyConfig) {
 
   // WATCH
   eleventyConfig.addWatchTarget("./src/sass/");
-  eleventyConfig.addWatchTarget("./src/assets');
+  eleventyConfig.addWatchTarget("./src/assets");
 
   // COPY
   // Copy sass output from ./_tmp file
