@@ -27,7 +27,7 @@ module.exports = async () => {
         filename: '../../src/_data/manifest.json',
         shortNames: true,
         extensionless: 'input',
-        // Generate manifest.json
+        // Generate manifest.json - https://github.com/pellebjerkestrand/pokesite/blob/main/source/build/build-client.js
         generate: (entries) =>
           Object.fromEntries(
             Object.entries(entries).map(([from, to]) => [
@@ -42,6 +42,9 @@ module.exports = async () => {
     sourcemap: !isProd,
     target: isProd ? 'es6' : 'esnext',
     metafile: true,
-  }).catch(() => process.exit(1));
+  }).catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  })
   fs.writeFileSync('./src/_data/builddata.json', JSON.stringify(result.metafile));
 }
