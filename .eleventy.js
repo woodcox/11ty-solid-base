@@ -1,5 +1,6 @@
 const sass = require("sass");
 const pluginWebc = require("@11ty/eleventy-plugin-webc");
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
 const esbuildPipeline = require('./config/build/esbuild.js');
@@ -21,6 +22,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginWebc, {
     components: "src/_includes/components/**/*.webc",
   });
+  // to use other templates like liquid and nunjunks
+  eleventyConfig.addPlugin(EleventyRenderPlugin); 
 
   // WATCH
   eleventyConfig.addWatchTarget("./src/sass/");
