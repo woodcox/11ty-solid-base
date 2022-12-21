@@ -42,9 +42,8 @@ render(() => <Solidify />, document.getElementById('shorty'))
 
 ## The web component
 
-{% renderTemplate "webc" %}
 <web-component></web-component>
-{% endrenderTemplate %}
+
 
 To do: 
  - look at [11ty docs](https://www.11ty.dev/docs/languages/webc/) & [11ty.rocks](https://11ty.rocks/)
