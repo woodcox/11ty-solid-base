@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/woodcox/11ty-solid-start.git"
+    "url": "git+https://github.com/woodcox/11ty-solid-base.git"
   },
   "author": "woodcox",
   "license": "ISC",
