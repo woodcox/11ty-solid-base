@@ -20,9 +20,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/woodcock3/11ty-solid-start.git"
+    "url": "git+https://github.com/woodcox/11ty-solid-start.git"
   },
-  "author": "woodcock3",
+  "author": "woodcox",
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0-canary.18",
