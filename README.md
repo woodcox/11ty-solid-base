@@ -64,8 +64,7 @@ Use this as the "Publish command" if needed by hosting such as Netlify.
 ## To do
 
 - Look at adding js import maps
-- Consider making repo framework agnostic. As I think the esbuild config and shortcode may be able to accomodate other frameworks. This would make the repo way more useful to the 11ty community. Would need the relevant esbuild plugins for the frameworks.
-- Could make repo into an 11ty-plugin to make it agnostic to the method devs compile CSS, as everyone has their own preferred way to generate CSS. The plugin would focus on just compiling JS frameworks, shortcodes and hashing.
+- Could make repo into an 11ty-plugin to make it agnostic to the method devs compile CSS, as everyone has their own preferred way to generate CSS. The plugin would focus on just compiling JS, shortcodes and hashing.
 - compile css through esbuild so can use the hash filter, drop lightningcss? or just use purgecss in esbuild
 - look as using webc bundle to bundle all solidify shortcodes into one per page
 - The web component (webC example)
