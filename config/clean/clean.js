@@ -21,13 +21,15 @@ function deleteFolderRecursive(path) {
 console.log("Cleaning working tree...");
 
 // Add any folers here you want to delete prior to build
-deleteFolderRecursive("./docs");
+
+deleteFolderRecursive("./docs/assets/app");
+deleteFolderRecursive("./docs/assets/js");
 deleteFolderRecursive("./_tmp");
 
 console.log("Successfully cleaned working tree!");
 
 // recreate directory
-var dir = './docs';
+var dir = './_tmp';
 
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
