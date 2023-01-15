@@ -47,4 +47,8 @@ module.exports = async () => {
     process.exitCode = 1;
   })
   fs.writeFileSync('./src/_data/builddata.json', JSON.stringify(result.metafile));
+  if (!isProd){
+    await result.watch()
+    console.log('esbuild is watching...')
+  }
 }
