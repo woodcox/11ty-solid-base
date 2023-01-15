@@ -12,7 +12,8 @@ const TEMPLATE_ENGINE = "liquid";
 module.exports = function (eleventyConfig) {
   // DEV SERVER
   eleventyConfig.setServerOptions({
-    port: 8080
+    port: 8080,
+    watch: ["src/sass", "docs/assets/**/*.js", "docs/assets/css/*.css"]
   });
 
   // BUILD HOOK
