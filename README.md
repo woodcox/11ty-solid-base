@@ -16,11 +16,10 @@ If you need to compile your js script inline, use this shortcode:
 {% endsolid %}
 ~~~
 
-By default the shortcode will generate the script tag in a module nomodule pattern. 
+The shortcode will generate the script tag in a module nomodule pattern. 
 
 ~~~html
-<script type="module">your.es6.mjs.code</script>
-<script nomodule>your.es5.cjs.code</script>
+<script type="module">your.es6.js.code</script>
 ~~~
 
 To configure esbuild for the shortcode, modify `config/shortcode/solidify.js`
