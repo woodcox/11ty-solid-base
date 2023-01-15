@@ -8,15 +8,12 @@
     "dev:sass": "sass  --no-source-map --watch src/sass:./_tmp",
     "dev:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy-dev-server --input=docs",
     "build:sass": "sass  --no-source-map src/sass:./_tmp",
-    "build:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy --pathprefix=11ty-solid-base",
-    "blitz:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy",
-    "minify:eleventy": "ELEVENTY_ENV=prod npx @11ty/eleventy --pathprefix=11ty-solid-base",
-    "build:processcss": "BROWSERSLIST_CONFIG='./package.json' lightningcss ./_tmp/*.css -o ./_tmp/*.css",
-    "minify:processcss": "BROWSERSLIST_CONFIG='./package.json' lightningcss --minify ./_tmp/*.css -o ./_tmp/*.css",
-    "start": "NODE_ENV=dev npm-run-all --parallel dev:sass dev:eleventy",
-    "build": "NODE_ENV=dev npm-run-all clean build:sass build:processcss build:eleventy",
-    "cloud": "NODE_ENV=dev npm-run-all clean build:sass blitz:eleventy start",
-    "minify": "NODE_ENV=production npm-run-all clean build:sass minify:processcss minify:eleventy"
+    "build:eleventy": "npx @11ty/eleventy",
+    "prefix": "BROWSERSLIST_CONFIG='./package.json' lightningcss --browserlist ./_tmp/*.css -o ./_tmp/*.css",
+    "start": "NODE_ENV=dev conc --kill-others 'dev:*'",
+    "cloud": "npm run clean && npm run build:sass && NODE_ENV=dev ELEVENTY_ENV=prod npm run build:eleventy",
+    "build": "npm run clean && npm run build:sass && npm run prefix && NODE_ENV=dev ELEVENTY_ENV=prod npm run build:eleventy -- --pathprefix=11ty-solid-base",
+    "minify": "npm run clean && npm run build:sass && npm run prefix -- --minify && NODE_ENV=production ELEVENTY_ENV=prod npm run build:eleventy -- --pathprefix=11ty-solid-base"
   },
   "repository": {
     "type": "git",
