@@ -16,7 +16,6 @@ module.exports = async (code, filename, bundled) => {
     outdir: './docs/assets/app',
     outExtension: { '.js': '.mjs' },
     bundle: bundleJsx,
-    watch: !isProd,
     format: 'esm',
     plugins: [
       http({
