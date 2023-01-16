@@ -18,7 +18,7 @@ To test if the island partial hydration is working; on a mobile phone, turn the 
 
 
 ## The shortcode
-The shortcode adds the js inline, which is not ideal. Going forward I will look at an option to write to the file system.
+The shortcode adds the js inline. Need to add import maps for this.
 
 <is-land on:media="(min-width: 30em)">
   <shortcode-component>
