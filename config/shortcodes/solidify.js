@@ -16,6 +16,9 @@ module.exports = async (code, filename, bundled) => {
     outdir: './docs/assets/app',
     bundle: bundleJsx,
     format: 'esm',
+    minify: isProd,
+    treeShaking: isProd,
+    target: isProd ? 'es6' : 'esnext',
     plugins: [
       http({
         filter: (url) => true,
@@ -23,9 +26,7 @@ module.exports = async (code, filename, bundled) => {
         cache: new Map()
       }),
       solidPlugin()
-    ],
-    minify: isProd,
-    target: isProd ? 'es6' : 'esnext'
+    ]
   }).catch((err) => {
     console.error(err);
     process.exitCode = 1;
