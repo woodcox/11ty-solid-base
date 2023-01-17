@@ -11,7 +11,7 @@ const path = require("path");
 
 module.exports = async () => {
   let result = await esbuild.build({
-    entryPoints: glob.sync(['src/assets/app/*.jsx', 'src/assets/js/*.js']),
+    entryPoints: glob.sync(['src/assets/app/*.jsx', 'src/assets/js/*.js', 'docs/assets/css/*.css']),
     entryNames: '[dir]/[name]-[hash]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
     bundle: true,
@@ -26,6 +26,11 @@ module.exports = async () => {
         filter: (url) => true,
         schemes: { default_schemes },
         cache: new Map()
+      }),
+      purgecssPlugin2({
+        content: glob.sync([
+          "./docs/*.html",
+        ])
       }),
       solidPlugin(), 
       manifestPlugin({
