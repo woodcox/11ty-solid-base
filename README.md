@@ -3,7 +3,7 @@
 
 A minimal base HTML5 template and the esbuild setup to compile your SolidJS app alongside 11ty.
 
-Includes [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/), [WebC](https://www.11ty.dev/docs/languages/webc/), [esBuild](https://esbuild.github.io), minifiying and autoprefixing of styles using [Lightning CSS](https://lightningcss.dev/), a shortcode to compile SolidJS inline and cashebusting via an esbuild generated hash. You can also import HTTP URLs into JavaScript code using [esbuild-plugin-http](https://github.com/hyrious/esbuild-plugin-http).
+Includes [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/), [WebC](https://www.11ty.dev/docs/languages/webc/), [esBuild](https://esbuild.github.io), minifiying and autoprefixing of styles using [Lightning CSS](https://lightningcss.dev/) and [purging css](https://purgecss.com/) of unused styles using [esbuild-plugin-purgecss-2](https://github.com/arslanakram/esbuild-plugin-purgecss-2.0/blob/master/src/index.js), a shortcode to compile SolidJS inline and cashebusting via an esbuild generated hash. You can also import HTTP URLs into JavaScript code using [esbuild-plugin-http](https://github.com/hyrious/esbuild-plugin-http).
 
 ## Compile Solidjs to js
 Add `your_solid.jsx` file to the `src/assets/app` or the `src/assets/js` folders. Esbuild will output a minified js file. To configure esbuild modify `config/build/esbuild.js`.
@@ -32,7 +32,7 @@ There are two optional arguments:
 
 ## Cachebusting hash filter
 
-Esbuild is configured to add a hash to the JS files it processes in the `src/assets/app` or the `src/assets/js` folders. It outputs a `manifest.json` file to the `src/_data` directory.
+Esbuild is configured to add a hash to the CSS and JS files it processes in the `src/assets/app`, `src/assets/js` and the `docs/assets/css` folders (it purges the prefixed output of the scss in situ). It outputs a `manifest.json` file to the `src/_data` directory.
 The manifest.json file is used in the hash filter to modify the URL src in the html:
 
 ~~~html
