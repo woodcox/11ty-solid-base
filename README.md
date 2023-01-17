@@ -1,3 +1,4 @@
+![solid-base-192x192](https://user-images.githubusercontent.com/64870518/212966953-811d880b-e53f-4f07-ad4e-759566539b62.png)
 # 11ty Solid Base
 
 A minimal base HTML5 template and the esbuild setup to compile your SolidJS app alongside 11ty.
