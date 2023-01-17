@@ -91,3 +91,7 @@ h3 {
   margin-bottom: 8px;
   border-bottom: 1px solid var(--bg-2);
 }
+
+.logo {
+  background: image-set(url(logo.png) 2x, url(logo.png) 1x);
+}
