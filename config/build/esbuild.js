@@ -29,7 +29,7 @@ module.exports = async () => {
         cache: new Map()
       }),
       purgecssPlugin2({
-        content: ["index.html"],
+        content: ["./src/index.md"],
         css:['style.css']
       }),
       solidPlugin(), 
