@@ -25,6 +25,7 @@
     "@11ty/eleventy": "^2.0.0-canary.30",
     "@11ty/eleventy-plugin-webc": "^0.8.1",
     "@11ty/is-land": "^3.0.0",
+    "@fullhuman/postcss-purgecss": "^5.0.0",
     "@hyrious/esbuild-plugin-http": "^0.1.1",
     "concurrently": "^7.6.0",
     "esbuild": "^0.17.0",
