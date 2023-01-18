@@ -6,7 +6,7 @@ A minimal base HTML5 template and the [esbuild](https://esbuild.github.io/) setu
 Includes:
   - [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/)
   - [WebC](https://www.11ty.dev/docs/languages/webc/), 
-  - [esBuild](https://esbuild.github.io)
+  - [esbuild](https://esbuild.github.io)
   - Minifiying and autoprefixing of styles using [Lightning CSS](https://lightningcss.dev/)
   - Uses [Purgecss](https://purgecss.com/) to remove unused styles via [esbuild-plugin-purgecss-2](https://github.com/arslanakram/esbuild-plugin-purgecss-2.0/blob/master/src/index.js)
   - A [shortcode](https://github.com/woodcox/11ty-solid-base/blob/main/config/shortcodes/solidify.js) to compile SolidJS inline
