@@ -13,6 +13,7 @@ module.exports = async (code, filename, bundled) => {
   await esbuild.build({
     entryPoints: glob.sync(['_tmp/solid-*.jsx']),
     entryNames: '[name]',
+    // write: false,
     outdir: './docs/assets/app',
     bundle: bundleJsx,
     format: 'esm',
