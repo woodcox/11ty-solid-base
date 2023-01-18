@@ -33,13 +33,14 @@ There are two optional arguments:
 ## Cachebusting hash filter
 
 Esbuild is configured to add a hash to the CSS and JS files it processes in the `src/assets/app`, `src/assets/js` and the `docs/assets/css` folders (it purges the prefixed output of the scss in situ). It outputs a `manifest.json` file to the `src/_data` directory.
-The manifest.json file is used in the hash filter to modify the URL src in the html:
+The manifest.json file is used in the hash filter to modify the URL src or href in the html:
 
 ~~~html
 <script src="{{ '/assets/app/app.js' | hash }}"></script>
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | hash }}" />
 ~~~
 
-As a bonus if the file has been minified in production it will alter the file extension to `[hash]-min.js`, for example:
+As a bonus if the file has been minified in production it will alter the file extension to `[hash]-min.js` or `[hash]-min.css`, for example:
 
 ~~~html
 <script src="/assets/app/app-S5YUTCHU.min.js"></script>
