@@ -13,12 +13,13 @@ const path = require("path");
 module.exports = async () => {
   let result = await esbuild.build({
     entryPoints: glob.sync(['src/assets/app/*.jsx', 'src/assets/js/*.js', 'docs/assets/css/*.css']),
-    entryNames: '[name]-[hash]',
+    entryNames: '[dir]/[name]-[hash]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
     bundle: true,
     minify: isProd,
     treeShaking: isProd,
     outdir: './docs/assets',
+    outbase: 'assets',
     sourcemap: !isProd,
     target: isProd ? 'es6' : 'esnext',
     metafile: true,
