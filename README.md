@@ -1,9 +1,17 @@
 ![solid-base-192x192](https://user-images.githubusercontent.com/64870518/212966953-811d880b-e53f-4f07-ad4e-759566539b62.png)
 # 11ty Solid Base
 
-A minimal base HTML5 template and the esbuild setup to compile your SolidJS app alongside 11ty.
+A minimal base HTML5 template and the [esbuild](https://esbuild.github.io/) setup to **compile your SolidJS app within 11ty**.
 
-Includes [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/), [WebC](https://www.11ty.dev/docs/languages/webc/), [esBuild](https://esbuild.github.io), minifiying and autoprefixing of styles using [Lightning CSS](https://lightningcss.dev/) and [purging css](https://purgecss.com/) of unused styles using [esbuild-plugin-purgecss-2](https://github.com/arslanakram/esbuild-plugin-purgecss-2.0/blob/master/src/index.js), a shortcode to compile SolidJS inline and cashebusting via an esbuild generated hash. You can also import HTTP URLs into JavaScript code using [esbuild-plugin-http](https://github.com/hyrious/esbuild-plugin-http).
+Includes:
+  - [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/)
+  - [WebC](https://www.11ty.dev/docs/languages/webc/), 
+  - [esBuild](https://esbuild.github.io)
+  - Minifiying and autoprefixing of styles using [Lightning CSS](https://lightningcss.dev/)
+  - [Purgecss](https://purgecss.com/) of unused styles using [esbuild-plugin-purgecss-2](https://github.com/arslanakram/esbuild-plugin-purgecss-2.0/blob/master/src/index.js)
+  - A shortcode to compile SolidJS inline
+  - Cashebusting via an esbuild generated hash. 
+  - You can also import HTTP URLs into JavaScript code using [esbuild-plugin-http](https://github.com/hyrious/esbuild-plugin-http).
 
 ## Compile Solidjs to js
 Add `your_solid.jsx` file to the `src/assets/app` or the `src/assets/js` folders. Esbuild will output a minified js file. To configure esbuild modify `config/build/esbuild.js`.
