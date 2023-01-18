@@ -30,7 +30,7 @@ module.exports = async () => {
       }),
       purgecssPlugin2({
         content: glob.sync([
-          "./docs/*.html",
+          "docs/*.html",
         ])
       }),
       solidPlugin(), 
