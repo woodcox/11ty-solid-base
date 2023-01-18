@@ -9,7 +9,7 @@ const purgecssPlugin2 = require("esbuild-plugin-purgecss-2");
 const fs = require('fs');
 const path = require("path");
 
-let purgecssPlugin() = {
+let purgecssPlugin = {
   name: 'purgecss',
   setup(build) {
     if (!build.initialOptions.metafile) {
