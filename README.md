@@ -11,7 +11,7 @@ Includes:
   - [Purgecss](https://purgecss.com/) of unused styles using [esbuild-plugin-purgecss-2](https://github.com/arslanakram/esbuild-plugin-purgecss-2.0/blob/master/src/index.js)
   - A [shortcode](https://github.com/woodcox/11ty-solid-base/blob/main/config/shortcodes/solidify.js) to compile SolidJS inline
   - Cashebusting via an esbuild generated hash.
-  - A [manifest.json file and a buildmeta.json file](https://github.com/woodcox/11ty-solid-base/src/_data/)
+  - A [manifest.json file and a buildmeta.json file](https://github.com/woodcox/11ty-solid-base/tree/main/src/_data)
   - You can also import HTTP URLs into JavaScript code using [esbuild-plugin-http](https://github.com/hyrious/esbuild-plugin-http).
 
 ## Compile Solidjs to js
