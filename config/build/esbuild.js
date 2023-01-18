@@ -29,9 +29,8 @@ module.exports = async () => {
         cache: new Map()
       }),
       purgecssPlugin2({
-        content: glob.sync([
-          "docs/*.html",
-        ])
+        content: ["index.html"],
+        css:['style.css']
       }),
       solidPlugin(), 
       manifestPlugin({
