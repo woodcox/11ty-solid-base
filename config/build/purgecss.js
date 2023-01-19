@@ -19,10 +19,11 @@ module.exports = function purgecssPlugin(options) {
         console.log(css);
         console.log(options);
 
-        
+        // check it there is a options js object which contains purgecss config
         const opts = options ? options : {};
         console.log(opts);
-
+        
+        // pass the purgecss config options and the relevant css file to purgecss
         const purgeResult = await new PurgeCSS().purge({ ...opts, css: css });
 
         for (let index = 0; index < purgeResult.length; index++) {
