@@ -9,14 +9,14 @@ const purgecssPlugin2 = require("esbuild-plugin-purgecss-2");
 const fs = require('fs');
 const path = require("path");
 
-let purgecssPlugin = function purgecssPlugin(options) {
+module.exports.purgecssPlugin = function purgecssPlugin(options) {
   return {
     name: 'purgecss',
     setup(build) {
       if (!build.initialOptions.metafile) {
         throw new Error('You should set metafile true to use this plugin.');
       }
-      const PurgeCSS = require('@fullhuman/postcss-purgecss');
+      const { PurgeCSS } = require('@fullhuman/postcss-purgecss');
       const path = require('path');
       const fs = require('fs');
 
@@ -61,7 +61,7 @@ module.exports = async () => {
         schemes: { default_schemes },
         cache: new Map()
       }),
-      purgecssPlugin({
+      this.purgecssPlugin({
         content: ["./index.html"],
       }),
       solidPlugin(), 
