@@ -19,8 +19,12 @@ module.exports = function purgecssPlugin(options) {
         console.log(css);
         console.log(options);
 
+
+        // Map options and css
+        cssConfig = { css: css.map }
+
         // check it there is a options js object which contains purgecss config
-        const opts = options ? options[] : {};
+        const opts = options ? options : {};
         console.log(opts);
         
         // pass the purgecss config options and the relevant css file to purgecss
