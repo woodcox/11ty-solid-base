@@ -18,6 +18,9 @@ module.exports = function purgecssPlugin(options) {
         const css = outputKeys.filter(genFilter('.css'));
         console.log(css);
         console.log(options);
+
+        // removing curly brackets characters
+        let options = Str.replace(/{/}, '')
         
         const opts = options ? options : {};
         console.log(opts);
