@@ -28,10 +28,10 @@ let purgecssPlugin = function purgecssPlugin(options) {
         const opts = options ? options : {};
 
         const purgeResult = await new PurgeCSS().purge({ ...opts, css: css });
-        console.log(outputKeys)
-        console.log(genFilter)
-        console.log(css)
-        console.log(opts)
+        console.log(outputKeys);
+        console.log(genFilter);
+        console.log(css);
+        console.log(opts);
 
         for (let index = 0; index < purgeResult.length; index++) {
           const { file, css } = purgeResult[index];
@@ -62,7 +62,7 @@ module.exports = async () => {
         cache: new Map()
       }),
       purgecssPlugin({
-        content: ["./docs/index.html"]
+        content: ["./index.html"],
       }),
       solidPlugin(), 
       manifestPlugin({
