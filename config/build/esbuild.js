@@ -9,39 +9,6 @@ const purgecssPlugin2 = require("esbuild-plugin-purgecss-2");
 const fs = require('fs');
 const path = require("path");
 
-module.exports.purgecssPlugin = function purgecssPlugin(options) {
-  return {
-    name: 'purgecss',
-    setup(build) {
-      if (!build.initialOptions.metafile) {
-        throw new Error('You should set metafile true to use this plugin.');
-      }
-      const PurgeCSS = require('@fullhuman/postcss-purgecss');
-      const path = require('path');
-      const fs = require('fs');
-
-      build.onEnd(async (args) => {
-        const outputKeys = Object.keys(args.metafile.outputs);
-        const genFilter = (postfix) => (k) => k.endsWith(postfix);
-
-        const css = outputKeys.filter(genFilter('.css'));
-        const opts = options ? options : {};
-
-        const purgeResult = await new PurgeCSS().purge({ ...opts, css: css });
-        console.log(outputKeys);
-        console.log(genFilter);
-        console.log(css);
-        console.log(opts);
-
-        for (let index = 0; index < purgeResult.length; index++) {
-          const { file, css } = purgeResult[index];
-          await fs.promises.writeFile(file, css);
-        }
-      });
-    },
-  };
-};
-
 
 module.exports = async () => {
   let result = await esbuild.build({
@@ -61,7 +28,7 @@ module.exports = async () => {
         schemes: { default_schemes },
         cache: new Map()
       }),
-      this.purgecssPlugin({
+      purgecssPlugin({
         content: ["./index.html"],
       }),
       solidPlugin(), 
