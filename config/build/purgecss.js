@@ -5,7 +5,7 @@ module.exports = function purgecssPlugin(options) {
       if (!build.initialOptions.metafile) {
         throw new Error('You should set metafile true to use this plugin.');
       }
-      const PurgeCSS = require('@fullhuman/postcss-purgecss');
+      const { PurgeCSS } = require('@fullhuman/postcss-purgecss');
       const path = require('path');
       const fs = require('fs');
 
