@@ -10,14 +10,15 @@ module.exports = function purgecssPlugin(options) {
       const fs = require('fs');
 
       build.onEnd(async (args) => {
+        // outputKeyss gets metafile build output of .js files and .css files
         const outputKeys = Object.keys(args.metafile.outputs);
         console.log(outputKeys);
+        // filter the metafile output to only return the css files
         const genFilter = (postfix) => (k) => k.endsWith(postfix);
-        console.log(genFilter);
-        
         const css = outputKeys.filter(genFilter('.css'));
         console.log(css);
-        const opts = options ? options : {};
+        
+        const opts = options ? options : '';
         console.log(opts);
 
         const purgeResult = await new PurgeCSS().purge({ ...opts, css: css });
