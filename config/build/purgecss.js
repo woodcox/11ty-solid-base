@@ -1,4 +1,4 @@
-module.exports = function purgecssPlugin(options) {
+module.exports = async () => { function purgecssPlugin(options) {
   return {
     name: 'purgecss',
     setup(build) {
@@ -9,7 +9,7 @@ module.exports = function purgecssPlugin(options) {
       const path = require('path');
       const fs = require('fs');
 
-      build.onEnd(async await (args) => {
+      build.onEnd(async (args) => {
         // outputKeyss gets metafile build output of .js files and .css files
         const outputKeys = Object.keys(args.metafile.outputs);
         console.log(outputKeys);
@@ -34,3 +34,4 @@ module.exports = function purgecssPlugin(options) {
     },
   };
 };
+}
