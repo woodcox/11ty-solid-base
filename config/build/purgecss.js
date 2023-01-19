@@ -20,7 +20,7 @@ module.exports = function purgecssPlugin(options) {
         console.log(options);
 
         // removing curly brackets characters
-        options = string.replace('{','').replace('}', '');
+        options = options.replace('{','').replace('}', '');
         
         const opts = options ? options : {};
         console.log(opts);
