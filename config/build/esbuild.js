@@ -27,10 +27,14 @@ let purgecssPlugin = function purgecssPlugin(options) {
         const css = outputKeys.filter(genFilter('.css'));
         const opts = options ? options : {};
 
-        const res = await new PurgeCSS().purge({ ...opts, css: css });
+        const purgeResult = await new PurgeCSS().purge({ ...opts, css: css });
+        console.log(outputKeys)
+        console.log(genFilter)
+        console.log(css)
+        console.log(opts)
 
-        for (let index = 0; index < res.length; index++) {
-          const { file, css } = res[index];
+        for (let index = 0; index < purgeResult.length; index++) {
+          const { file, css } = purgeResult[index];
           await fs.promises.writeFile(file, css);
         }
       });
