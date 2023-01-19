@@ -17,8 +17,9 @@ module.exports = function purgecssPlugin(options) {
         const genFilter = (postfix) => (k) => k.endsWith(postfix);
         const css = outputKeys.filter(genFilter('.css'));
         console.log(css);
+        console.log(options);
         
-        const opts = options ? options : '';
+        const opts = options ? options : {};
         console.log(opts);
 
         const purgeResult = await new PurgeCSS().purge({ ...opts, css: css });
