@@ -1,4 +1,4 @@
-module.exports = async () => { function purgecssPlugin(options) {
+module.exports = function purgecssPlugin(options) {
   return {
     name: 'purgecss',
     setup(build) {
@@ -34,4 +34,3 @@ module.exports = async () => { function purgecssPlugin(options) {
     },
   };
 };
-}
