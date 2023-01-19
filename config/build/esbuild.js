@@ -29,9 +29,9 @@ module.exports = async () => {
         schemes: { default_schemes },
         cache: new Map()
       }),
-      purgecssPlugin({
+      purgecssPlugin(
         content: ["./index.html"],
-      }),
+      ),
       solidPlugin(), 
       manifestPlugin({
         // NOTE: Save to src/_data. This is always relative to `outdir`.
