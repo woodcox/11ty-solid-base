@@ -19,11 +19,8 @@ module.exports = function purgecssPlugin(options) {
         console.log(css);
         console.log(options);
 
-        // removing curly brackets characters
-        let optionsString = options.toString();
-        console.log(optionsString);
         
-        const opts = optionsString ? optionsString : {};
+        const opts = options ? options : {};
         console.log(opts);
 
         const purgeResult = await new PurgeCSS().purge({ ...opts, css: css });
