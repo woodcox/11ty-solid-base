@@ -6,6 +6,7 @@ const { solidPlugin } = require('esbuild-plugin-solid');
 const manifestPlugin = require('esbuild-plugin-manifest');
 const { http, default_schemes } = require('@hyrious/esbuild-plugin-http');
 const purgecssPlugin2 = require("esbuild-plugin-purgecss-2");
+const purgecssPlugin = require("./purgecss.js");
 const fs = require('fs');
 const path = require("path");
 
