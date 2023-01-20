@@ -20,15 +20,20 @@ module.exports = function purgecssPlugin(options) {
         console.log(options);
 
 
-        // Map options and css
-        cssConfig = { css: css.map }
+        let cssConfig = { css: css }
+        let options = { content: [ './index.html' ] }
+
+        let config = Object.assign(options, cssConfig);
+
+        console.log(cssConfig);
+        console.log(options);
 
         // check it there is a options js object which contains purgecss config
-        const opts = options ? options : {};
+        const opts = config ? config : {};
         console.log(opts);
         
         // pass the purgecss config options and the relevant css file to purgecss
-        const purgeResult = await new PurgeCSS().purge({ ...opts, css: css });
+        const purgeResult = await new PurgeCSS().purge({ ...opts });
 
         for (let index = 0; index < purgeResult.length; index++) {
           const { file, css } = purgeResult[index];
