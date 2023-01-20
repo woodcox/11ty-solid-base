@@ -1,5 +1,6 @@
-![solid-base-192x192](https://user-images.githubusercontent.com/64870518/212966953-811d880b-e53f-4f07-ad4e-759566539b62.png)
-# 11ty Solid Base
+<div align="center">![solid-base-192x192](https://user-images.githubusercontent.com/64870518/212966953-811d880b-e53f-4f07-ad4e-759566539b62.png)
+<h1> 
+11ty Solid Base</h1></div>
 
 A minimal base HTML5 template and the [esbuild](https://esbuild.github.io/) setup to **compile your SolidJS app within 11ty**.
 
