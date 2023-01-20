@@ -12,6 +12,7 @@ module.exports = function purgecssPlugin(options) {
       const fs = require('fs');
 
       build.onEnd(async (args) => {
+        path: args.path;
         // outputKeyss gets metafile build output of .js files and .css files
         const outputKeys = Object.keys(args.metafile.outputs);
         console.log(outputKeys);
