@@ -13,24 +13,20 @@ module.exports = function purgecssPlugin(options) {
         // outputKeyss gets metafile build output of .js files and .css files
         const outputKeys = Object.keys(args.metafile.outputs);
         console.log(outputKeys);
-        // filter the metafile output to only return the css files
+        // create a file extension filter 
         const genFilter = (postfix) => (k) => k.endsWith(postfix);
+        // filter the metafile output to only return the css files
         const css = outputKeys.filter(genFilter('.css'));
-        console.log(css);
-        console.log(options);
-
-
+      
+        // Create a jS object of the purgecss config for css
         let cssConfig = { css: css };
+        // Merge the css config with the purgecssPlugin options
         let config = Object.assign(options, cssConfig);
 
-        console.log(cssConfig);
-        console.log(options);
-
-        // check it there is a options js object which contains purgecss config
-        const opts = config ? config : {};
-        console.log(opts);
+        // check if there is the purgecss config js object and throw error if not
+        const opts = config ? config : {throw new Error('You should set the purgecssPlugin options to use this plugin.')};
         
-        // pass the purgecss config options and the relevant css file to purgecss
+        // pass the purgecss config including the relevant css file to purgecss
         const purgeResult = await new PurgeCSS().purge({ ...opts });
 
         for (let index = 0; index < purgeResult.length; index++) {
