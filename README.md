@@ -15,7 +15,7 @@ Includes:
   - You can also import HTTP URLs into JavaScript code using [esbuild-plugin-http](https://github.com/hyrious/esbuild-plugin-http).
 
 ## Compile Solidjs to js
-Add `your_solid.jsx` file to the `src/assets/app` or the `src/assets/js` folders. Esbuild will output a minified js file. To configure esbuild modify `config/build/esbuild.js`.
+Add `your_solid.jsx` file to the `src/app/jsx` or the `src/app/js` folders. Esbuild will output a minified js file. To configure esbuild modify `config/build/esbuild.js`.
 
 ## Shortcode
 If you need to compile your js script inline, use this shortcode:
@@ -45,15 +45,27 @@ Esbuild is configured to add a hash to the CSS and JS files it processes in the 
 The manifest.json file is used in the hash filter to modify the URL src or href in the html:
 
 ~~~html
-<script src="{{ '/assets/app/app.js' | hash }}"></script>
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | hash }}" />
+<script src="{{ '/app/app.js' | hash }}"></script>
+<link rel="stylesheet" href="{{ '/app/style.css' | hash }}" />
 ~~~
 
 As a bonus if the file has been minified in production it will alter the file extension to `[hash]-min.js` or `[hash]-min.css`, for example:
 
 ~~~html
-<script src="/assets/app/app-S5YUTCHU.min.js"></script>
+<script src="/app/app-S5YUTCHU.min.js"></script>
 ~~~
+
+## Purgecss
+Your css files will be automatically purged of unused css in production. To configure the purgecssPlugin modify the `config/build/esbuild.js`. You can use any configuration pattern from [purgecss](https://purgecss.com/configuration.html), but you don't need set the `css:` options as this is automatically included from the metafile.
+
+~~~js
+plugins: [
+  ...
+  purgecssPlugin({
+    content: ["docs/index.html"]
+   }),
+ ]
+ ~~~
 
 ## Development Scripts
 
