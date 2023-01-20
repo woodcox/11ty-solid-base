@@ -22,7 +22,7 @@
   "author": "woodcox",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-canary.30",
+    "@11ty/eleventy": "^2.0.0-beta.1",
     "@11ty/eleventy-plugin-webc": "^0.8.1",
     "@11ty/is-land": "^3.0.0",
     "purgecss": "^5.0.0",
