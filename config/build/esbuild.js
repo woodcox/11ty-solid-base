@@ -30,7 +30,7 @@ module.exports = async () => {
         cache: new Map()
       }),
       purgecssPlugin({
-        content: ["./index.html"]
+        content: ["docs/index.html"]
       }),
       solidPlugin(), 
       manifestPlugin({
