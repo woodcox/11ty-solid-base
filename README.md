@@ -56,7 +56,7 @@ As a bonus if the file has been minified in production it will alter the file ex
 ~~~
 
 ## Purgecss
-Your css files will be automatically purged of unused css in production. To configure the purgecssPlugin modify the `config/build/esbuild.js`. You can use any configuration pattern from [purgecss](https://purgecss.com/configuration.html), but you don't need set the `css:` options as this is automatically included from the metafile.
+Your css files will be automatically purged of unused css in production. To configure the purgecssPlugin modify the `config/build/esbuild.js` file. You can use any configuration pattern from [purgecss](https://purgecss.com/configuration.html), but you don't need to set the `css:` options as this is automatically included from the metafile.
 
 ~~~js
 plugins: [
