@@ -20,9 +20,7 @@ module.exports = function purgecssPlugin(options) {
         console.log(options);
 
 
-        let cssConfig = { css: css }
-        let options = { content: [ './index.html' ] }
-
+        let cssConfig = { css: css };
         let config = Object.assign(options, cssConfig);
 
         console.log(cssConfig);
