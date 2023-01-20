@@ -1,6 +1,7 @@
 <div align="center">
   <img src="https://user-images.githubusercontent.com/64870518/212966953-811d880b-e53f-4f07-ad4e-759566539b62.png" alt="11ty solid base">
 </div>
+<br>
 
 A minimal base HTML5 template and the [esbuild](https://esbuild.github.io/) setup to **compile your SolidJS app within 11ty**.
 
