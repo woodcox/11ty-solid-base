@@ -8,7 +8,7 @@ Includes:
   - [WebC](https://www.11ty.dev/docs/languages/webc/), 
   - [esbuild](https://esbuild.github.io)
   - Minifiying and autoprefixing of styles using [Lightning CSS](https://lightningcss.dev/)
-  - Uses [Purgecss](https://purgecss.com/) to remove unused styles via [esbuild-plugin-purgecss-2](https://github.com/arslanakram/esbuild-plugin-purgecss-2.0/blob/master/src/index.js)
+  - Uses [Purgecss](https://purgecss.com/) to remove unused styles via a sligtly modified version of [esbuild-plugin-purgecss-2](https://github.com/arslanakram/esbuild-plugin-purgecss-2.0/blob/master/src/index.js)
   - A [shortcode](https://github.com/woodcox/11ty-solid-base/blob/main/config/shortcodes/solidify.js) to compile SolidJS inline
   - Cashebusting via an esbuild generated hash.
   - A [manifest.json file and a buildmeta.json file](https://github.com/woodcox/11ty-solid-base/tree/main/src/_data)
