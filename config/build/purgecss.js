@@ -24,7 +24,7 @@ module.exports = function purgecssPlugin(options) {
         let config = Object.assign(options, cssConfig);
 
         // check if there is the purgecss config js object and throw error if not
-        const opts = config ? config : {throw new Error('You should set the purgecssPlugin options to use this plugin.')};
+        const opts = config ? config : {throw Error('You should set the purgecssPlugin options to use this plugin.')};
         
         // pass the purgecss config including the relevant css file to purgecss
         const purgeResult = await new PurgeCSS().purge({ ...opts });
