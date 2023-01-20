@@ -1,3 +1,5 @@
+// A modified version of https://github.com/arslanakram/esbuild-plugin-purgecss-2.0
+
 module.exports = function purgecssPlugin(options) {
   return {
     name: 'purgecss',
