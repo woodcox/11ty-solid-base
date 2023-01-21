@@ -22,14 +22,33 @@ module.exports = async () => {
     sourcemap: !isProd,
     target: isProd ? 'es6' : 'esnext',
     metafile: true,
-    plugins: [
+    plugins: isProd ? [
       http({
         filter: (url) => true,
-        schemes: { default_schemes },
-        cache: new Map()
+        schemes: { default_schemes }
       }),
       purgecssPlugin({
         content: ["docs/index.html"]
+      }),
+      solidPlugin(), 
+      manifestPlugin({
+        // NOTE: Save to src/_data. This is always relative to `outdir`.
+        filename: '../../src/_data/manifest.json',
+        shortNames: true,
+        extensionless: 'input',
+        // Generate manifest.json - https://github.com/pellebjerkestrand/pokesite/blob/main/source/build/build-client.js
+        generate: (entries) =>
+          Object.fromEntries(
+            Object.entries(entries).map(([from, to]) => [
+              from,
+              `${path.basename(to)}`,
+            ])
+          ),
+        })
+    ] : [
+      http({
+        filter: (url) => true,
+        schemes: { default_schemes }
       }),
       solidPlugin(), 
       manifestPlugin({
