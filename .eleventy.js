@@ -15,6 +15,9 @@ module.exports = function (eleventyConfig) {
     port: 8080,
     watch: ["docs/app/*.js", "docs/app/*.css"]
   });
+  
+  // WATCH
+  eleventyConfig.addWatchTarget("./src/sass/");
 
   // BUILD HOOK
   eleventyConfig.on("eleventy.before", esbuildPipeline);
@@ -25,15 +28,6 @@ module.exports = function (eleventyConfig) {
   });
   // to use other templates like liquid and nunjunks
   eleventyConfig.addPlugin(EleventyRenderPlugin); 
-
-  // WATCH
-  eleventyConfig.addWatchTarget("./src/sass/");
-
-  // COPY
-  // Copy sass output from ./_tmp file
-  eleventyConfig.addPassthroughCopy({ 
-    './_tmp': './assets/css',
-  });
 
   // SHORTCODES & FILTERS
   // Add cache busting by using {{ 'myurl' | version }}
