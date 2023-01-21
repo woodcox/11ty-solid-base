@@ -2,7 +2,7 @@
   "name": "11ty-solid-base",
   "version": "0.1.1",
   "description": "A minimal HTML5 template and the esbuild setup to compile your Solidjs app alongside 11ty.",
-  "main": "docs/index.html",
+  "main": ".eleventy.js",
   "scripts": {
     "clean": "node config/clean/clean.js",
     "dev:sass": "sass  --no-source-map --watch src/sass:./docs/app",
