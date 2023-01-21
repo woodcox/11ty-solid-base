@@ -31,7 +31,7 @@ jobs:
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
-        run: npm run minify
+        run: npm run build
         
 #      - name: Deploy
 #        if: env.UPDATE_NPM != 'true'
