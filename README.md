@@ -17,7 +17,7 @@ Includes:
   - You can also import HTTP URLs into JavaScript code using [esbuild-plugin-http](https://github.com/hyrious/esbuild-plugin-http).
 
 ## Compile Solidjs to js
-Add `your_solid.jsx` file to the `src/app/jsx` or the `src/app/js` folders. Esbuild will output a minified js file. To configure esbuild modify `config/build/esbuild.js`.
+Add `your_solid.jsx` file to the `src/scripts/jsx` or the `src/scripts/js` folders. Esbuild will output a minified js file. To configure esbuild modify `config/build/esbuild.js`.
 
 ## Shortcode
 If you need to compile your js script inline, use this shortcode:
