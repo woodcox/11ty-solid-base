@@ -13,7 +13,7 @@ module.exports = function (eleventyConfig) {
   // DEV SERVER
   eleventyConfig.setServerOptions({
     port: 8080,
-    watch: ["docs/assets/**/*.js", "docs/assets/css/*.css"]
+    watch: ["docs/app/*.js", "docs/app/*.css"]
   });
 
   // BUILD HOOK
@@ -28,7 +28,6 @@ module.exports = function (eleventyConfig) {
 
   // WATCH
   eleventyConfig.addWatchTarget("./src/sass/");
-  eleventyConfig.addWatchTarget("./src/index.md");
 
   // COPY
   // Copy sass output from ./_tmp file
