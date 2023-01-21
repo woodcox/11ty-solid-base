@@ -74,7 +74,7 @@ module.exports = async () => {
   
   // Esbuild in watch mode if ELEVENTY_ENV not "prod", uses 11ty dev server to serve see package.json
   if (!isProd){
-    await result.watch()
+    await result.watch();
     console.log('esbuild is watching...')
   }
 }
