@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>11ty-solid-base</title>
-  <link rel="stylesheet" href="/11ty-solid-base/app/style-JCPVPH44.css" />
-  <script type="module" defer src="/11ty-solid-base/app/is-land-T4V4AUCR.js"></script>
-</head>
-<body>
-  <header>
-    <h1>11ty-solid-base</h1>
-  </header>
-  <main>
-  <h2>The counter</h2>
-<p>To test if the island partial hydration is working; on a mobile phone, turn the phone to landscape view. This should swap the html for javascript to start the counter.</p>
-<is-land on:media="(min-width: 30em)">
-  <counter-component>
-    <p>Count value is 0</p>
-  </counter-component>
-  <template data-island="replace">
-    <p id="app"></p>
-    <script type="module" src="/11ty-solid-base/app/app-XWMNSWQ5.js"></script>
-  </template>
-</is-land>
-<h2>The shortcode</h2>
-<p>The shortcode adds the js inline. Need to add import maps for this.</p>
-<is-land on:media="(min-width: 30em)">
-  <shortcode-component>
-    <p>The solidify shortcode is inactive :)</p>
-  </shortcode-component>
-  <template data-island="replace">
-    <p id="shorty"></p>
-<script type="module">// node_modules/solid-js/dist/solid.js
+// node_modules/solid-js/dist/solid.js
 var taskIdCounter = 1, isCallbackScheduled = false, isPerformingWork = false, taskQueue = [], currentTask = null, shouldYieldToHost = null, yieldInterval = 5, deadline = 0, maxYieldInterval = 300, scheduleCallback = null, scheduledCallback = null;
 var maxSigned31BitInt = 1073741823;
 function setupScheduler() {
@@ -3769,17 +3736,3 @@ function Solidify() {
   return _tmpl$.cloneNode(true);
 }
 v(() => createComponent(Solidify, {}), document.getElementById("shorty"));
-</script>
-  </template>
-</is-land> 
-<h2>The web component</h2>
-<p><web-component></web-component></p>
-<p>To do:</p>
-<ul>
-<li>look at <a href="https://www.11ty.dev/docs/languages/webc/">11ty docs</a> &amp; <a href="https://11ty.rocks/">11ty.rocks</a></li>
-<li>A webC example</li>
-</ul>
-
-  </main>
-</body>
-</html>
