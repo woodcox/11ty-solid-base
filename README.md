@@ -43,7 +43,7 @@ There are two optional arguments:
 
 ## Cachebusting hash filter
 
-Esbuild is configured to add a hash to the CSS and JS files it processes in the `src/assets/app`, `src/assets/js` and the `docs/assets/css` folders (it purges the prefixed output of the scss in situ). It outputs a `manifest.json` file to the `src/_data` directory.
+Esbuild is configured to add a hash to the CSS and JS files it processes in the `src/scripts/jsx`, `src/scripts/js` and the `docs/app/css` folders (it purges the prefixed output of the scss in situ). It outputs a `manifest.json` file to the `src/_data` directory.
 The manifest.json file is used in the hash filter to modify the URL src or href in the html:
 
 ~~~html
@@ -77,11 +77,11 @@ plugins: [
 
 **`npm run build`**
 
-> Production build with autoprefixed CSS but no minification. 
+> Production build with autoprefixed CSS but no minification or purging. 
 
 **`npm run minify`**
 
-> Production build includes minified, autoprefixed CSS
+> Production build includes minified, autoprefixed and purged CSS
 
 Use this as the "Publish command" if needed by hosting such as Netlify.
 
