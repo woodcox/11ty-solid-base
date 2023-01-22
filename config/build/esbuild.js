@@ -70,5 +70,5 @@ module.exports = async () => {
     console.error(error);
     process.exitCode = 1;
   })
-  fs.writeFileSync('./src/_data/builddata.json', JSON.stringify(result.metafile));
+  fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
 }
