@@ -2397,4 +2397,4 @@
   };
   render(() => createComponent(CountingComponent, {}), document.getElementById("app"));
 })();
-//# sourceMappingURL=app-XWMNSWQ5.js.map
+//# sourceMappingURL=app.js.map

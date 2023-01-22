@@ -289,4 +289,4 @@
   var component = Island;
   var ready = Island.ready;
 })();
-//# sourceMappingURL=is-land-T4V4AUCR.js.map
+//# sourceMappingURL=is-land.js.map
