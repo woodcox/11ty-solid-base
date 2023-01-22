@@ -93,4 +93,4 @@ Use this as the "Publish command" if needed by hosting such as Netlify.
 - improve styling and make prettier hydration examples
 
 ## Need scoped CSS?
-[Scoped css modules](https://how-to.dev/how-to-set-up-css-modules-with-esbuild) and [esbuild css modules plugin](https://github.com/indooorsman/esbuild-css-modules-plugin#readme). However each dev has preferred methods for compiling CSS. Could just link to them?
+There's a plug-in for that - [esbuild css modules plugin](https://github.com/indooorsman/esbuild-css-modules-plugin#readme) and an example [setup of scoped css modules with esbuild](https://how-to.dev/how-to-set-up-css-modules-with-esbuild).
