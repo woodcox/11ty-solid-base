@@ -71,4 +71,10 @@ module.exports = async () => {
     process.exitCode = 1;
   })
   fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
+  const styleFile = './docs/app/style.css';
+  
+  // Remove style.css because the postcssPlugin has created a style-[hash].css file 
+  if (!fs.existsSync(styleFile)){
+    fs.promises.rm(styleFile);
+  }
 }
