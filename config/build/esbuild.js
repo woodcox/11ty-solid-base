@@ -13,7 +13,7 @@ const path = require("path");
 module.exports = async () => {
   let result = await esbuild.build({
     entryPoints: glob.sync(['src/scripts/**/*.jsx', 'src/scripts/**/*.js', 'docs/app/*.css']),
-    entryNames: '[name]-[hash]',
+    entryNames: isProd ? '[name]-[hash]' : '[name]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
     bundle: true,
     minify: isProd,
