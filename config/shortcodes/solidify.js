@@ -10,7 +10,7 @@ module.exports = async (code, filename, bundled) => {
   await fsPromises.writeFile('./_tmp/solid-' + filename + '.jsx', code),
   
   // esm version
-  let res = await esbuild.build({
+  let solidResult = await esbuild.build({
     entryPoints: glob.sync(['_tmp/solid-*.jsx']),
     entryNames: '[name]',
     // write: false,
@@ -31,9 +31,6 @@ module.exports = async (code, filename, bundled) => {
     console.error(err);
     process.exitCode = 1;
   })
-  for (let out of res.outputFiles) {
-    console.log(out.path, out.contents, out.text)
-  }
   const solidifyJsx= await fsPromises.readFile('./docs/app/solid-' + filename + '.js', 'utf8');
   return `<script type="module">${solidifyJsx}</script>`;
 };
