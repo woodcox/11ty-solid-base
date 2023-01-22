@@ -15,6 +15,7 @@ module.exports = async () => {
     entryPoints: glob.sync(['src/scripts/**/*.jsx', 'src/scripts/**/*.js', 'docs/app/*.css']),
     entryNames: isProd ? '[name]-[hash]' : '[name]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
+    allowOverwrite: !isProd,  // overwrite docs/app/style.css when in dev mode
     bundle: true,
     minify: isProd,
     treeShaking: isProd,
