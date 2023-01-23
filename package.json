@@ -6,7 +6,7 @@
   "scripts": {
     "clean": "node config/clean/clean.js",
     "dev:sass": "sass --no-source-map --watch src/sass:./docs/app",
-    "dev:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy --serve --dir=docs",
+    "dev:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy --serve --output=docs",
     "build:sass": "sass --no-source-map src/sass:./docs/app",
     "build:eleventy": "npx @11ty/eleventy",
     "prefix": "BROWSERSLIST_CONFIG='./package.json' lightningcss --browserslist ./docs/app/*.css -o ./docs/app/*.css",
