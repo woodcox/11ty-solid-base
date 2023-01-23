@@ -18,8 +18,8 @@ module.exports = function (eleventyConfig) {
   
   // WATCH
   eleventyConfig.addWatchTarget("./src/sass/");
-  eleventyConfig.watchIgnores.add("./_data/manifest.json");
-  eleventyConfig.watchIgnores.add("./_data/buildmeta.json");
+  eleventyConfig.watchIgnores.add("./src/_data/manifest.json");
+  eleventyConfig.watchIgnores.add("./src/_data/buildmeta.json");
 
   // BUILD HOOK
   eleventyConfig.on("eleventy.before", esbuildPipeline);
