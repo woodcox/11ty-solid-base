@@ -1,10 +1,10 @@
 // script to delete files from ./docs & ./_tmp folders prior to build
-var fs = require('fs');
+const fs = require('fs');
 
 function deleteFolderRecursive(path) {
   if (fs.existsSync(path) && fs.lstatSync(path).isDirectory()) {
     fs.readdirSync(path).forEach(function(file, index){
-      var curPath = path + "/" + file;
+      const curPath = path + "/" + file;
 
       if (fs.lstatSync(curPath).isDirectory()) { // recurse
         deleteFolderRecursive(curPath);
@@ -28,7 +28,7 @@ deleteFolderRecursive("./_tmp");
 console.log("Successfully cleaned working tree!");
 
 // recreate directory
-var dir = './_tmp';
+const dir = './_tmp';
 
 if (!fs.existsSync(dir)){
     fs.mkdirSync(dir);
