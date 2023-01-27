@@ -6,8 +6,8 @@
 A minimal base HTML5 template and the [esbuild](https://esbuild.github.io/) setup to **compile your SolidJS app within 11ty**.
 
 Includes:
-  - [11ty/is-land](https://www.11ty.dev/docs/plugins/partial-hydration/)
-  - [WebC](https://www.11ty.dev/docs/languages/webc/), 
+  - [11ty/is-land](https://www.11ty.dev/dist/plugins/partial-hydration/)
+  - [WebC](https://www.11ty.dev/dist/languages/webc/), 
   - [esbuild](https://esbuild.github.io)
   - Minifiying and autoprefixing of styles using [Lightning CSS](https://lightningcss.dev/)
   - Uses [Purgecss](https://purgecss.com/) to remove unused styles via a slightly modified version of [esbuild-plugin-purgecss-2](https://github.com/arslanakram/esbuild-plugin-purgecss-2.0/blob/master/src/index.js)
@@ -38,12 +38,12 @@ To configure esbuild for the shortcode, modify `config/shortcode/solidify.js`
 
 ### Arguments
 There are two optional arguments:
-- `filename`: The name of the file which is saved to `docs/assets`. This name is automatically prefixed by `solid-`.
+- `filename`: The name of the file which is saved to `dist/app`. This name is automatically prefixed by `solid-`.
 - `bundled`: The solid.jsx is bundled by default. To switch bundling off pass the value: `"bundleOff"`.
 
 ## Cachebusting hash filter
 
-Esbuild is configured to add a hash to the CSS and JS files it processes in the `src/scripts/jsx`, `src/scripts/js` and the `docs/app/css` folders (it purges the prefixed output of the scss in situ). It outputs a `manifest.json` file to the `src/_data` directory.
+Esbuild is configured to add a hash to the CSS and JS files it processes in the `src/scripts/jsx`, `src/scripts/js` and the `dist/app/css` folders (it purges the prefixed output of the scss in situ). It outputs a `manifest.json` file to the `src/_data` directory.
 The manifest.json file is used in the hash filter to modify the URL src or href in the html:
 
 ~~~html
@@ -64,7 +64,7 @@ Your css files will be automatically purged of unused css in production. To conf
 plugins: [
   ...
   purgecssPlugin({
-    content: ["docs/index.html"]
+    content: ["dist/index.html"]
    }),
  ]
  ~~~

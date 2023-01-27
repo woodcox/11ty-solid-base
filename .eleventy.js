@@ -13,7 +13,7 @@ module.exports = function (eleventyConfig) {
   // DEV SERVER
   eleventyConfig.setServerOptions({
     port: 8080,
-    watch: ["docs/app/*.css"]
+    watch: ["dist/app/*.css"]
   });
   
   // WATCH
@@ -57,7 +57,7 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: "docs",
+      output: "dist",
       data: "_data",
     },
     templateFormats: ["html", "md", TEMPLATE_ENGINE],

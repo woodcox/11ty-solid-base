@@ -12,14 +12,14 @@ const path = require("path");
 
 module.exports = async () => {
   let result = await esbuild.build({
-    entryPoints: glob.sync(['src/scripts/**/*.jsx', 'src/scripts/**/*.js', 'docs/app/*.css']),
+    entryPoints: glob.sync(['src/scripts/**/*.jsx', 'src/scripts/**/*.js', 'dist/app/*.css']),
     entryNames: isProd ? '[name]-[hash]' : '[name]',
     outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
-    allowOverwrite: !isProd,  // overwrite docs/app/style.css when in dev mode
+    allowOverwrite: !isProd,  // overwrite dist/app/style.css when in dev mode
     bundle: true,
     minify: isProd,
     treeShaking: isProd,
-    outdir: './docs/app',
+    outdir: '.dist/app',
     sourcemap: !isProd,
     target: isProd ? 'es6' : 'esnext',
     metafile: true,
@@ -29,7 +29,7 @@ module.exports = async () => {
         schemes: { default_schemes }
       }),
       purgecssPlugin({
-        content: ["docs/index.html"]
+        content: ["dist/index.html"]
       }),
       solidPlugin(), 
       manifestPlugin({

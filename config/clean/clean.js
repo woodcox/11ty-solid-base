@@ -1,4 +1,4 @@
-// script to delete files from ./docs & ./_tmp folders prior to build
+// script to delete files from ./dist/app & ./_tmp folders prior to build
 const fs = require('fs');
 
 function deleteFolderRecursive(path) {
@@ -22,7 +22,7 @@ console.log("Cleaning working tree...");
 
 // Add any folers here you want to delete prior to build
 
-deleteFolderRecursive("./docs/app");
+deleteFolderRecursive("./dist/app");
 deleteFolderRecursive("./_tmp");
 
 console.log("Successfully cleaned working tree!");
