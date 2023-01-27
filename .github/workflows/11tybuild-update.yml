@@ -31,7 +31,7 @@ jobs:
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
-        run: npm run build
+        run: npm run minify
         
       - name: Commit buildmeta and manifest changes
         if: env.UPDATE_NPM != 'true'
