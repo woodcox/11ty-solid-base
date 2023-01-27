@@ -30,7 +30,7 @@ module.exports = async () => {
       }),
       purgecssPlugin({
         // assumes production build is on github pages. You may want ["dist/index.html"]
-        content: ["./../index.md"]
+        content: ["./../../index.md"]
       }),
       solidPlugin(), 
       manifestPlugin({
