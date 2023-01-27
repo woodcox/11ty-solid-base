@@ -13,11 +13,11 @@ module.exports = function (eleventyConfig) {
   // DEV SERVER
   eleventyConfig.setServerOptions({
     port: 8080,
-    watch: ["docs/app/*.js", "docs/app/*.css"]
+    watch: ["docs/app/*.css"]
   });
   
   // WATCH
-  eleventyConfig.addWatchTarget("./src/sass/");
+  eleventyConfig.addWatchTarget("./src/scripts/");
   eleventyConfig.watchIgnores.add("./src/_data/manifest.json");
   eleventyConfig.watchIgnores.add("./src/_data/buildmeta.json");
 
