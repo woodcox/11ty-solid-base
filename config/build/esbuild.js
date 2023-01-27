@@ -19,7 +19,7 @@ module.exports = async () => {
     bundle: true,
     minify: isProd,
     treeShaking: isProd,
-    outdir: '.dist/app',
+    outdir: './dist/app',
     sourcemap: !isProd,
     target: isProd ? 'es6' : 'esnext',
     metafile: true,
