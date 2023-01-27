@@ -29,8 +29,8 @@ module.exports = async () => {
         schemes: { default_schemes }
       }),
       purgecssPlugin({
-        // assumes production build is on github pages
-        content: isProd ? ["dist/index.html"] : ["index.html"]
+        // assumes production build is on github pages. You may want ["dist/index.html"]
+        content: ["index.html"]
       }),
       solidPlugin(), 
       manifestPlugin({
