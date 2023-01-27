@@ -11,7 +11,7 @@ concurrency:
 
 # Conditional environmental if's      
 env:
-  UPDATE_NPM: true # false = deploy eleventy , true = update npm
+  UPDATE_NPM: false # false = deploy eleventy , true = update npm
 
 jobs:
   build_deploy_eleventy:
@@ -27,30 +27,29 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm i @11ty/eleventy@beta # npm i # npm update --save
+        run: npm i # npm i # npm update --save
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
         run: npm run build
         
-#      - name: Deploy
-#        if: env.UPDATE_NPM != 'true'
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          publish_dir: ./dist 
-#          publish_branch: gh-pages
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-        
-      - name: Commit changes
+      - name: Commit buildmeta and manifest changes
         if: env.UPDATE_NPM != 'true'
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
           message: "Update files"
-          add: '["*.json", "docs"]'
+          add: '["*.json"]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
+      - name: Deploy
+         if: env.UPDATE_NPM != 'true'
+         uses: peaceiris/actions-gh-pages@v3
+         with:
+           publish_dir: ./dist 
+           publish_branch: gh-pages
+           github_token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: pull request on npm update
         if: env.UPDATE_NPM == 'true'
