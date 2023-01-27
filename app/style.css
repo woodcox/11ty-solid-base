@@ -1,3 +1,4 @@
+/* dist/app/style.css */
 :root {
   --font-sans: "Fira Code", monospace;
   --font-mono: "Fira Code", monospace;
@@ -12,16 +13,16 @@
   --ac-1: #0f0;
   --ac-tx: #000;
 }
-
 * {
   margin: 0;
   padding: 0;
 }
-
-html, input, select, button {
+html,
+input,
+select,
+button {
   font-family: var(--font-sans);
 }
-
 body {
   max-width: 750px;
   word-break: break-word;
@@ -35,41 +36,47 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
 }
-
-dl, ol, p, pre, ul {
+dl,
+ol,
+p,
+pre,
+ul {
   margin-bottom: 1rem;
 }
-
 header {
   background: var(--bg-2);
   border-bottom: 1px solid var(--bg-3);
   margin: -2rem calc(50% - 50vw) 2rem;
   padding: 2rem calc(50vw - 50%);
 }
-
-header h1, header h2 {
+header h1,
+header h2 {
   border-bottom: 0;
   padding-bottom: 0;
 }
-
 header > :first-child {
   margin-top: 0;
   padding-top: 0;
 }
-
 header > :last-child {
   margin-bottom: 0;
 }
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--tx-1);
   padding-top: .875rem;
   line-height: 1;
 }
-
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: var(--tx-1);
   border-bottom: 1px solid var(--bg-2);
   margin-bottom: 8px;
   padding-bottom: 2px;
 }
+/*# sourceMappingURL=style.css.map */
