@@ -29,7 +29,7 @@ module.exports = async () => {
       http({
         filter: (url) => true,
         schemes: { default_schemes },
-        cache: cacheMap,
+        cache: cacheMap
       }),
       purgecssPlugin({
         // assumes production build is on github pages. You may want ["dist/index.html"]
