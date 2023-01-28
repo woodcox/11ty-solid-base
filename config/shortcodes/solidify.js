@@ -23,7 +23,8 @@ module.exports = async (code, filename, bundled) => {
     plugins: [
       http({
         filter: (url) => true,
-        schemes: { default_schemes }
+        schemes: { default_schemes },
+        cache: new Map()
       }),
       solidPlugin()
     ]
