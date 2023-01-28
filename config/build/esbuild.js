@@ -5,6 +5,8 @@ const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 const { solidPlugin } = require('esbuild-plugin-solid');
 const manifestPlugin = require('esbuild-plugin-manifest');
 const { http, default_schemes } = require('@hyrious/esbuild-plugin-http');
+// cacheMap stores { url => contents }, you can easily persist it in file system - see https://github.com/hyrious/esbuild-plugin-http
+let cacheMap = new Map();
 const purgecssPlugin = require("./purgecss.js");
 const fs = require('fs');
 const path = require("path");
@@ -26,7 +28,8 @@ module.exports = async () => {
     plugins: isProd ? [
       http({
         filter: (url) => true,
-        schemes: { default_schemes }
+        schemes: { default_schemes },
+        cache: cacheMap,
       }),
       purgecssPlugin({
         // assumes production build is on github pages. You may want ["dist/index.html"]
