@@ -26,14 +26,15 @@ module.exports = async () => {
     target: isProd ? 'es6' : 'esnext',
     metafile: true,
     plugins: isProd ? [
+      // Runs production build if isProd = true when ELEVENTY_ENV == 'prod'
       http({
         filter: (url) => true,
         schemes: { default_schemes },
         cache: cacheMap
       }),
       purgecssPlugin({
-        // assumes production build is on github pages. You may want ["dist/index.html"]
-        content: ["../../src/index.md"]
+        // For your production build. Add other content by using a glob-all pattern glob.sync(["dist/*.html", "dist/**/index.html"])
+        content: ["dist/index.html"]
       }),
       solidPlugin(), 
       manifestPlugin({
@@ -51,9 +52,11 @@ module.exports = async () => {
           ),
         })
     ] : [
+      // Runs develeopment build (skips purgingcss) if isProd = false when ELEVENTY_ENV != 'prod'
       http({
         filter: (url) => true,
-        schemes: { default_schemes }
+        schemes: { default_schemes },
+        cache: cacheMap
       }),
       solidPlugin(), 
       manifestPlugin({
