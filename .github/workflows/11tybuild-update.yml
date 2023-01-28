@@ -39,7 +39,7 @@ jobs:
         with:
           default_author: github_actions
           message: "Update files"
-          add: '["*.json"]'
+          add: '["*.json", "dist"]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
