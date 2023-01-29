@@ -7,6 +7,7 @@ const esbuildPipeline = require('./config/build/esbuild.js');
 const purgecssPipeline = require('./config/build/purgecss.js');
 const path = require("path");
 const manifest = require('./src/_data/manifest.json');
+const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 
 const TEMPLATE_ENGINE = "liquid";
 
@@ -24,7 +25,9 @@ module.exports = function (eleventyConfig) {
 
   // BUILD HOOK
   eleventyConfig.on("eleventy.before", esbuildPipeline);
-  eleventyConfig.on("eleventy.after", purgecssPipeline);
+  if (isProd){
+    eleventyConfig.on("eleventy.after", purgecssPipeline);
+  };
 
   // PLUGINS
   eleventyConfig.addPlugin(pluginWebc, {
