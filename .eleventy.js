@@ -4,6 +4,7 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
 const esbuildPipeline = require('./config/build/esbuild.js');
+const purgecssPipeline = require('./config/build/purgecss.js');
 const path = require("path");
 const manifest = require('./src/_data/manifest.json');
 
@@ -23,6 +24,7 @@ module.exports = function (eleventyConfig) {
 
   // BUILD HOOK
   eleventyConfig.on("eleventy.before", esbuildPipeline);
+  eleventyConfig.on("eleventy.after", purgecssPipeline);
 
   // PLUGINS
   eleventyConfig.addPlugin(pluginWebc, {
