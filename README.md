@@ -75,6 +75,12 @@ plugins: [
 
 > Run 11ty with hot reload at localhost:8080, including reload based on Sass and JS changes.
 
+**`npm run cloud`**
+
+> Development build for use on cloud IDE's such as [Stackblitz](https://stackblitz.com/) without the pathprefix of /11ty-solid-base/. The CSS is autoprefixed but no minification or purging happens.
+
+If your using [Stackblitz](https://stackblitz.com/). To start the cloud dev server run: `npm run cloud` then `npm run start`.
+
 **`npm run build`**
 
 > Production build with autoprefixed CSS but no minification or purging. 
