@@ -4,7 +4,7 @@ const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
 const esbuildPipeline = require('./config/build/esbuild.js');
-const jsxExtension = require('./config/build/jsx.js');
+// const jsxExtension = require('./config/build/jsx.js');
 const purgecssPipeline = require('./config/build/purgecss.js');
 const path = require("path");
 const manifest = require('./src/_data/manifest.json');
@@ -35,8 +35,8 @@ module.exports = function (eleventyConfig) {
     components: "src/_includes/components/**/*.webc",
   });
   // Add solid jsx templates
-  eleventyConfig.addTemplateFormats('jsx');
-  eleventyConfig.addExtension('jsx', { jsxExtension };
+  // eleventyConfig.addTemplateFormats('jsx');
+  // eleventyConfig.addExtension('jsx', { jsxExtension };
   // to use other templates like liquid and nunjunks
   eleventyConfig.addPlugin(EleventyRenderPlugin); 
 
