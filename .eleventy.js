@@ -15,11 +15,13 @@ module.exports = function (eleventyConfig) {
   // DEV SERVER
   eleventyConfig.setServerOptions({
     port: 8080,
-    watch: ["dist/app/*.css"]
+    watch: ["dist/app/*.css", "dist/app/*.js"]
   });
   
   // WATCH
-  eleventyConfig.addWatchTarget("./src/scripts/");
+  // There is a 15 second delay when watching because if you modify the js or jsx the build dev server fails. This is because of I am using the esbuild metafile to affect the 
+  eleventyConfig.setWatchThrottleWaitTime(1500); // in milliseconds
+  // eleventyConfig.addWatchTarget("./src/scripts/");
   eleventyConfig.watchIgnores.add("./src/_data/manifest.json");
   eleventyConfig.watchIgnores.add("./src/_data/buildmeta.json");
 

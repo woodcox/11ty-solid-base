@@ -49,13 +49,30 @@ const esbuildOpts = {
 
 
 module.exports = async () => {
-  let result = await esbuild.build({
-    ...esbuildOpts,
-  }).catch((error) => {
-    console.error(error);
-    process.exitCode = 1;
-  })
-  fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
+  if (isProd === true){
+    let result = await esbuild.build({
+      ...esbuildOpts,
+    }).catch((error) => {
+      console.error(error);
+      process.exitCode = 1;
+    })
+    fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
+  } else {
+    let buildMetafile = JSON.parse(fs.readFileSync('./src/_data/buildmeta.json', 'utf8'));
+    let ctx = await esbuild.context({
+      ...esbuildOpts,
+    }).catch((error) => {
+      console.error(error);
+      process.exitCode = 1;
+    })
+    // ctx = Object.assign(ctx.build, buildMetafile);
+    console.log();
+    result = await ctx.rebuild();
+    //await ctx.watch();
+    console.log("[esbuild] esbuild is watching .js and .jsx files");
+    fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
+    await ctx.dispose();
+  }
 }
 
 // Do I need this for dev servver? It still fails when changing JS or JSX
