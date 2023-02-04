@@ -11,7 +11,7 @@ concurrency:
 
 # Conditional environmental if's      
 env:
-  UPDATE_NPM: true # false = deploy eleventy , true = update npm
+  UPDATE_NPM: false # false = deploy eleventy , true = update npm
 
 jobs:
   build_deploy_eleventy:
@@ -38,7 +38,7 @@ jobs:
         uses: EndBug/add-and-commit@v9
         with:
           default_author: github_actions
-          message: "Update files"
+          message: "Update json files"
           add: '["*.json"]'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
