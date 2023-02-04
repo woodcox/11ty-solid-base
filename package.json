@@ -22,20 +22,20 @@
   "author": "woodcox",
   "license": "ISC",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.0-beta.2",
+    "@11ty/eleventy": "^2.0.0-beta.3",
     "@11ty/eleventy-plugin-webc": "^0.8.1",
-    "@11ty/is-land": "^3.0.0",
+    "@11ty/is-land": "^3.0.1",
     "@hyrious/esbuild-plugin-http": "^0.1.1",
     "concurrently": "^7.6.0",
-    "esbuild": "^0.17.0",
+    "esbuild": "^0.17.5",
     "esbuild-plugin-manifest": "^0.5.0",
     "esbuild-plugin-purgecss-2": "^1.0.1",
-    "esbuild-plugin-solid": "^0.4.2",
+    "esbuild-plugin-solid": "^0.5.0",
     "glob-all": "^3.3.1",
     "lightningcss-cli": "^1.18.0",
     "purgecss": "^5.0.0",
-    "sass": "^1.57.1",
-    "solid-js": "^1.6.9"
+    "sass": "^1.58.0",
+    "solid-js": "^1.6.10"
   },
   "browserslist": [
     "> 0.2%",
