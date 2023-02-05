@@ -15,11 +15,13 @@ module.exports = function (eleventyConfig) {
   // DEV SERVER
   eleventyConfig.setServerOptions({
     port: 8080,
-    watch: ["dist/app/*.css"]
+    watch: ["dist/app/*.css"],
+    liveReload: true,
+    domDiff: true,
   });
   
   // WATCH
-  eleventyConfig.addWatchTarget("./src/scripts/");
+  // esbuild is also watching the js & jsx files
   eleventyConfig.watchIgnores.add("./src/_data/manifest.json");
   eleventyConfig.watchIgnores.add("./src/_data/buildmeta.json");
 

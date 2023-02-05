@@ -1,15 +1,15 @@
 :root {
   --font-sans: 'Fira Code', monospace;
   --font-mono: 'Fira Code', monospace;
-  --tx-1: #FFFFFF;
-  --tx-2: #EEEEEE;
+  --tx-1: #ffffff;
+  --tx-2: #eeeeee;
   --bg-1: #010000;
   --bg-2: #002700;
-  --bg-3: #581200;
-  --lk-1: #00FF00;
+  --bg-3: hsla(101, 76%, 36%, 0.836);
+  --lk-1: #00ff00;
   --lk-2: #00c200;
   --lk-tx: #000000;
-  --ac-1: #00FF00;
+  --ac-1: #00ff00;
   --ac-tx: #000000;
 }
 
@@ -19,7 +19,10 @@
   padding: 0;
 }
 
-html,input,select,button {
+html,
+input,
+select,
+button {
   /* Set body font family and some finicky elements */
   font-family: var(--font-sans);
 }
@@ -54,7 +57,7 @@ header {
   background: var(--bg-2);
   border-bottom: 1px solid var(--bg-3);
   padding: 2rem 1.5rem;
-	
+
   /* This sets the right and left margins to cancel out the body's margins. It's width is still the same, but the background stretches across the page's width. */
 
   margin: -2rem calc(50% - 50vw) 2rem;
@@ -77,10 +80,15 @@ header > *:last-child {
   margin-bottom: 0;
 }
 
-h1,h2,h3,h4,h5,h6 {
-	line-height: 1;
-	color: var(--tx-1);
-	padding-top: .875rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1;
+  color: var(--tx-1);
+  padding-top: 0.875rem;
 }
 
 h1,
@@ -90,4 +98,8 @@ h3 {
   padding-bottom: 2px;
   margin-bottom: 8px;
   border-bottom: 1px solid var(--bg-2);
+}
+
+li {
+  margin: 2rem;
 }

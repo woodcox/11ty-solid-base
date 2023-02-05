@@ -1,5 +1,5 @@
 {
-  "app": "app-3AMBMBQL.min.js",
-  "is-land": "is-land-YEMVHIMT.min.js",
-  "style": "style-HMFA36ML.min.css"
+  "app": "app.js",
+  "is-land": "is-land.js",
+  "style": "style.css"
 }
