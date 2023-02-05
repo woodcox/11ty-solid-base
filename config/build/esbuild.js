@@ -2,6 +2,7 @@
 const esbuild = require('esbuild');
 const glob = require('glob-all'); // to enable * glob pattern in esbuild
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
+const isDev = process.env.ELEVENTY_ENV === 'dev' ? true : false;
 const { solidPlugin } = require('esbuild-plugin-solid');
 const manifestPlugin = require('esbuild-plugin-manifest');
 const { http, default_schemes } = require('@hyrious/esbuild-plugin-http');
@@ -47,42 +48,23 @@ const esbuildOpts = {
   ]
 }
 
-
 module.exports = async () => {
-  if (isProd === true){
-    let result = await esbuild.build({
-      ...esbuildOpts,
-    }).catch((error) => {
-      console.error(error);
-      process.exitCode = 1;
-    })
-    fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
+  let ctx = await esbuild.context({
+    ...esbuildOpts,
+  }).catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  })
+  if (isDev === true){
+    // Enable watch mode - NOTE buildmeta.json is not generated when watching
+    // Need to limit esbuild so only watching js & jsx
+    await ctx.watch();
+    console.log("[esbuild] is watching for changes...");
   } else {
-    let buildMetafile = JSON.parse(fs.readFileSync('./src/_data/buildmeta.json', 'utf8'));
-    let ctx = await esbuild.context({
-      ...esbuildOpts,
-    }).catch((error) => {
-      console.error(error);
-      process.exitCode = 1;
+    // Build once and exit if not watch mode
+    await ctx.rebuild().then(result => {
+      ctx.dispose();
+      fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
     })
-    // ctx = Object.assign(ctx.build, buildMetafile);
-    console.log();
-    result = await ctx.rebuild();
-    //await ctx.watch();
-    console.log("[esbuild] esbuild is watching .js and .jsx files");
-    fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
-    await ctx.dispose();
   }
 }
-
-// Do I need this for dev servver? It still fails when changing JS or JSX
-// module.exports = async () => {
-//  let ctx = await esbuild.context({
-//    ...esbuildOpts,
-//  }).catch((error) => {
-//    console.error(error);
-//    process.exitCode = 1;
-//  })
-//  let result = await ctx.rebuild()
-//  fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
-// }
