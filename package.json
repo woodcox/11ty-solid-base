@@ -9,7 +9,7 @@
     "dev:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy --serve --output=dist",
     "build:sass": "sass --no-source-map src/sass:./dist/app",
     "build:eleventy": "npx @11ty/eleventy",
-    "prefix": "BROWSERSLIST_CONFIG='./package.json' lightningcss --browserslist ./dist/app/*.css -o ./dist/app/*.css",
+    "prefix": "lightningcss --browserslist ./dist/app/*.css -o ./dist/app/*.css",
     "start": "NODE_ENV=dev conc --kill-others 'npm:dev:*'",
     "cloud": "npm run clean && npm run build:sass && NODE_ENV=staging ELEVENTY_ENV=staging npm run build:eleventy",
     "build": "npm run clean && npm run build:sass && npm run prefix && NODE_ENV=dev ELEVENTY_ENV=dev npm run build:eleventy -- --pathprefix=11ty-solid-base",
