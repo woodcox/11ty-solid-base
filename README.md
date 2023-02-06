@@ -83,7 +83,7 @@ If your using [Stackblitz](https://stackblitz.com/). To start the cloud dev serv
 
 **`npm run build`**
 
-> Production build with autoprefixed CSS but no minification or purging. 
+> Staging build with autoprefixed CSS but no minification or purging. 
 
 **`npm run minify`**
 
