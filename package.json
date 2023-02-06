@@ -1,6 +1,6 @@
 {
   "name": "11ty-solid-base",
-  "version": "0.1.1",
+  "version": "1.1.0",
   "description": "A minimal HTML5 template and the esbuild setup to compile your Solidjs app alongside 11ty.",
   "main": ".eleventy.js",
   "scripts": {
