@@ -44,6 +44,9 @@ render(() => <Solidify />, document.getElementById('shorty'))
 
 <web-component></web-component>
 
+<p id="wordapp"></p>
+<script type="module" src="{{ '/app/fetch.js' | url | hash }}"></script>
+
 
 To do: 
  - look at [11ty docs](https://www.11ty.dev/docs/languages/webc/) & [11ty.rocks](https://11ty.rocks/)
