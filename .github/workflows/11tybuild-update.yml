@@ -29,12 +29,12 @@ jobs:
       - name: Install dependencies
         run: npm i # npm update --save
 
-      - name: Caching optimisation
-        if: env.UPDATE_NPM != 'true'
-        uses: actions/cache@v3
-        with:
-          path: '.jampack'
-          key: 'jampack'
+#      - name: Caching optimisation
+#        if: env.UPDATE_NPM != 'true'
+#        uses: actions/cache@v3
+#        with:
+#          path: '.jampack'
+#          key: 'jampack'
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
