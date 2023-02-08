@@ -40,7 +40,7 @@ There are two optional arguments:
 - `bundled`: The solid.jsx is bundled by default. To switch bundling off pass the value: `"bundleOff"`.
 
 ## SolidJS configuration
-To configure esbuild for js/jsx files modify `config/build/esbuild.js` or to configure the shortcode, modify `config/shortcode/solidify.js`
+To configure esbuild for js/jsx files modify `config/build/esbuild.js` or to configure the shortcode, modify `config/shortcode/solidify.js`. For further info check out the [esbuild-plugin-solid](https://github.com/amoutonbrady/esbuild-plugin-solid) github repo by [amoutonbrady](https://amoutonbrady.dev/).
 
 ~~~js
 /** Configuration options for esbuild-plugin-solid */
