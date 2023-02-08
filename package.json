@@ -13,7 +13,7 @@
     "start": "NODE_ENV=dev conc --kill-others 'npm:dev:*'",
     "cloud": "npm run clean && npm run build:sass && NODE_ENV=staging ELEVENTY_ENV=staging npm run build:eleventy",
     "build": "npm run clean && npm run build:sass && npm run prefix && NODE_ENV=staging ELEVENTY_ENV=staging npm run build:eleventy -- --pathprefix=11ty-solid-base",
-    "minify": "npm run clean && npm run build:sass && npm run prefix -- --minify && NODE_ENV=production ELEVENTY_ENV=prod npm run build:eleventy -- --pathprefix=11ty-solid-base"
+    "minify": "npm run clean && npm run build:sass && npm run prefix -- --minify && NODE_ENV=production ELEVENTY_ENV=prod npm run build:eleventy -- --pathprefix=11ty-solid-base && npx @divriots/jampack ./dist"
   },
   "repository": {
     "type": "git",
