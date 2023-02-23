@@ -56,6 +56,11 @@ module.exports = function (eleventyConfig) {
     return `${urldir}/${hashedBasename}`;
   });
 
+  // Use filter to resolve promises from async functions.  No more [object Promise] in your templates. {{ myAsyncFuntion() | await }}
+  eleventyConfig.addFilter("await", async promise => {
+    return promise;
+  });
+
   eleventyConfig.addPairedShortcode("solid", solidShortcode);
  
   // Let Eleventy transform HTML files as liquidjs
