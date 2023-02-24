@@ -15,7 +15,7 @@ module.exports = function (eleventyConfig) {
   // DEV SERVER
   eleventyConfig.setServerOptions({
     port: 8080,
-    watch: ["dist/app/*.css"],
+    watch: ["dist/app/*.css", "dist/app/*.js"],
     liveReload: true,
     domDiff: true,
   });
@@ -56,7 +56,7 @@ module.exports = function (eleventyConfig) {
     return `${urldir}/${hashedBasename}`;
   });
 
-  // Use filter to resolve promises from async functions.  No more 'object Promise' in your templates. {{ myAsyncFuntion() | await }}
+  // Use filter to resolve promises from async functions.  No more [object Promise] in your templates. {{ myAsyncFunction | await }}
   eleventyConfig.addFilter("await", async promise => {
     return promise;
   });
