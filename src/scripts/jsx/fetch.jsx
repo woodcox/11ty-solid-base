@@ -12,7 +12,7 @@ const App = () => {
     <>
       <input
         type="text"
-        placeholder="Enter word"
+        placeholder="Type a word..."
         onInput={(e) => setWordId(e.currentTarget.value)}
       />
       <span>{text.loading && "Loading..."}</span>

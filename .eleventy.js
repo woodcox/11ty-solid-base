@@ -33,7 +33,7 @@ module.exports = function (eleventyConfig) {
 
   // PLUGINS
   eleventyConfig.addPlugin(pluginWebc, {
-    components: "src/_includes/components/**/*.webc",
+    components: "src/components/**/*.webc",
   });
   // to use other templates like liquid and nunjunks
   eleventyConfig.addPlugin(EleventyRenderPlugin); 
@@ -56,7 +56,7 @@ module.exports = function (eleventyConfig) {
     return `${urldir}/${hashedBasename}`;
   });
 
-  /* Use filter to resolve promises from async functions.  No more [object Promise] in your templates. {{ myAsyncFunction | await }} */
+  /* Use filter to resolve promises from async functions. No more [object Promise] in your templates. {{ myAsyncFunction() | await }} */
   eleventyConfig.addFilter("await", async promise => {
     return promise;
   });
