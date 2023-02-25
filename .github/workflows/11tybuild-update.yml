@@ -27,7 +27,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: # npm update --save
+        run: npm update --save
 
 #      - name: Caching optimisation
 #        if: env.UPDATE_NPM != 'true'
