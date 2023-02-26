@@ -33,7 +33,7 @@ module.exports = function (eleventyConfig) {
 
   // PLUGINS
   eleventyConfig.addPlugin(pluginWebc, {
-    components: "src/components/**/*.webc",
+    components: "src/components/*.webc",
   });
   // to use other templates like liquid and nunjunks
   eleventyConfig.addPlugin(EleventyRenderPlugin); 
