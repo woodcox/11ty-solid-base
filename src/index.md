@@ -42,12 +42,21 @@ render(() => <Solidify />, document.getElementById('shorty'))
 
 ## The web component
 
-<web-component></web-component>
+{% renderTemplate "webc" %}
+<tester></tester>
+{% endrenderTemplate %}
+
+## SolidJS
+A more interesting example
 
 <p id="wordapp"></p>
 <script type="module" src="{{ '/app/fetch.js' | url | hash }}"></script>
 
 
 To do: 
- - look at [11ty docs](https://www.11ty.dev/docs/languages/webc/) & [11ty.rocks](https://11ty.rocks/)
- - A webC example
+ - A more complex webC example making use of:
+ - bundling of webC with Solid-js
+ - webC with scoped css
+ - Solid-js web components/progressive enhancement example
+
+Look at [11ty docs](https://www.11ty.dev/docs/languages/webc/) & [11ty.rocks](https://11ty.rocks/).
