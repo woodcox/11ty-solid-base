@@ -1,7 +1,7 @@
 HTML testing of webc, will this work??
 
-<style webc:keep>
-p {
+<style webc:keep webc:scoped>
+p tester {
   color: red;
 }
 </style>
