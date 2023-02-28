@@ -1,1 +1,7 @@
-HTML testing of webc, will this work?
+HTML testing of webc, will this work??
+
+<style webc:keep>
+p {
+  color: red;
+}
+</style>
