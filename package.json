@@ -24,7 +24,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-plugin-webc": "^0.9.0",
-    "@11ty/is-land": "^3.0.1",
+    "@11ty/is-land": "^3.0.2",
     "@divriots/jampack": "^0.9.3",
     "@hyrious/esbuild-plugin-http": "^0.1.2",
     "concurrently": "^7.6.0",
