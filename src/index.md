@@ -1,5 +1,5 @@
 ---
-layout: base.webc
+layout: base.html
 title: 11ty-solid-base
 ---
 
