@@ -1,6 +1,6 @@
-HTML testing of webc, will this work??
+HTML testing of webc. This is awesome.
 
-<style>
+<style webc:scoped>
 tester {
   color: red;
 }
