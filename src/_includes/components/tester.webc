@@ -1,7 +1,7 @@
-<p>HTML testing of webc, will this work??</p>
+HTML testing of webc, will this work??
 
 <style>
-p tester {
+tester {
   color: red;
 }
 </style>

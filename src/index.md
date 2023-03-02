@@ -40,7 +40,7 @@ render(() => <Solidify />, document.getElementById('shorty'))
   </template>
 </is-land> 
 
-## The web component
+## The webC component
 
 {% renderTemplate "webc" %}
 <tester></tester>
