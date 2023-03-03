@@ -1,0 +1,6 @@
+<h2>Menu</h2>{{meta.environment}}
+<template webc:type="11ty" 11ty:type="liquid">
+  <ul>{% for link in meta.nav %}{% capture navhref %}{{ link.href | url }}{% endcapture %}
+    <li><a href="{{ link.href | url }}">{{ link.text }}</a></li>{% endfor %}
+  </ul>
+</template>

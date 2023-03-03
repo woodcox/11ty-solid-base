@@ -3,6 +3,13 @@ layout: base.html
 title: 11ty-solid-base
 ---
 
+## Menu
+- [SolidJS](/page/)
+
+{% renderTemplate "webc" %}
+  <menu></menu>
+{% endrenderTemplate %}
+
 ## The counter
 To test if the island partial hydration is working; on a mobile phone, turn the phone to landscape view. This should swap the html for javascript to start the counter.
 
