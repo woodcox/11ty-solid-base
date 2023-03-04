@@ -1,7 +1,7 @@
-HTML testing of webc, will this work??
+HTML testing of webc. This is awesome.
 
-<style webc:keep>
-p {
+<style webc>
+tester {
   color: red;
 }
 </style>
