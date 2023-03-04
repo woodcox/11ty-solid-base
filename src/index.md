@@ -3,12 +3,11 @@ layout: base.html
 title: 11ty-solid-base
 ---
 
+<template webc:type="11ty" 11ty:type="liquid,md">
 ## Menu
 - [SolidJS](/page/)
 
-{% renderTemplate "webc" %}
-  <menu></menu>
-{% endrenderTemplate %}
+<menu></menu>
 
 ## The counter
 To test if the island partial hydration is working; on a mobile phone, turn the phone to landscape view. This should swap the html for javascript to start the counter.
@@ -49,9 +48,8 @@ render(() => <Solidify />, document.getElementById('shorty'))
 
 ## The webC component
 
-{% renderTemplate "webc" %}
 <tester></tester>
-{% endrenderTemplate %}
+
 
 ## SolidJS
 A more interesting example
@@ -67,3 +65,4 @@ To do:
  - Solid-js web components/progressive enhancement example
 
 Look at [11ty docs](https://www.11ty.dev/docs/languages/webc/) & [11ty.rocks](https://11ty.rocks/).
+<template>
