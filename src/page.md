@@ -1,5 +1,5 @@
 ---
-layout: base.webc
+layout: default.html
 title: SolidJS Example
 ---
 

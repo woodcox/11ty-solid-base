@@ -1,9 +1,8 @@
 ---
-layout: base.webc
+layout: default.html
 title: 11ty-solid-base
 ---
 
-<template webc:type="11ty" 11ty:type="liquid,md">
 ## Menu
 - [SolidJS](/page/)
 
@@ -65,4 +64,3 @@ To do:
  - Solid-js web components/progressive enhancement example
 
 Look at [11ty docs](https://www.11ty.dev/docs/languages/webc/) & [11ty.rocks](https://11ty.rocks/).
-<template>
