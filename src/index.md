@@ -4,7 +4,7 @@ title: 11ty-solid-base
 ---
 
 ## Menu
-- [SolidJS](/page/)
+- [WebC]({{ '/webc/' | url }})
 
 <menu></menu>
 
