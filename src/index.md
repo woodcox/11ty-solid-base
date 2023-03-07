@@ -4,7 +4,7 @@ title: 11ty-solid-base
 ---
 
 ## Menu
-- [WebC]({{ '/webc/' | url }})
+- [WebC]({{ '/webc/' }})
 
 <menu></menu>
 
@@ -17,7 +17,7 @@ To test if the island partial hydration is working; on a mobile phone, turn the 
   </counter-component>
   <template data-island="replace">
     <p id="app"></p>
-    <script type="module" src="{{ '/app/app.js' | url | hash }}"></script>
+    <script type="module" src="{{ '/app/app.js' | hash }}"></script>
   </template>
 </is-land>
 
@@ -54,7 +54,7 @@ render(() => <Solidify />, document.getElementById('shorty'))
 A more interesting example
 
 <p id="wordapp"></p>
-<script type="module" src="{{ '/app/fetch.js' | url | hash }}"></script>
+<script type="module" src="{{ '/app/fetch.js' | hash }}"></script>
 
 
 To do: 

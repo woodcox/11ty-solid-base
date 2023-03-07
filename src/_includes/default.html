@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title }}</title>
-  <link rel="stylesheet" href="{{ '/app/style.css' | url | hash }}" />
+  <link rel="stylesheet" href="{{ '/app/style.css' | hash }}" />
   <style>{% getBundle "css" %}</style>
-  <script type="module" defer src="{{ '/app/is-land.js' | url | hash }}"></script>
+  <script type="module" defer src="{{ '/app/is-land.js' | hash }}"></script>
 </head>
 <body>
   <header>
