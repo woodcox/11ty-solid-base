@@ -23,12 +23,12 @@
   "license": "ISC",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.0",
-    "@11ty/eleventy-plugin-webc": "^0.9.0",
-    "@11ty/is-land": "^3.0.1",
+    "@11ty/eleventy-plugin-webc": "^0.9.3",
+    "@11ty/is-land": "^3.0.2",
     "@divriots/jampack": "^0.9.3",
     "@hyrious/esbuild-plugin-http": "^0.1.2",
     "concurrently": "^7.6.0",
-    "esbuild": "^0.17.10",
+    "esbuild": "^0.17.11",
     "esbuild-plugin-manifest": "^0.5.0",
     "esbuild-plugin-purgecss-2": "^1.0.1",
     "esbuild-plugin-solid": "^0.5.0",
@@ -36,7 +36,7 @@
     "lightningcss-cli": "^1.19.0",
     "purgecss": "^5.0.0",
     "sass": "^1.58.3",
-    "solid-js": "^1.6.11"
+    "solid-js": "^1.6.12"
   },
   "browserslist": [
     "> 0.2%",
