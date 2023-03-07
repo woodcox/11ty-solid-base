@@ -13,7 +13,7 @@
     "start": "NODE_ENV=dev conc --kill-others 'npm:dev:*'",
     "cloud": "npm run clean && npm run build:sass && NODE_ENV=staging ELEVENTY_ENV=staging npm run build:eleventy -- --incremental",
     "build": "npm run clean && npm run build:sass && npm run prefix && NODE_ENV=staging ELEVENTY_ENV=staging npm run build:eleventy -- --incremental --pathprefix=11ty-solid-base",
-    "minify": "npm run clean && npm run build:sass && npm run prefix -- --minify && NODE_ENV=production ELEVENTY_ENV=prod npm run build:eleventy -- --incremental --pathprefix=11ty-solid-base && npx @divriots/jampack ./dist"
+    "minify": "npm run clean && npm run build:sass && npm run prefix -- --minify && NODE_ENV=production ELEVENTY_ENV=prod npm run build:eleventy -- --incremental --pathprefix=11ty-solid-base"
   },
   "repository": {
     "type": "git",
@@ -25,7 +25,6 @@
     "@11ty/eleventy": "^2.0.0",
     "@11ty/eleventy-plugin-webc": "^0.9.3",
     "@11ty/is-land": "^3.0.2",
-    "@divriots/jampack": "^0.9.3",
     "@hyrious/esbuild-plugin-http": "^0.1.2",
     "concurrently": "^7.6.0",
     "esbuild": "^0.17.11",
