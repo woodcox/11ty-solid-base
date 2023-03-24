@@ -1,5 +1,5 @@
 # Templates
 *.webc          text
 
-# Reclassifies .webc files as HTML:
+# Reclassify .webc files as HTML:
 *.webc linguist-language=HTML
