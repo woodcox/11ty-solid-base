@@ -27,7 +27,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm update --save
+        run: npm update --save && node --trace-deprecation ...
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
