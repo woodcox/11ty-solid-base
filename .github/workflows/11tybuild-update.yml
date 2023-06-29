@@ -20,14 +20,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Node.js 16.x
+      - name: Set up Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm update --save
+        run: npm i  # npm update --save
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
@@ -53,7 +53,7 @@ jobs:
           
       - name: pull request on npm update
         if: env.UPDATE_NPM == 'true'
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Update dependencies
@@ -65,6 +65,6 @@ jobs:
   
             [1]: https://github.com/peter-evans/create-pull-request
           branch: update-dependencies
-          add-paths: |
+          add-paths: | # to update the package.json and package-lock.json
             *.json
             
