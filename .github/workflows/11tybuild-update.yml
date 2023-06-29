@@ -27,7 +27,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm update --save && node --trace-deprecation ...
+        run: npm update --save
         
       - name: Npm Build
         if: env.UPDATE_NPM != 'true'
@@ -65,3 +65,6 @@ jobs:
   
             [1]: https://github.com/peter-evans/create-pull-request
           branch: update-dependencies
+          add-paths: |
+            *.json
+            
