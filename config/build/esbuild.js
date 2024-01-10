@@ -35,7 +35,7 @@ const defineEnv = {
 };
 
 const esbuildOpts = {
-  entryPoints: ['src/scripts/jsx/*.jsx', 'src/scripts/js/*.js', 'dist/app/*.css']), // include css so that its in the manifest.json
+  entryPoints: ['src/scripts/jsx/*.jsx', 'src/scripts/js/*.js', 'dist/app/*.css'], // include css so that its in the manifest.json
   entryNames: isProd ? '[name]-[hash]' : '[name]',
   outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
   allowOverwrite: !isProd,  // overwrite dist/app/style.css when in dev mode
