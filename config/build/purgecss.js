@@ -1,6 +1,5 @@
 // A modified version of https://github.com/arslanakram/esbuild-plugin-purgecss-2.0
 const esbuild = require('esbuild');
-const glob = require('glob-all');
 const fs = require('fs');
 const { PurgeCSS } = require('purgecss');
 const path = require('path');
@@ -47,14 +46,14 @@ let purgecssPlugin = function purgecssPlugin(options) {
 
 module.exports = async () => {
   let result = await esbuild.build({
-    entryPoints: glob.sync(['dist/app/*.css']),
+    entryPoints: ['dist/app/*.css'],
     allowOverwrite: true,
     minify: true,
     outdir: './dist/app',
     plugins: [
       purgecssPlugin({
         // For your production build. Add other content by using a glob-all pattern glob.sync(["dist/*.html", "dist/**/index.html"])
-        content: ["dist/index.html"]
+        content: ["src/scripts/jsx/*.jsx", "src/scripts/jsx/**/*.jsx", "dist/index.html"]
       })
     ]
   })
