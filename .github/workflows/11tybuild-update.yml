@@ -2,7 +2,7 @@ name: Build 11ty and css
 on:
   push:
     branches:
-      - main
+      - update-1
 
 # Cancel a previous build if still running
 concurrency:
@@ -11,7 +11,7 @@ concurrency:
 
 # Conditional environmental if's      
 env:
-  UPDATE_NPM: false # false = deploy eleventy , true = update npm
+  UPDATE_NPM: true # false = deploy eleventy , true = update npm
 
 jobs:
   build_deploy_eleventy:
