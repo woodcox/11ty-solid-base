@@ -152,7 +152,8 @@ plugins: [
  ~~~
 
 ## Environment variables
-The `pathPrefix` npm script argument from 11ty is passed through as an environment variable using [esbuild's define api](https://esbuild.github.io/api/#define). You can add other environment variables by adding them to the defineEnv const in the `config/build/esbuild.js` script.
+The `pathPrefix` npm script argument from 11ty (`--pathprefix=form-2-pdf",
+`) is passed through as an environment variable (along with all the npm script arguments) using [esbuild's define api](https://esbuild.github.io/api/#define). You can add other environment variables by adding them to the defineEnv const in the `config/build/esbuild.js` script.
 
 ~~~js
 const defineEnv = {
@@ -161,9 +162,9 @@ const defineEnv = {
 };
 ~~~
 
-If you decide to use a client-side router such as [solid router](https://github.com/solidjs/solid-router) you could do the following:
+If you decide to use a client-side router such as [solid router](https://github.com/solidjs/solid-router) you could do the following in your jsx:
 
-~~~js
+~~~jsx
 const pathPrefix = process.env.PATHPREFIX;
 const urlPrefix = pathPrefix ? `/${pathPrefix}` : "";
 
@@ -177,6 +178,26 @@ render(
     ), 
     document.getElementById('app')
 );
+~~~
+
+## Compression - Gzip and Brotli
+
+In a production build the css and js files are automatically compressed and output as minified, gzipped and brotli files:
+
+ - `app-S5YUTCHU.min.js`
+ - `app-S5YUTCHU.min.js.br`
+ - `app-S5YUTCHU.min.js.gz`
+
+To alter this behaviour modifiy the following in the `config/build/esbuild.js` script:
+
+~~~js
+if (isProd) {
+  esbuildOpts.plugins.push(gzipPlugin({
+    uncompressed: isProd,
+    gzip: isProd,
+    brotli: isProd,
+  }));
+}
 ~~~
 
 ## Development Scripts
