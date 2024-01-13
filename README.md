@@ -151,6 +151,34 @@ plugins: [
  ]
  ~~~
 
+## Environment variables
+The `pathPrefix` npm script argument from 11ty is passed through as an environment variable using [esbuild's define api](https://esbuild.github.io/api/#define). You can add other environment variables by adding them to the defineEnv const in the `config/build/esbuild.js` script.
+
+~~~js
+const defineEnv = {
+  'process.env.PATHPREFIX': JSON.stringify(pathPrefix),
+  // Add other environment variables as needed
+};
+~~~
+
+If you decide to use a client-side router such as [solid router](https://github.com/solidjs/solid-router) you could do the following:
+
+~~~js
+const pathPrefix = process.env.PATHPREFIX;
+const urlPrefix = pathPrefix ? `/${pathPrefix}` : "";
+
+render(
+    () => (
+        <Router>
+            <Route path={urlPrefix}> {/* solid-js router uses urlPrefix here to set the url path */}
+                <Route path="/" component={YourComponent} /> {/* The home page route */}
+            </Route>
+        </Router>
+    ), 
+    document.getElementById('app')
+);
+~~~
+
 ## Development Scripts
 
 **`npm start`**
