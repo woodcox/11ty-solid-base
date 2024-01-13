@@ -224,7 +224,7 @@ Use this as the "Publish command" if needed by hosting such as Netlify.
 
 
 ## Need scoped CSS?
-[Lightningcss]([https://lightningcss.dev/](https://lightningcss.dev/css-modules.html)) can be configured to support css modules by adding `--css-modules` to the `prefix` npm script. Alternatively you could use [esbuild css modules plugin](https://github.com/indooorsman/esbuild-css-modules-plugin#readme). An example [setup of scoped css modules with esbuild](https://how-to.dev/how-to-set-up-css-modules-with-esbuild).
+[Lightningcss](https://lightningcss.dev/css-modules.html) can be configured to support css modules by adding `--css-modules` to the `prefix` npm script. Alternatively you could use [esbuild css modules plugin](https://github.com/indooorsman/esbuild-css-modules-plugin#readme). An example [setup of scoped css modules with esbuild](https://how-to.dev/how-to-set-up-css-modules-with-esbuild).
 
 
 ## To do
