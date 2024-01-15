@@ -5,9 +5,9 @@
   "main": ".eleventy.js",
   "scripts": {
     "clean": "node config/clean/clean.js",
-    "dev:sass": "sass --no-source-map --watch src/sass:./dist/app",
+    "dev:sass": "sass --no-source-map --watch src/style:./dist/app",
     "dev:eleventy": "ELEVENTY_ENV=dev npx @11ty/eleventy --serve --incremental --output=dist",
-    "build:sass": "sass --no-source-map src/sass:./dist/app",
+    "build:sass": "sass --no-source-map src/style:./dist/app",
     "build:eleventy": "npx @11ty/eleventy",
     "prefix": "lightningcss --browserslist ./dist/app/*.css -o ./dist/app/*.css",
     "start": "NODE_ENV=dev conc --kill-others 'npm:dev:*'",

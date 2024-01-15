@@ -1,7 +1,0 @@
-HTML testing of webc. This is awesome.
-
-<style webc>
-tester {
-  color: red;
-}
-</style>

@@ -7,16 +7,16 @@ module.exports = {
       href: '/'
     },
     {
-      text: 'SolidJS',
-      href: '/solid/'
+      text: 'About',
+      href: '/about/'
     },
     {
-      text: 'WebC',
-      href: '/webc/'
+      text: 'Inline',
+      href: '/inline/'
     },
     {
       text: 'Islands',
-      href: '/islands/'
+      href: '/island/'
     }
   ]
 }

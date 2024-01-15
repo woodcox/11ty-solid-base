@@ -3,9 +3,6 @@ layout: default.html
 title: 11ty-solid-base
 ---
 
-## Menu
-- [WebC]({{ '/webc/' }})
-
 <menu></menu>
 
 ## The counter
@@ -45,22 +42,9 @@ render(() => <Solidify />, document.getElementById('shorty'))
   </template>
 </is-land> 
 
-## The webC component
-
-<tester></tester>
-
-
 ## SolidJS
 A more interesting example
 
 <p id="wordapp"></p>
 <script type="module" src="{{ '/app/fetch.js' | hash }}"></script>
 
-
-To do: 
- - A more complex webC example making use of:
- - bundling of webC with Solid-js
- - webC with scoped css
- - Solid-js web components/progressive enhancement example
-
-Look at [11ty docs](https://www.11ty.dev/docs/languages/webc/) & [11ty.rocks](https://11ty.rocks/).
