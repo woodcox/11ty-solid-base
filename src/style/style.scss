@@ -1,4 +1,4 @@
-/* MVP.css v1.14 - https://github.com/andybrewer/mvp */
+/* Based on MVP.css v1.14 - https://github.com/andybrewer/mvp */
 
 :root {
   --active-brightness: 0.85;
@@ -24,6 +24,9 @@
   --width-card-medium: 460px;
   --width-card-wide: 800px;
   --width-content: 1080px;
+  --bg-cube-1: #b2b2b2;
+  --bg-cube-2: #ffffff;
+  --bg-cube-3: #d9d9d9;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,15 +41,18 @@
     --color-table: #0097fc;
     --color-text: #f7f7f7;
     --color-text-secondary: #aaa;
+    --bg-cube-1: #b2b2b2;
+    --bg-cube-2: #ffffff;
+    --bg-cube-3: #d9d9d9;
   }
 }
 
 /* Background */
 html {
-  --s: 82px; /* control the size */
-  --c1: #b2b2b2;
-  --c2: #ffffff;
-  --c3: #d9d9d9;
+  --s: 175px; /* control the size */
+  --c1: var(--bg-cube-1);
+  --c2: var(--bg-cube-2);
+  --c3: var(--bg-cube-3);
   --_g: var(--c3) 0 120deg, #0000 0;
   background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
     conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
