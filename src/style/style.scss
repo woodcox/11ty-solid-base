@@ -1,5 +1,10 @@
 /* Based on MVP.css v1.14 - https://github.com/andybrewer/mvp */
 
+// ==============
+// Sass variables
+// ==============
+$scrollbar-color: rgb(202, 202, 232);
+
 :root {
   --active-brightness: 0.85;
   --border-radius: 5px;
@@ -41,13 +46,12 @@
     --color-table: #0097fc;
     --color-text: #f7f7f7;
     --color-text-secondary: #aaa;
-    --bg-cube-1: #b2b2b2;
-    --bg-cube-2: #ffffff;
-    --bg-cube-3: #d9d9d9;
   }
 }
 
-/* Background */
+// ==============
+// Background
+// ==============
 html {
   --s: 175px; /* control the size */
   --c1: var(--bg-cube-1);
@@ -83,7 +87,9 @@ html {
   }
 }
 
-/* Layout */
+// ==============
+// Layout 
+// ==============
 article aside {
   background: var(--color-secondary-accent);
   border-left: 4px solid var(--color-secondary);
@@ -148,7 +154,9 @@ section aside:hover {
   display: none;
 }
 
-/* Headers */
+// ==============
+// Headers
+// ==============
 article header,
 div header,
 main header {
@@ -176,7 +184,9 @@ section header {
   width: 100%;
 }
 
-/* Nav */
+// ==============
+// Nav
+// ==============
 nav {
   align-items: center;
   display: flex;
@@ -197,7 +207,10 @@ nav ul li {
   text-align: left;
 }
 
-/* Nav Dropdown */
+// ==============
+// Nav Dropdown
+// ==============
+
 nav ul li:hover ul {
   display: block;
 }
@@ -233,7 +246,9 @@ nav ul li ul li a {
   display: block;
 }
 
-/* Typography */
+// ==============
+// Typography
+// ==============
 code,
 samp {
   background-color: var(--color-accent);
@@ -308,7 +323,9 @@ sup {
   top: -2px;
 }
 
-/* Links */
+// ==============
+// Links
+// ==============
 a {
   color: var(--color-link);
   display: inline-block;
@@ -377,7 +394,9 @@ article aside a {
   color: var(--color-secondary);
 }
 
-/* Images */
+// ==============
+// Images
+// ==============
 figure {
   margin: 0;
   padding: 0;
@@ -391,7 +410,9 @@ figure figcaption {
   color: var(--color-text-secondary);
 }
 
-/* Forms */
+// ==============
+// Forms
+// ==============
 button:disabled,
 input:disabled {
   background: var(--color-bg-secondary);
@@ -471,7 +492,9 @@ label {
   margin-bottom: 0.2rem;
 }
 
-/* Popups */
+// ==============
+// Popups
+// ==============
 dialog {
   border: 1px solid var(--color-bg-secondary);
   border-radius: var(--border-radius);
@@ -484,7 +507,9 @@ dialog {
   z-index: 999;
 }
 
-/* Tables */
+// ==============
+// Tables
+// ==============
 table {
   border: 1px solid var(--color-bg-secondary);
   border-radius: var(--border-radius);
@@ -529,7 +554,9 @@ table tr:nth-child(even) {
   background-color: var(--color-accent);
 }
 
-/* Quotes */
+// ==============
+// Quotes
+// ==============
 blockquote {
   display: block;
   font-size: x-large;
@@ -548,10 +575,12 @@ blockquote footer {
   padding: 1.5rem 0;
 }
 
-/* Scrollbars */
+// ==============
+// Scrollbars
+// ==============
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(202, 202, 232) auto;
+  scrollbar-color: $scrollbar-color auto;
 }
 
 *::-webkit-scrollbar {
@@ -564,6 +593,6 @@ blockquote footer {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgb(202, 202, 232);
+  background-color: $scrollbar-color;
   border-radius: 10px;
 }
