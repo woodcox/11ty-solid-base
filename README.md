@@ -35,9 +35,9 @@ The shortcode will generate a module script tag.
 ~~~
 
 ### Arguments
-There are two optional arguments:
-- `filename`: The name of the file which is saved to `dist/app`. This name is automatically prefixed by `solid-`.
-- `bundled`: The solid.jsx is bundled by default. To switch bundling off pass the value: `"bundleOff"`.
+There are two arguments:
+- `filename` (required): The name of the file which is saved to `dist/app`. This name is automatically prefixed by `solid-`.
+- `bundled` (optional): The solid.jsx is bundled by default. To switch bundling off pass the value: `"bundleOff"`.
 
 ## SolidJS configuration
 To configure esbuild for js/jsx files modify `config/build/esbuild.js` or to configure the shortcode, modify `config/shortcode/solidify.js`. For further info check out the [esbuild-plugin-solid](https://github.com/amoutonbrady/esbuild-plugin-solid) github repo by [amoutonbrady](https://amoutonbrady.dev/).
@@ -151,6 +151,55 @@ plugins: [
  ]
  ~~~
 
+## Environment variables
+The `pathPrefix` npm script argument from 11ty (`--pathprefix=form-2-pdf",
+`) is passed through as an environment variable (along with all the npm script arguments) using [esbuild's define api](https://esbuild.github.io/api/#define). You can add other environment variables by adding them to the defineEnv const in the `config/build/esbuild.js` script.
+
+~~~js
+const defineEnv = {
+  'process.env.PATHPREFIX': JSON.stringify(pathPrefix),
+  // Add other environment variables as needed
+};
+~~~
+
+If you decide to use a client-side router such as [solid router](https://github.com/solidjs/solid-router) you could do the following in your jsx:
+
+~~~jsx
+const pathPrefix = process.env.PATHPREFIX;
+const urlPrefix = pathPrefix ? `/${pathPrefix}` : "";
+
+render(
+    () => (
+        <Router>
+            <Route path={urlPrefix}> {/* solid-js router uses urlPrefix here to set the url path */}
+                <Route path="/" component={YourComponent} />
+            </Route>
+        </Router>
+    ), 
+    document.getElementById('app')
+);
+~~~
+
+## Compression - Gzip and Brotli
+
+In a production build the css and js files are automatically compressed and output as minified, gzipped and brotli files:
+
+ - `app-S5YUTCHU.min.js`
+ - `app-S5YUTCHU.min.js.br`
+ - `app-S5YUTCHU.min.js.gz`
+
+To alter this behaviour modifiy the following in the `config/build/esbuild.js` script:
+
+~~~js
+if (isProd) {
+  esbuildOpts.plugins.push(gzipPlugin({
+    uncompressed: isProd,
+    gzip: isProd,
+    brotli: isProd,
+  }));
+}
+~~~
+
 ## Development Scripts
 
 **`npm start`**
@@ -173,12 +222,20 @@ If your using [Stackblitz](https://stackblitz.com/). To start the cloud dev serv
 
 Use this as the "Publish command" if needed by hosting such as Netlify.
 
-## To do
-
-- Look at adding js import maps
-- look as using webc to bundle into one per page
-- The web component (webC example)
-- improve styling and make prettier hydration examples
 
 ## Need scoped CSS?
-There's a plug-in for that - [esbuild css modules plugin](https://github.com/indooorsman/esbuild-css-modules-plugin#readme) and an example [setup of scoped css modules with esbuild](https://how-to.dev/how-to-set-up-css-modules-with-esbuild).
+[Lightningcss](https://lightningcss.dev/css-modules.html) can be configured to support css modules by adding `--css-modules` to the `prefix` npm script. Alternatively you could use [esbuild css modules plugin](https://github.com/indooorsman/esbuild-css-modules-plugin#readme). An example [setup of scoped css modules with esbuild](https://how-to.dev/how-to-set-up-css-modules-with-esbuild).
+
+
+## To do
+- Look at adding js import maps
+- The web component (webC example)
+- improve styling and make prettier hydration examples
+- Example using [Solid Element](https://github.com/solidjs/solid/blob/main/packages/solid-element/README.md) web components
+- Maybe look as using [eleventy-plugin-bundle](https://github.com/11ty/eleventy-plugin-bundle) and esbuild to create per page solidjs asset buckets/bundles.
+
+
+### Planning for 2.0 release
+- Alter the solid shortcode API so that the arguements are `bundle` and bundleOff instead of the current API of `bundled` and `bundleOff`.
+- Change the esbuild/solid internal configuration so that its an eleventy-plugin instead.
+- Should I remove the sass dependency?
