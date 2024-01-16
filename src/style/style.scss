@@ -29,9 +29,9 @@ $scrollbar-color: rgb(202, 202, 232);
   --width-card-medium: 460px;
   --width-card-wide: 800px;
   --width-content: 1080px;
-  --bg-cube-1: #b2b2b2;
-  --bg-cube-2: #ffffff;
-  --bg-cube-3: #d9d9d9;
+  --bg-cube-1: #dee2e6; // op grey-3
+  --bg-cube-2: #ffffff; // white
+  --bg-cube-3: #f1f3f5; // op gray-1
 }
 
 @media (prefers-color-scheme: dark) {
@@ -46,6 +46,9 @@ $scrollbar-color: rgb(202, 202, 232);
     --color-table: #0097fc;
     --color-text: #f7f7f7;
     --color-text-secondary: #aaa;
+    --bg-cube-1: #212529; // op grey-9
+    --bg-cube-2: #000000; // black
+    --bg-cube-3: #0d0f12; // op gray-11
   }
 }
 
