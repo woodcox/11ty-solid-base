@@ -52,7 +52,7 @@ module.exports = async () => {
     outdir: './dist/app',
     plugins: [
       purgecssPlugin({
-        // For your production build. Add other content by using a glob-all pattern glob.sync(["dist/*.html", "dist/**/index.html"])
+        // For your production build you can use esbuilds glob pattern ["dist/*.html", "dist/*/index.html"] to purge the relevant content 
         content: ["src/scripts/jsx/*.jsx", "src/scripts/jsx/**/*.jsx", "dist/index.html"]
       })
     ]

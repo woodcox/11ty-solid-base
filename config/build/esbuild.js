@@ -9,14 +9,14 @@ const { http, default_schemes } = require('@hyrious/esbuild-plugin-http');
 // cacheMap stores { url => contents }, you can easily persist it in file system - see https://github.com/hyrious/esbuild-plugin-http
 let cacheMap = new Map();
 const fs = require('fs');
-const path = require("path");
+const path = require('path');
 
 // Get arguments from npm script (such as --pathprefix) - https://reflect.run/articles/sending-command-line-arguments-to-an-npm-script/
 const parseArgs = (args) => {
   const parsedArgs = {};
 
   args.forEach((arg) => {
-    const parts = arg.split("=");
+    const parts = arg.split('=');
 
     parsedArgs[parts[0].slice(2)] = parts[1];
   });
@@ -35,13 +35,27 @@ const defineEnv = {
 };
 
 const esbuildOpts = {
-  entryPoints: ['src/scripts/jsx/*.jsx', 'src/scripts/js/*.js', 'dist/app/*.css'], // include css so that its in the manifest.json
+  /* Pattern to add custom output paths, see - https://esbuild.github.io/api/#entry-points
+  entryPoints: [
+    { out: 'app.js', in: 'src/scripts/jsx/app.11ty.jsx' },
+    'src/scripts/jsx/*.jsx',
+    'src/scripts/js/*.js',
+    'dist/app/*.css',
+  ], */
+  entryPoints: [
+    { out: 'app.js', in: 'src/scripts/jsx/app.11ty.jsx' },
+    'src/scripts/jsx/*.jsx',
+    'src/scripts/js/*.js',
+    'dist/app/*.css',
+  ], // include css so that its in the manifest.json
   entryNames: isProd ? '[name]-[hash]' : '[name]',
-  outExtension: isProd ? {'.js': '.min.js', '.css': '.min.css'} : {'.js': '.js', '.css': '.css'},
-  allowOverwrite: !isProd,  // overwrite dist/app/style.css when in dev mode
+  outExtension: isProd
+    ? { '.js': '.min.js', '.css': '.min.css' }
+    : { '.js': '.js', '.css': '.css' },
+  allowOverwrite: !isProd, // overwrite dist/app/style.css when in dev mode
   bundle: true,
   minify: isProd,
-  write: !isProd,  // this is required for the gzipPlugin to work
+  write: !isProd, // this is required for the gzipPlugin to work
   treeShaking: isProd,
   outdir: './dist/app',
   sourcemap: !isProd,
@@ -49,14 +63,14 @@ const esbuildOpts = {
   metafile: true,
   define: defineEnv,
   plugins: [
-    // To run development/staging build (skips purgingcss) if isProd = false when ELEVENTY_ENV != 'prod'. 
+    // To run development/staging build (skips purgingcss) if isProd = false when ELEVENTY_ENV != 'prod'.
     // This is implimented in the package.json scripts
     http({
       filter: (url) => true,
       schemes: { default_schemes },
-      cache: cacheMap
+      cache: cacheMap,
     }),
-    solidPlugin(), 
+    solidPlugin(),
     manifestPlugin({
       // NOTE: Save to src/_data. This is always relative to `outdir`.
       filename: '../../src/_data/manifest.json',
@@ -70,36 +84,43 @@ const esbuildOpts = {
             `${path.basename(to)}`,
           ])
         ),
-      })
-  ]
-}
+    }),
+  ],
+};
 
 // If isProd include gzipPlugin. This is pushed into esBuildOpts.plugins because in dev/staging mode the esBuild's write api must be true. But the gzipPlugin requires it to be false.
 if (isProd) {
-  esbuildOpts.plugins.push(gzipPlugin({
-    uncompressed: isProd,
-    gzip: isProd,
-    brotli: isProd,
-  }));
+  esbuildOpts.plugins.push(
+    gzipPlugin({
+      uncompressed: isProd,
+      gzip: isProd,
+      brotli: isProd,
+    })
+  );
 }
 
 module.exports = async () => {
-  let ctx = await esbuild.context({
-    ...esbuildOpts,
-  }).catch((error) => {
-    console.error(error);
-    process.exitCode = 1;
-  })
-  if (isDev === true){
+  let ctx = await esbuild
+    .context({
+      ...esbuildOpts,
+    })
+    .catch((error) => {
+      console.error(error);
+      process.exitCode = 1;
+    });
+  if (isDev === true) {
     // Enable watch mode - NOTE buildmeta.json is not generated when watching
     // Need to limit esbuild so only watching js & jsx
     await ctx.watch();
-    console.log("[esbuild] is watching for changes...");
+    console.log('[esbuild] is watching for changes...');
   } else {
     // Build once and exit if not watch mode
-    await ctx.rebuild().then(result => {
+    await ctx.rebuild().then((result) => {
       ctx.dispose();
-      fs.writeFileSync('./src/_data/buildmeta.json', JSON.stringify(result.metafile));
-    })
+      fs.writeFileSync(
+        './src/_data/buildmeta.json',
+        JSON.stringify(result.metafile)
+      );
+    });
   }
-}
+};
