@@ -35,15 +35,9 @@ const defineEnv = {
 };
 
 const esbuildOpts = {
-  /* Pattern to add custom output paths, see - https://esbuild.github.io/api/#entry-points
   entryPoints: [
-    { out: 'app.js', in: 'src/scripts/jsx/app.11ty.jsx' },
-    'src/scripts/jsx/*.jsx',
-    'src/scripts/js/*.js',
-    'dist/app/*.css',
-  ], */
-  entryPoints: [
-    { out: 'app.js', in: 'src/scripts/jsx/app.11ty.jsx' },
+    // Pattern to add custom output paths, see - https://esbuild.github.io/api/#entry-points
+    // { out: 'yourApp.js', in: 'src/scripts/jsx/yourApp.11ty.jsx' },
     'src/scripts/jsx/*.jsx',
     'src/scripts/js/*.js',
     'dist/app/*.css',

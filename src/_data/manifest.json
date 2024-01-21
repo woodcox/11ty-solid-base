@@ -1,6 +1,6 @@
 {
-  "app.map": "app.js.map",
-  "app": "app.js",
+  "app.map": "app.11ty.js.map",
+  "app": "app.11ty.js",
   "fetch.map": "fetch.js.map",
   "fetch": "fetch.js",
   "is-land.map": "is-land.js.map",

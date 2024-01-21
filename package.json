@@ -37,6 +37,11 @@
     "sass": "^1.69.7",
     "solid-js": "^1.8.10"
   },
+  "importMap": {
+    "imports": {
+      "solid": "https://esm.sh/solid-js/web"
+    }
+  },
   "browserslist": [
     "> 0.2%",
     "last 2 versions",
