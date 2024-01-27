@@ -109,7 +109,7 @@ module.exports = async () => {
     console.log('[esbuild] is watching for changes...');
   } else {
     // Build once and exit if not watch mode
-    await ctx.rebuild().then((result) => {
+    await ctx.rebuild().then(result => {
       ctx.dispose();
       fs.writeFileSync(
         './src/_data/buildmeta.json',
