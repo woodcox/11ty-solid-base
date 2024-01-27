@@ -6,13 +6,14 @@ const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
 const esbuildPipeline = require('./config/build/esbuild.js');
 const purgecssPipeline = require('./config/build/purgecss.js');
+const jsxTemplate = require('./config/build/staticjsx.js');
 const path = require("path");
 const manifest = require('./src/_data/manifest.json');
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
 
 const TEMPLATE_ENGINE = "liquid";
 
-module.exports = function (eleventyConfig) {
+module.exports = (eleventyConfig) => {
   // DEV SERVER
   eleventyConfig.setServerOptions({
     port: 8080,
@@ -33,6 +34,8 @@ module.exports = function (eleventyConfig) {
   };
 
   // PLUGINS
+  // look at how webc is structured
+  //eleventyConfig.addPlugin(jsxTemplate);
   eleventyConfig.addPlugin(pluginWebc, {
     components: "src/_includes/components/*.webc",
   });

@@ -3,17 +3,16 @@
 
 const esbuild = require('esbuild');
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
-const isDev = process.env.ELEVENTY_ENV === 'dev' ? true : false;
+//const isDev = process.env.ELEVENTY_ENV === 'dev' ? true : false;
 const { solidPlugin } = require('esbuild-plugin-solid');
 const path = require('path');
 
-const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = (eleventyConfig) => {
   eleventyConfig.addTemplateFormats('jsx');
 
   eleventyConfig.addExtension('jsx', {
-    outputFileExtension: 'js',
+    outputFileExtension: 'html',
     compile: async (content, fullPath) => {
       const parsedPath = path.parse(fullPath);
       const basedir = path.basename(parsedPath.dir);
@@ -24,20 +23,19 @@ module.exports = (eleventyConfig) => {
 
       return async () => {
         let output = await esbuild.build({
-          target: 'es2020',
+          target: isProd ? 'es6' : 'esnext',
           entryPoints: [fullPath],
           minify: isProd,
           bundle: true,
           write: false,
           sourcemap: !isProd,
-          loader: {
-            '.wgsl': 'text'
-          },
-          plugins: [solidPlugin({generate?: 'ssr'})]
+          plugins: [solidPlugin({generate: 'ssr', hydratable: true})]
         });
 
         return output.outputFiles[0].html;
+        //let testing = output.outputFiles[0];
       };
     },
   });
+  console.log('[Test] is testing...');
 };
