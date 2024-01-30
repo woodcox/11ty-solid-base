@@ -6,7 +6,7 @@ const now = String(Date.now());
 const solidShortcode = require('./config/shortcodes/solidify.js');
 const esbuildPipeline = require('./config/build/esbuild.js');
 const purgecssPipeline = require('./config/build/purgecss.js');
-const jsxTemplate = require('./config/build/staticjsx.js');
+const pluginJsx = require('./config/build/plugin-solid-jsx.js');
 const path = require("path");
 const manifest = require('./src/_data/manifest.json');
 const isProd = process.env.ELEVENTY_ENV === 'prod' ? true : false;
@@ -35,7 +35,7 @@ module.exports = (eleventyConfig) => {
 
   // PLUGINS
   // look at how webc is structured
-  //eleventyConfig.addPlugin(jsxTemplate);
+  eleventyConfig.addPlugin(pluginJsx);
   eleventyConfig.addPlugin(pluginWebc, {
     components: "src/_includes/components/*.webc",
   });

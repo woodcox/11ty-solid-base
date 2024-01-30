@@ -16,6 +16,7 @@ module.exports = (eleventyConfig) => {
     compile: async (content, fullPath) => {
       const parsedPath = path.parse(fullPath);
       const basedir = path.basename(parsedPath.dir);
+      console.log('is this working', basedir);
 
       if (path.basename(fullPath) !== `${basedir}.jsx`) {
         return;
@@ -32,7 +33,7 @@ module.exports = (eleventyConfig) => {
           plugins: [solidPlugin({generate: 'ssr', hydratable: true})]
         });
 
-        return output.outputFiles[0].html;
+        return output.outputFiles[0].text;
         //let testing = output.outputFiles[0];
       };
     },
