@@ -1,4 +1,9 @@
-/* MVP.css v1.14 - https://github.com/andybrewer/mvp */
+/* Based on MVP.css v1.14 - https://github.com/andybrewer/mvp */
+
+// ==============
+// Sass variables
+// ==============
+$scrollbar-color: rgb(202, 202, 232);
 
 :root {
   --active-brightness: 0.85;
@@ -14,8 +19,7 @@
   --color-table: #118bee;
   --color-text: #000;
   --color-text-secondary: #999;
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-family: Verdana, Geneva, DejaVu Sans, sans-serif;
   --hover-brightness: 1.2;
   --justify-important: center;
   --justify-normal: left;
@@ -24,6 +28,19 @@
   --width-card-medium: 460px;
   --width-card-wide: 800px;
   --width-content: 1080px;
+  --bg-cube-1: #dee2e6; // grey-3
+  --bg-cube-2: #ffffff; // white
+  --bg-cube-3: #f1f3f5; // gray-1
+  --size-step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+  --size-step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+  --size-step-base: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --size-step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+  --size-step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+  --size-step-3: clamp(1.9438rem, 1.7707rem + 0.8652vw, 2.4413rem);
+  --size-step-4: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
+  --size-step-5: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
+  --size-step-6: clamp(3.3594rem, 2.8694rem + 2.45vw, 4.7681rem);
+  --spacing-density: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -38,15 +55,48 @@
     --color-table: #0097fc;
     --color-text: #f7f7f7;
     --color-text-secondary: #aaa;
+    --bg-cube-1: #212529; // grey-9
+    --bg-cube-2: #000000; // black
+    --bg-cube-3: #0d0f12; // gray-11
   }
 }
 
-/* Background */
+/*
+Mixin to create selector with density shifts to control spacing - see https://complementary.space/
+
+body { ... }
+body [data-density-shift] { ... }
+body [data-density-shift] [data-density-shift] { ... }
+
+*/
+
+/* Fibonacci Sequence */
+@function fib($n) {
+  @return if($n <= 1, 1, fib($n - 1) + fib($n - 2));
+}
+
+@mixin spacing-vars($selector, $levels, $attr-sel: '[data-density-shift]') {
+  //$attr-sel: "[data-density-shift]";
+  @for $i from 1 through $levels {
+    $nest-sel: if($i == 1, $selector, selector-nest($nest-sel, $attr-sel));
+
+    #{$nest-sel} {
+      --spacing--away: calc(#{fib(($levels - $i) + 1)} * var(--spacing-density, 0.5rem));
+      --spacing--near: calc(#{fib(($levels - $i))} * var(--spacing-density, 0.5rem));
+    }
+  }
+}
+
+@include spacing-vars('body', 3);
+
+// ==============
+// Background
+// ==============
 html {
-  --s: 82px; /* control the size */
-  --c1: #b2b2b2;
-  --c2: #ffffff;
-  --c3: #d9d9d9;
+  --s: 175px; /* control the size */
+  --c1: var(--bg-cube-1);
+  --c2: var(--bg-cube-2);
+  --c3: var(--bg-cube-3);
   --_g: var(--c3) 0 120deg, #0000 0;
   background: conic-gradient(from -60deg at 50% calc(100% / 3), var(--_g)),
     conic-gradient(from 120deg at 50% calc(200% / 3), var(--_g)),
@@ -77,7 +127,9 @@ html {
   }
 }
 
-/* Layout */
+// ==============
+// Layout 
+// ==============
 article aside {
   background: var(--color-secondary-accent);
   border-left: 4px solid var(--color-secondary);
@@ -142,7 +194,9 @@ section aside:hover {
   display: none;
 }
 
-/* Headers */
+// ==============
+// Headers
+// ==============
 article header,
 div header,
 main header {
@@ -170,7 +224,9 @@ section header {
   width: 100%;
 }
 
-/* Nav */
+// ==============
+// Nav
+// ==============
 nav {
   align-items: center;
   display: flex;
@@ -191,7 +247,10 @@ nav ul li {
   text-align: left;
 }
 
-/* Nav Dropdown */
+// ==============
+// Nav Dropdown
+// ==============
+
 nav ul li:hover ul {
   display: block;
 }
@@ -227,7 +286,9 @@ nav ul li ul li a {
   display: block;
 }
 
-/* Typography */
+// ==============
+// Typography
+// ==============
 code,
 samp {
   background-color: var(--color-accent);
@@ -247,6 +308,8 @@ details summary {
   cursor: pointer;
 }
 
+
+
 h1,
 h2,
 h3,
@@ -255,6 +318,18 @@ h5,
 h6 {
   line-height: var(--line-height);
   text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--size-step-6);
+}
+
+h2 {
+  font-size: var(--size-step-5);
+}
+
+h3 {
+  font-size: var(--size-step-4);
 }
 
 mark {
@@ -270,6 +345,7 @@ p {
   margin: 0.75rem 0;
   padding: 0;
   width: 100%;
+  font-size: var(--size-step-base);
 }
 
 pre {
@@ -302,7 +378,9 @@ sup {
   top: -2px;
 }
 
-/* Links */
+// ==============
+// Links
+// ==============
 a {
   color: var(--color-link);
   display: inline-block;
@@ -371,7 +449,9 @@ article aside a {
   color: var(--color-secondary);
 }
 
-/* Images */
+// ==============
+// Images
+// ==============
 figure {
   margin: 0;
   padding: 0;
@@ -385,7 +465,9 @@ figure figcaption {
   color: var(--color-text-secondary);
 }
 
-/* Forms */
+// ==============
+// Forms
+// ==============
 button:disabled,
 input:disabled {
   background: var(--color-bg-secondary);
@@ -465,7 +547,9 @@ label {
   margin-bottom: 0.2rem;
 }
 
-/* Popups */
+// ==============
+// Popups
+// ==============
 dialog {
   border: 1px solid var(--color-bg-secondary);
   border-radius: var(--border-radius);
@@ -478,7 +562,9 @@ dialog {
   z-index: 999;
 }
 
-/* Tables */
+// ==============
+// Tables
+// ==============
 table {
   border: 1px solid var(--color-bg-secondary);
   border-radius: var(--border-radius);
@@ -523,7 +609,9 @@ table tr:nth-child(even) {
   background-color: var(--color-accent);
 }
 
-/* Quotes */
+// ==============
+// Quotes
+// ==============
 blockquote {
   display: block;
   font-size: x-large;
@@ -542,10 +630,12 @@ blockquote footer {
   padding: 1.5rem 0;
 }
 
-/* Scrollbars */
+// ==============
+// Scrollbars
+// ==============
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgb(202, 202, 232) auto;
+  scrollbar-color: $scrollbar-color auto;
 }
 
 *::-webkit-scrollbar {
@@ -558,6 +648,6 @@ blockquote footer {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgb(202, 202, 232);
+  background-color: $scrollbar-color;
   border-radius: 10px;
 }
