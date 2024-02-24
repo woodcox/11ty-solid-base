@@ -1,5 +1,5 @@
-import { createSignal, createEffect, createResource } from "solid-js";
-import { render } from "solid-js/web";
+import { createSignal, createResource } from 'solid-js';
+import { render, Show } from 'solid-js/web';
 
 // Debounce function
 function debounce(func, delay) {
@@ -10,22 +10,26 @@ function debounce(func, delay) {
   };
 }
 
-const fetchUser = async (word) => {
-  try {
-    const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}/`);
-    if (!response.ok) {
-      throw new Error("Word not found");
+const fetchWord = async (word) => {
+  if (word != '') {
+    try {
+      const response = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}/`
+      );
+      if (!response.ok) {
+        throw new Error(`${word} is not in the dictionary.`);
+      }
+      return await response.json();
+    } catch (error) {
+      return { error: error.message };
     }
-    return await response.json();
-  } catch (error) {
-    return { error: error.message };
   }
 };
 
 const App = () => {
-  const [wordId, setWordId] = createSignal("");
-  const [debouncedWordId, setDebouncedWordId] = createSignal("");
-  const [text, { refetch }] = createResource(debouncedWordId, fetchUser);
+  const [wordId, setWordId] = createSignal('');
+  const [debouncedWordId, setDebouncedWordId] = createSignal('');
+  const [text] = createResource(debouncedWordId, fetchWord);
 
   // Debounce the word input
   const debouncedSetWordId = debounce(setDebouncedWordId, 500);
@@ -36,50 +40,43 @@ const App = () => {
     debouncedSetWordId(newWord);
   };
 
-  createEffect(() => {
-    refetch();
-  });
-
   return (
     <>
-      <input
-        type="text"
-        placeholder="Type a word..."
-        onInput={handleInput}
-      />
-      <span>{text.loading && "Loading..."}</span>
-      <div>
-        {text() && !text().error && text().length > 0 && (
-          <div>
-            <h3>Dictionary: {text()[0].word}</h3>
-            <div>
-              {text()[0].meanings.map((meaning, index) => (
-                <div key={index}>
-                  <h4>{meaning.partOfSpeech}</h4>
-                  <ul>
-                    {meaning.definitions.map((definition, idx) => (
-                      <li key={idx}>
-                        <p>Definition: {definition.definition}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+      <input type="text" placeholder="Type a word..." onInput={handleInput} />
+      <Show when={text.loading}>
+        <span>Loading...</span>
+      </Show>
+      <Show when={text() && text().error}>
+        <div>Error: {text().error}</div>
+      </Show>
+      <Show
+        when={text() && !text().error && !text.loading && text().length > 0}
+      >
+        <h3>Dictionary: {text()[0].word}</h3>
+
+        {text()[0].meanings.map((meaning, index) => (
+          <div key={index}>
+            <h4>{meaning.partOfSpeech}</h4>
+            <ul>
+              {meaning.definitions.map((definition, idx) => (
+                <li key={idx}>
+                  <p>{definition.definition}</p>
+                </li>
               ))}
-            </div>
-            {text()[0].phonetics && text()[0].phonetics.length > 0 && (
-              <div>
-                <h4>Dictionary Audio:</h4>
-                <audio controls src={text()[0].phonetics[0].audio}>
-                  Your browser does not support the audio element.
-                </audio>
-              </div>
-            )}
+            </ul>
           </div>
+        ))}
+        {text()[0].phonetics && text()[0].phonetics.length > 0 && (
+          <>
+            <h4>Dictionary Audio:</h4>
+            <audio controls src={text()[0].phonetics[0].audio}>
+              Your browser does not support the audio element.
+            </audio>
+          </>
         )}
-        {text() && text().error && <div>Error: {text().error}</div>}
-      </div>
+      </Show>
     </>
   );
 };
 
-render(App, document.getElementById("wordapp"));
+render(App, document.getElementById('wordapp'));
