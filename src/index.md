@@ -1,6 +1,7 @@
 ---
 layout: default.html
 title: 11ty-solid-base
+author: Rustie Woodcox
 ---
 
 <menu></menu>
@@ -47,5 +48,3 @@ A more interesting example
 
 <p id="wordapp"></p>
 <script type="module" src="{{ '/app/fetch.js' | hash }}"></script>
-
-<footer>Woodcox 2024</footer>
