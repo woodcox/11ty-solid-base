@@ -1,5 +1,5 @@
 /* Based on MVP.css v1.14 - https://github.com/andybrewer/mvp */
-
+@use 'sass:math';
 // ==============
 // Sass variables
 // ==============
@@ -40,7 +40,7 @@ $scrollbar-color: rgb(202, 202, 232);
   --size-step-4: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
   --size-step-5: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
   --size-step-6: clamp(3.3594rem, 2.8694rem + 2.45vw, 4.7681rem);
-  --spacing-density: 0.5rem;
+  --box-density-size: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -62,7 +62,7 @@ $scrollbar-color: rgb(202, 202, 232);
 }
 
 /*
-Mixin to create selector with density shifts to control spacing - see https://complementary.space/
+Mixin to create selector with density shifts to control spacing - see https://complementary.space/ and https://github.com/damato-design/system/blob/main/src/decorations/density.scss
 
 body { ... }
 body [data-density-shift] { ... }
@@ -70,9 +70,15 @@ body [data-density-shift] [data-density-shift] { ... }
 
 */
 
-/* Fibonacci Sequence */
-@function fib($n) {
-  @return if($n <= 1, 1, fib($n - 1) + fib($n - 2));
+$spacescale: 2;
+$typescale: 1.25;
+
+@function space-calc($n) {
+  @return math.pow($spacescale, $n);
+}
+
+@function type-calc($n) {
+  @return math.pow($typescale, $n);
 }
 
 @mixin spacing-vars($selector, $levels, $attr-sel: '[data-density-shift]') {
@@ -81,13 +87,18 @@ body [data-density-shift] [data-density-shift] { ... }
     $nest-sel: if($i == 1, $selector, selector-nest($nest-sel, $attr-sel));
 
     #{$nest-sel} {
-      --spacing--away: calc(#{fib(($levels - $i) + 1)} * var(--spacing-density, 0.5rem));
-      --spacing--near: calc(#{fib(($levels - $i))} * var(--spacing-density, 0.5rem));
+      font-size: calc(#{type-calc($levels - $i)} * var(--text_standard_font-size, 1rem));
+      --text-display: min(#{type-calc(($levels - $i) + 5)} * var(--text_standard_font-size, 1rem), var(--text_display_min-size, 6vw));
+      --text-heading: calc(#{type-calc(($levels - $i) + 1)} * var(--text_standard_font-size, 1rem));
+      --text-detail: calc(#{type-calc(($levels - $i) - 1)} * var(--text_standard_font-size, 1rem));
+      --space-near: calc(#{space-calc($levels - $i)} * var(--box-density-size, 0.5rem));
+      --space-away: calc(#{space-calc(($levels - $i) + 1)} * var(--box-density-size, 0.5rem));
     }
   }
 }
 
 @include spacing-vars('body', 3);
+
 
 // ==============
 // Background
