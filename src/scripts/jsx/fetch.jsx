@@ -57,7 +57,7 @@ const App = () => {
         {text()[0].meanings.map((meaning, index) => (
           <div key={index}>
             <h4>{meaning.partOfSpeech}</h4>
-            <ul>
+            <ul data-density-shift>
               {meaning.definitions.map((definition, idx) => (
                 <li key={idx}>
                   <p>{definition.definition}</p>

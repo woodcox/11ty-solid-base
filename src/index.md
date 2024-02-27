@@ -48,3 +48,4 @@ A more interesting example
 <p id="wordapp"></p>
 <script type="module" src="{{ '/app/fetch.js' | hash }}"></script>
 
+<footer>Woodcox 2024</footer>

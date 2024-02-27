@@ -31,16 +31,16 @@ $scrollbar-color: rgb(202, 202, 232);
   --bg-cube-1: #dee2e6; // grey-3
   --bg-cube-2: #ffffff; // white
   --bg-cube-3: #f1f3f5; // gray-1
-  --size-step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
-  --size-step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
-  --size-step-base: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
-  --size-step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
-  --size-step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
-  --size-step-3: clamp(1.9438rem, 1.7707rem + 0.8652vw, 2.4413rem);
-  --size-step-4: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
-  --size-step-5: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
-  --size-step-6: clamp(3.3594rem, 2.8694rem + 2.45vw, 4.7681rem);
-  --box-density-size: 0.5rem;
+  --text-size--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+  --text-size--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+  --text-size-base: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --text-size-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+  --text-size-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+  --text-size-3: clamp(1.9438rem, 1.7707rem + 0.8652vw, 2.4413rem);
+  --text-size-4: clamp(2.3325rem, 2.0823rem + 1.2511vw, 3.0519rem);
+  --text-size-5: clamp(2.7994rem, 2.4461rem + 1.7663vw, 3.815rem);
+  --text-size-6: clamp(3.3594rem, 2.8694rem + 2.45vw, 4.7681rem);
+  --box-density-size: 0.3rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -82,15 +82,14 @@ $typescale: 1.25;
 }
 
 @mixin spacing-vars($selector, $levels, $attr-sel: '[data-density-shift]') {
-  //$attr-sel: "[data-density-shift]";
   @for $i from 1 through $levels {
     $nest-sel: if($i == 1, $selector, selector-nest($nest-sel, $attr-sel));
 
     #{$nest-sel} {
-      font-size: calc(#{type-calc($levels - $i)} * var(--text_standard_font-size, 1rem));
-      --text-display: min(#{type-calc(($levels - $i) + 5)} * var(--text_standard_font-size, 1rem), var(--text_display_min-size, 6vw));
-      --text-heading: calc(#{type-calc(($levels - $i) + 1)} * var(--text_standard_font-size, 1rem));
-      --text-detail: calc(#{type-calc(($levels - $i) - 1)} * var(--text_standard_font-size, 1rem));
+      font-size: calc(#{type-calc($levels - $i)} * var(--text-size-base, 1rem));
+      --text-display: min(#{type-calc(($levels - $i) + 5)} * var(--text-size-base, 1rem), var(--text-size-min, 6vw));
+      --text-heading: calc(#{type-calc(($levels - $i) + 1)} * var(--text-size-base, 1rem));
+      --text-detail: calc(#{type-calc(($levels - $i) - 1)} * var(--text-size-base, 1rem));
       --space-near: calc(#{space-calc($levels - $i)} * var(--box-density-size, 0.5rem));
       --space-away: calc(#{space-calc(($levels - $i) + 1)} * var(--box-density-size, 0.5rem));
     }
@@ -157,12 +156,13 @@ body {
   padding: 0;
 }
 
+//
 footer,
 header,
 main {
   margin: 0 auto;
   max-width: var(--width-content);
-  padding: 3rem 1rem;
+  padding: var(--space-away) var(--space-near);
 }
 
 hr {
@@ -222,7 +222,7 @@ header a b,
 header a em,
 header a i,
 header a strong {
-  margin-left: 0.5rem;
+  margin-left: var(--space-near);
   margin-right: 0.5rem;
 }
 
@@ -329,18 +329,19 @@ h5,
 h6 {
   line-height: var(--line-height);
   text-wrap: balance;
+  margin-block-end: 0;
 }
 
 h1 {
-  font-size: var(--size-step-6);
+  font-size: var(--text-size-5);
 }
 
 h2 {
-  font-size: var(--size-step-5);
+  font-size: var(--text-size-4);
 }
 
 h3 {
-  font-size: var(--size-step-4);
+  font-size: var(--text-size-3);
 }
 
 mark {
@@ -349,14 +350,14 @@ mark {
 
 ol li,
 ul li {
-  padding: 0.2rem 0;
+  padding: var(--space-near) 0;
 }
 
 p {
-  margin: 0.75rem 0;
+  margin: var(--space-near) 0;
   padding: 0;
   width: 100%;
-  font-size: var(--size-step-base);
+  font-size: var(--text-size-base);
 }
 
 pre {

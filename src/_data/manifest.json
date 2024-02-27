@@ -1,6 +1,10 @@
 {
-  "app": "app-S5HW3ASK.min.js",
-  "fetch": "fetch-HXKD36VK.min.js",
-  "is-land": "is-land-TXS7GROR.min.js",
-  "style": "style-6PHCCTOC.min.css"
+  "app.map": "app.js.map",
+  "app": "app.js",
+  "fetch.map": "fetch.js.map",
+  "fetch": "fetch.js",
+  "is-land.map": "is-land.js.map",
+  "is-land": "is-land.js",
+  "style.map": "style.css.map",
+  "style": "style.css"
 }
