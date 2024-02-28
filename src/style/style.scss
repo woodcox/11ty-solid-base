@@ -158,12 +158,15 @@ body {
   padding: 0;
 }
 
-//
+header,
+main {
+  max-width: var(--width-content);
+}
+
 footer,
 header,
 main {
   margin: 0 auto;
-  max-width: var(--width-content);
   padding: var(--space-away) var(--space-near);
 }
 
