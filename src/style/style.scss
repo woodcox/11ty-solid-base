@@ -75,12 +75,19 @@ body [data-density-shift] [data-density-shift] { ... }
 $spacescale: 2;
 $typescale: 1.25;
 
+@function tofixed($value, $decimal-place: 3) {
+  $pow: math.pow(10, $decimal-place);
+  @return math.div(round($value * $pow), $pow);
+}
+
 @function space-calc($n) {
-  @return math.pow($spacescale, $n);
+  $pow: math.pow($spacescale, $n);
+  @return tofixed($pow);
 }
 
 @function type-calc($n) {
-  @return math.pow($typescale, $n);
+  $pow: math.pow($typescale, $n);
+  @return tofixed($pow);
 }
 
 @mixin spacing-vars($selector, $levels, $attr-sel: '[data-density-shift]') {
